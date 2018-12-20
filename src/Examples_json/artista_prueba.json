@@ -1,0 +1,98 @@
+{
+  "href": "https://api.spotify.com/v1/artists/1vCWHaC5f2uS3yhpwWbIA6/albums?offset=0&limit=2&include_groups=album,single,compilation,appears_on&market=ES",
+  "items": [
+    {
+      "album_group": "album",
+      "album_type": "album",
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/1vCWHaC5f2uS3yhpwWbIA6"
+          },
+          "href": "https://api.spotify.com/v1/artists/1vCWHaC5f2uS3yhpwWbIA6",
+          "id": "1vCWHaC5f2uS3yhpwWbIA6",
+          "name": "Avicii",
+          "type": "artist",
+          "uri": "spotify:artist:1vCWHaC5f2uS3yhpwWbIA6"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/album/7dqftJ3kas6D0VAdmt3k3V"
+      },
+      "href": "https://api.spotify.com/v1/albums/7dqftJ3kas6D0VAdmt3k3V",
+      "id": "7dqftJ3kas6D0VAdmt3k3V",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/a76f75493d039938b5dcfabbd5a6c1081f270a6c",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://i.scdn.co/image/1685a59f97e828e423a20ba080754c8d58466756",
+          "width": 300
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26",
+          "width": 64
+        }
+      ],
+      "name": "Stories",
+      "release_date": "2015-10-02",
+      "release_date_precision": "day",
+      "total_tracks": 14,
+      "type": "album",
+      "uri": "spotify:album:7dqftJ3kas6D0VAdmt3k3V"
+    },
+    {
+      "album_group": "album",
+      "album_type": "album",
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/1vCWHaC5f2uS3yhpwWbIA6"
+          },
+          "href": "https://api.spotify.com/v1/artists/1vCWHaC5f2uS3yhpwWbIA6",
+          "id": "1vCWHaC5f2uS3yhpwWbIA6",
+          "name": "Avicii",
+          "type": "artist",
+          "uri": "spotify:artist:1vCWHaC5f2uS3yhpwWbIA6"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/album/0h2knr6qpiAq0tV5ri5JMF"
+      },
+      "href": "https://api.spotify.com/v1/albums/0h2knr6qpiAq0tV5ri5JMF",
+      "id": "0h2knr6qpiAq0tV5ri5JMF",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/1da50cf44c25f8aad1b39ab640dff5137ee72dbb",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://i.scdn.co/image/baca6767c796817bded72c60f4a1b67f28cc75da",
+          "width": 300
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/f8dc9e20bf7dd876bd646ce472c345a0fa9dfae3",
+          "width": 64
+        }
+      ],
+      "name": "The Days / Nights",
+      "release_date": "2014-01-01",
+      "release_date_precision": "day",
+      "total_tracks": 4,
+      "type": "album",
+      "uri": "spotify:album:0h2knr6qpiAq0tV5ri5JMF"
+    }
+  ],
+  "limit": 2,
+  "next": "https://api.spotify.com/v1/artists/1vCWHaC5f2uS3yhpwWbIA6/albums?offset=2&limit=2&include_groups=album,single,compilation,appears_on&market=ES",
+  "offset": 0,
+  "previous": null,
+  "total": 346
+}
