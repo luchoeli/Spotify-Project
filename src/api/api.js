@@ -15,3 +15,5 @@ const fetchData = (url) => {
             .then(response => response.json())
             .catch(error => console.error(error)) 
 }
+
+
