@@ -14,7 +14,7 @@ const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <SpotifyComp />
+    <SpotifyComp test={'xx'}/>
   </Provider>,
   document.getElementById('root')
 )
