@@ -6,7 +6,7 @@ import SpotifyComp from './components/SpotifyComp';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import rootReducer from '/reducers'; // carpeta reducers busca por defecto el index.js suyo
+import rootReducer from './reducers'; // carpeta reducers busca por defecto el index.js suyo
 
 import * as serviceWorker from './serviceWorker';
 

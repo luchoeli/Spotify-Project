@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import spotifyReducers from 'SpotifyReducers.js';
+import spotifyReducers from './SpotifyReducers';
 
 export default combineReducers({
     spotifyReducers

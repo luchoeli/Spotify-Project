@@ -1,13 +1,27 @@
-import {ADD_FAVS, DELETE_FAVS} from '../Constantes.js';
-
+import {ADD_FAVS, DELETE_FAVS} from '../Constantes';
 
 const initialState = {
-  favsElements: []
+  favsElements: [
+                  {
+                    name: 'song title',
+                    id: 'id',
+                    album: 'album',
+                    albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+                    artist: 'artist'
+                  },
+                  {
+                    name: 'sds title',
+                    id: 'idws',
+                    album: 'album',
+                    albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+                    artist: 'artist'
+                  }
+                  
+                ]
 }
 
-function spotifyReducer(state = initialState, action) {
+const spotifyReducer = (state = initialState, action) => {
   switch (action.type) {
-
     case ADD_FAVS: // añade un contenido a favoritos
           return { }
       

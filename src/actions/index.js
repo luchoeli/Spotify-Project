@@ -1,4 +1,4 @@
-import { ADD_FAVS, DELETE_FAVS } from './Constantes.js';
+import { ADD_FAVS, DELETE_FAVS } from '../Constantes';
 
 export function addFavs(data) {
     return {
