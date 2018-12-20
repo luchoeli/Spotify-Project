@@ -1,6 +1,11 @@
 import React from 'react';
 
 class Home extends React.Component {
+
+    onSubmit(event){
+
+    }
+
     render(){
         return(
             <div id="home_container">
@@ -10,7 +15,7 @@ class Home extends React.Component {
 
                 <p>Search your favourite songs over Spotify, just enter an artist's name in the following search box and enjoy!</p>
 
-                <input placeholder="Type the name of your favorite artist"></input>
+                <input onClick={ this.onSubmit } placeholder="Type the name of your favorite artist"></input>
 
                 <br />
 
@@ -25,7 +30,7 @@ class Home extends React.Component {
                 </lu>
 
             </div>
-        )
+        ) // FAVORITE SONGS SOLO SE MUESTRA CUANDO HAY AL MENOS 1 CANCION, ¿ES COMPONENTE?
     }
 }
 

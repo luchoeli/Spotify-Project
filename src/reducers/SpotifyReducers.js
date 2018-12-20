@@ -2,7 +2,18 @@ import {ADD_FAVS, DELETE_FAVS} from '../Constantes.js';
 
 
 const initialState = {
-  favsElements: []
+  favsElements: [
+    {
+      name: 'Synchronicity II',
+      artist: 'The Police',
+      album: 'Cetifiable'
+    },
+    {
+      name: 'De Do Do Do De Da Da Da',
+      artist: 'The Police',
+      album: 'Cetifiable'
+    }
+  ]
 }
 
 function spotifyReducer(state = initialState, action) {
