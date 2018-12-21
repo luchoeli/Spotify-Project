@@ -15,7 +15,7 @@ class Home extends React.Component {
 
                 <p>Search your favourite songs over Spotify, just enter an artist's name in the following search box and enjoy!</p>
 
-                <input onClick={ this.onSubmit } placeholder="Type the name of your favorite artist"></input>
+                <input class="SearchField" onClick={ this.onSubmit } placeholder="Type the name of your favorite artist"></input>
 
                 <br />
 
@@ -23,14 +23,10 @@ class Home extends React.Component {
 
                 <br />
 
-                <lu>
-                    <li>Elemento hardcodeado 1</li>
-                    <li>Elemento hardcodeado 2</li>
-                    <li>Elemento hardcodeado 3</li>
-                </lu>
+                <p>ACA VA LA FAVORITE-CONTAINER</p>
 
             </div>
-        ) // FAVORITE SONGS SOLO SE MUESTRA CUANDO HAY AL MENOS 1 CANCION, ¿ES COMPONENTE?
+        )
     }
 }
 

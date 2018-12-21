@@ -1,4 +1,4 @@
-import {ADD_FAVS, DELETE_FAVS} from '../Constantes.js';
+import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST} from '../Constantes.js';
 
 
 const initialState = {
@@ -18,6 +18,8 @@ const initialState = {
 
 function spotifyReducer(state = initialState, action) {
   switch (action.type) {
+    case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
+        return { }
 
     case ADD_FAVS: // añade un contenido a favoritos
           return { }

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import SpotifyComp from './components/SpotifyComp.js';
+import App from './App.js';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -14,7 +14,7 @@ const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <SpotifyComp test={'xx'}/>
+    <App />
   </Provider>,
   document.getElementById('root')
 )
