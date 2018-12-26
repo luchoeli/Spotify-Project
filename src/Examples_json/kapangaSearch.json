@@ -1,0 +1,121 @@
+{
+    "artists": {
+      "href": "https://api.spotify.com/v1/search?query=kapanga&type=artist&market=AR&offset=0&limit=10",
+      "items": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/2MLiASzGQHVMyORIApRGsp"
+          },
+          "followers": {
+            "href": null,
+            "total": 184876
+          },
+          "genres": [
+            "argentine reggae",
+            "argentine rock",
+            "latin alternative",
+            "latin rock",
+            "rock en espanol",
+            "rock nacional",
+            "ska argentino"
+          ],
+          "href": "https://api.spotify.com/v1/artists/2MLiASzGQHVMyORIApRGsp",
+          "id": "2MLiASzGQHVMyORIApRGsp",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/abdb68381cb9f2bd8f08465048df593719829ffe",
+              "width": 640
+            },
+            {
+              "height": 320,
+              "url": "https://i.scdn.co/image/147b6ee58d33991d7884742b87aeacaf4ef005cb",
+              "width": 320
+            },
+            {
+              "height": 160,
+              "url": "https://i.scdn.co/image/de55c611bb2d06e1b0a9923ac25ffe7ac6bbba2f",
+              "width": 160
+            }
+          ],
+          "name": "Kapanga",
+          "popularity": 51,
+          "type": "artist",
+          "uri": "spotify:artist:2MLiASzGQHVMyORIApRGsp"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/5pPVWH8hZfBtjr1eNDxV5v"
+          },
+          "followers": {
+            "href": null,
+            "total": 54
+          },
+          "genres": [],
+          "href": "https://api.spotify.com/v1/artists/5pPVWH8hZfBtjr1eNDxV5v",
+          "id": "5pPVWH8hZfBtjr1eNDxV5v",
+          "images": [],
+          "name": "Miguel \"Maikel\" De Lunas Campo (Kapanga)",
+          "popularity": 3,
+          "type": "artist",
+          "uri": "spotify:artist:5pPVWH8hZfBtjr1eNDxV5v"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/3dk1kSejepapeZ63pIh4e7"
+          },
+          "followers": {
+            "href": null,
+            "total": 50
+          },
+          "genres": [],
+          "href": "https://api.spotify.com/v1/artists/3dk1kSejepapeZ63pIh4e7",
+          "id": "3dk1kSejepapeZ63pIh4e7",
+          "images": [],
+          "name": "Karamelo Santo & Kapanga",
+          "popularity": 2,
+          "type": "artist",
+          "uri": "spotify:artist:3dk1kSejepapeZ63pIh4e7"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/6v1adDwDRTWR4S76aVs5C2"
+          },
+          "followers": {
+            "href": null,
+            "total": 23
+          },
+          "genres": [],
+          "href": "https://api.spotify.com/v1/artists/6v1adDwDRTWR4S76aVs5C2",
+          "id": "6v1adDwDRTWR4S76aVs5C2",
+          "images": [],
+          "name": "Kapanga",
+          "popularity": 0,
+          "type": "artist",
+          "uri": "spotify:artist:6v1adDwDRTWR4S76aVs5C2"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/6qebNmZMhdQXbPyXhC1fow"
+          },
+          "followers": {
+            "href": null,
+            "total": 74
+          },
+          "genres": [],
+          "href": "https://api.spotify.com/v1/artists/6qebNmZMhdQXbPyXhC1fow",
+          "id": "6qebNmZMhdQXbPyXhC1fow",
+          "images": [],
+          "name": "Mono de Kapanga",
+          "popularity": 0,
+          "type": "artist",
+          "uri": "spotify:artist:6qebNmZMhdQXbPyXhC1fow"
+        }
+      ],
+      "limit": 10,
+      "next": null,
+      "offset": 0,
+      "previous": null,
+      "total": 5
+    }
+  }

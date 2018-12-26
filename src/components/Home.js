@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux'
+//import { connect } from 'react-redux'
 import FavoriteContainer from './FavoriteContainer'
-import { fetchArtistsSearch } from '../api/api.js'
+//import { fetchArtistsSearch } from '../api/api.js'
 import '../stylecheet/Home.css'
 import MusicCard from './MusicCard';
 class Home extends React.Component {
@@ -14,10 +14,19 @@ class Home extends React.Component {
 
     onSubmit(e){
         e.preventDefault();
-        console.log(this.artistSearchRef.current.value)
-        let json = fetchArtistsSearch(this.artistSearchRef.current.value)
-        console.log(json)
+        //console.log(this.artistSearchRef.current.value)
+        //let json = fetchArtistsSearch(this.artistSearchRef.current.value)
+        //this.renderArtists(json.items)
         
+        this.renderArtists(ejemplo.artists.items)
+    }
+
+    renderArtists(){
+        //console.log(ejemplo.artists.items)     
+        return(
+            <ArtistContainer artists={ejemplo.artists.items}/>     
+        )
+  
     }
 
     renderArtists(artists){
@@ -44,6 +53,7 @@ class Home extends React.Component {
                 
                 <br />
                 <FavoriteContainer/>
+                <ArtistContainer artists={ejemplo.artists.items}/>  
             </div>
         ) // FAVORITE SONGS SOLO SE MUESTRA CUANDO HAY AL MENOS 1 CANCION, ¿ES COMPONENTE?
     }
