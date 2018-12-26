@@ -1,8 +1,7 @@
-/*
-import SpotifyOptions from './SpotifyToken';
+import SpotifyOptions from './SpotifyOptions'
 const SpotifyOpts = new SpotifyOptions();
 let options = SpotifyOpts.getLocalStgOpts();
-*/
+
 const baseUrl = 'https://api.spotify.com/v1/';
 
 // Handle HTTP errors since fetch won't.
@@ -18,4 +17,10 @@ const fetchData = (url) => {
         .then(handleErrors)
         .then(response => response.json())
         .catch(error => console.error(error))
+}
+
+ //   "https://api.spotify.com/v1/search?q=kapanga&type=artist&limit=10"
+export const fetchArtistsSearch = (artist) => {
+    const url = baseUrl + "search?q=" + artist + "&type=artist&limit=10";
+    return fetchData(url,options); 
 }
