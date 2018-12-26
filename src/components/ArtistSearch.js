@@ -33,7 +33,7 @@ class ArtistSearch extends React.Component {
 
                 <br />
 
-               <p> ACA VA LA ARTIST-CONTAINER </p>
+               <p> ACA VA LA ARTISTAS-CONTAINER </p>
 
             </div>
         )

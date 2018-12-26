@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Artist extends React.Component {
+class Album extends React.Component {
 
     onSearch(event) {
         event.preventDefault();
@@ -17,15 +17,15 @@ class Artist extends React.Component {
 
                 <hr />
 
-                <p>LOGO DE LA BANDA [X]</p>
+                <p>LOGO DEL ALBUM [X]</p>
                 <h1> {this.props.name} </h1>
-                <h3> {this.props.genero} </h3>
+                <h3> {this.props.banda} - {this.props.anio} </h3>
 
                 <p> NAVIGATION SIDE </p>
 
                 <hr />
 
-                <p> ACA VA EL ALBUMES-CONTAINER </p>
+                <p> ACA VA EL SONGS-CONTAINER </p>
 
             </div>
 
@@ -33,4 +33,4 @@ class Artist extends React.Component {
     }
 }
 
-export default Artist;
+export default Album;
