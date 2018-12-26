@@ -40,6 +40,8 @@ class ArtistSearch extends React.Component {
     }
 }
 
+export default ArtistSearch;
+
 //mapstatetoprops
 //mapdispatchtoprops
 //connect
