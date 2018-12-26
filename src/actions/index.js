@@ -1,4 +1,11 @@
-import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST } from './Constantes.js';
+import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM } from './Constantes.js';
+
+export function searchAlbum(artistId) {
+    return {
+        type: SEARCH_ALBUM,
+        artistId
+    }
+}
 
 export function searchArtist(input) {
     return {
@@ -7,14 +14,14 @@ export function searchArtist(input) {
     }
 }
 
-export function addFavs(data) {
+export function addFavs(track) {
     return {
         type: ADD_FAVS,
         data
     }
 }
 
-export function deleteFavs(data) {
+export function deleteFavs(track) {
     return {
         type: DELETE_FAVS,
         data
