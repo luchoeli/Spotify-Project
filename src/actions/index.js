@@ -27,3 +27,6 @@ export function deleteFavs(track) {
         track
     }
 }
+
+// git add .
+// git rebase --continue

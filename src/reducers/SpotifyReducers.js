@@ -12,8 +12,10 @@ const initialState = {
 
 }
 
+
 function spotifyReducer(state = initialState, action) {
   switch (action.type) {
+    
     case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
 
 		let promise = fetchArtistsSearch(action.input);
