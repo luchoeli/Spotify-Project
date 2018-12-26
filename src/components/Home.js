@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import FavoriteContainer from './FavoriteContainer'
 import { fetchArtistsSearch } from '../api/api.js'
 import '../stylecheet/Home.css'
+import MusicCard from './MusicCard';
 class Home extends React.Component {
 
     constructor(props){
@@ -19,6 +20,15 @@ class Home extends React.Component {
         
     }
 
+    renderArtists(artists){
+        artists.map((a) => {
+            return(
+                <MusicCard  
+                />
+            )
+        })
+    }
+
     render(){
         return(
             <div id="home_container">
@@ -27,7 +37,6 @@ class Home extends React.Component {
                 <h1>Spotisearch</h1>
                 <p>Search your favourite songs over Spotify, just enter an artist's name in the following search box and enjoy!</p>
                 <form onSubmit={this.onSubmit}>
-
                     <input type="search" id="artistSearch" name="q" aria-label="Search through site content"
                     placeholder="Type the name of your favorite artist" ref={this.artistSearchRef}/>
                 </form>
