@@ -1,36 +1,34 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import MusicCard from './MusicCard'
 import { deleteFavs } from '../actions'
+import '../stylecheet/FavoriteStyle.css'
+
 
 class FavoriteContainer extends Component {
     render() {
         console.log(this.props.favsElements)
         let favs = this.props.favsElements;
-        if (favs.length > 0 )
         return ( 
-            <section className="favoriteSongs">
-                <Router>
-                    <Route>
+            <div>
+                <h2>Favorite Songs</h2>
+                <section className="cardContainer">                  
                     {
-                        favs.map((song) => {
+                        favs.length > 0 && favs.map((song) => {
                             return (
-                                <Link to=''>
                                     <MusicCard  key = {song.id}
-                                                title = {song.title} 
+                                                name = {song.name} 
                                                 artist = {song.artist}  
                                                 album = {song.album} 
                                                 albumImg = {song.albumImg}
                                     />
-                                </Link>
                             );
                         })
                     }
-                    </Route>
-                </Router>
-            </section>
+
+                </section>
+            </div>
         )
     }
 }

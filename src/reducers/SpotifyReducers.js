@@ -12,7 +12,39 @@ const initialState = {
                   {
                     name: 'sds title',
                     id: 'idws',
-                    album: 'album',
+                    album: 'albumf',
+                    albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+                    artist: 'artist'
+                  },
+
+                  {
+                    name: 'sds title',
+                    id: 'idws',
+                    album: 'albumf',
+                    albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+                    artist: 'artist'
+                  },
+
+                  {
+                    name: 'sds title',
+                    id: 'idws',
+                    album: 'albumf',
+                    albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+                    artist: 'artist'
+                  },
+
+                  {
+                    name: 'sds title',
+                    id: 'idws',
+                    album: 'albumf',
+                    albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+                    artist: 'artist'
+                  },
+
+                  {
+                    name: 'sds title',
+                    id: 'idws',
+                    album: 'albumf',
                     albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
                     artist: 'artist'
                   }
