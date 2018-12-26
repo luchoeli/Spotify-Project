@@ -5,20 +5,23 @@
     flex-wrap: wrap;
     font-size: 0.8rem;
     justify-content: flex-start;
-    line-height: 0.5rem;
+    line-height: 0.3rem;
 }
 
 .MusicCard {
   background-color: aquamarine;
   border: 1px solid black;
   box-sizing: border-box;
-  margin-right: 1%;
-  margin-top: 1%; 
-  min-width: 33%;
   display: flex;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem; 
+  min-width: 33%;
+
   
 }
 
 .MusicCard img {
-    margin: 5px;
+    margin: 0.5rem;
+    width: 80px;
+    height: 80px;
 }
