@@ -23,7 +23,7 @@ class Home extends React.Component {
 
                 <br />
 
-                <p>ACA VA LA FAVORITE-CONTAINER</p>
+                <p>IF (CancionesFavoritas>=1) MOSTRARLAS ELSE NO MOSTRAR NADA</p>
 
             </div>
         )

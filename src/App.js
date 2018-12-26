@@ -11,7 +11,7 @@ class App extends React.Component {
             <hr />
             <Home />
             <hr />
-            <ArtistSearch currentSearch={ /* input de un cuadro de texto */ } />
+            <ArtistSearch currentSearch={ this/* input de un cuadro de texto */ } />
             <hr />
             <Artist />
             <hr />
