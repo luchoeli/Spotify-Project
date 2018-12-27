@@ -9,6 +9,7 @@ class ArtistSearch extends React.Component {
         this.state = {
             currentSearch: this.props.currentSearch // yo llamo al componente al efectuar una busqueda, eso se vuelve este estado
         }
+        this.onSearch=this.onSearch.bind(this);
     }
 
     onSearch(event) {
