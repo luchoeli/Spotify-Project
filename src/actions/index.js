@@ -17,7 +17,7 @@ export function searchArtist(input) {
 export function addFavs(track) {
     return {
         type: ADD_FAVS,
-        data
+        track
     }
 }
 
