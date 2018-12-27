@@ -24,6 +24,6 @@ export function addFavs(track) {
 export function deleteFavs(track) {
     return {
         type: DELETE_FAVS,
-        data
+        track
     }
 }
