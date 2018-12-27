@@ -1,6 +1,6 @@
 import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM } from '../constants.js';
 
-export function searchAlbum(artistId) {
+export function searchAlbums(artistId) {
     return {
         type: SEARCH_ALBUM,
         artistId

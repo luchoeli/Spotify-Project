@@ -20,6 +20,13 @@ const fetchData = (url) => {
 
 // "https://api.spotify.com/v1/search?q=kapanga&type=artist&limit=10"
 export const fetchArtistsSearch = (artist) => {
-const url = baseUrl + "search?q=" + artist + "&type=artist&limit=10";
-return fetchData(url,options); 
+    const url = baseUrl + "search?q=" + artist + "&type=artist&limit=10";
+    return fetchData(url,options); 
 }
+
+export const fetchAlbumSearch = (artistId) => {
+    const url = baseUrl + 'artists/' + artistId + '/albums';
+    return fetchData(url,options)
+}
+
+//	https://api.spotify.com/v1/artists/{id}/albums
