@@ -9,16 +9,15 @@ class ArtistSearch extends React.Component {
         this.state = {
             currentSearch: this.props.currentSearch // yo llamo al componente al efectuar una busqueda, eso se vuelve este estado
         }
-        this.onSearch=this.onSearch.bind(this);
+        this.onSearch = this.onSearch.bind(this);
     }
 
-    onSearch(event) {
-        event.preventDefault();
-
-        this.props.searchArtist(event.target.attributes.value); // input del cuadro de busqueda
+    onSearch(text) {
+    
+        this.props.searchArtist(text); // input del cuadro de busqueda
 
         this.setState({
-            currentSearch: event.target.attributes.value
+            currentSearch: text
         })
     }
 
@@ -30,7 +29,7 @@ class ArtistSearch extends React.Component {
 
                 <p> You are currently searching: {this.state.currentSearch} </p>
 
-                <input class="SearchField" onClick={ this.onSearch } placeholder="Search for your favorite artist here"> </input>
+                <Input accion={ this.onSearch } />
 
                 <br />
 

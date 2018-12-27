@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM } from '../constants.js';
 
 export function searchAlbums(artistId) {
@@ -6,6 +7,9 @@ export function searchAlbums(artistId) {
         artistId
     }
 }
+=======
+import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST } from './constants.js';
+>>>>>>> cambios efectuados en base al pr
 
 export function searchArtist(input) {
     return {

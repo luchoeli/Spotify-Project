@@ -5,21 +5,22 @@ class Artist extends React.Component {
     constructor() {
         super();
 
-        this.onSearch=this.onSearch.bind(this);
+        this.onSearch = this.onSearch.bind(this);
     }
 
-    onSearch(event) {
-        event.preventDefault();
+    onSearch(text) {
 
-        this.props.searchArtist(event.target.attributes.value);
+        this.props.searchArtist(text);
+
     }
+
 
     render() {
         return (
 
             <div>
 
-                <input class="SearchField" onClick={ this.onSearch } placeholder="Search for another artist"> </input>
+                <Input accion={ this.onSearch } />
 
                 <hr />
 
