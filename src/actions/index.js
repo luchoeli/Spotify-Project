@@ -1,5 +1,11 @@
-<<<<<<< HEAD
-import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM } from '../constants.js';
+import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM, SEARCH_TRACK } from '../constants.js';
+
+export function searchTracks(albumId) {
+    return {
+        type: SEARCH_TRACK,
+        albumId
+    }
+}
 
 export function searchAlbums(artistId) {
     return {
@@ -7,9 +13,6 @@ export function searchAlbums(artistId) {
         artistId
     }
 }
-=======
-import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST } from './constants.js';
->>>>>>> cambios efectuados en base al pr
 
 export function searchArtist(input) {
     return {

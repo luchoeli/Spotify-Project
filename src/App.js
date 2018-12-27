@@ -2,13 +2,15 @@ import React from 'react';
 import './App.css';
 import { searchArtist } from './actions';
 import { searchAlbums } from './actions';
+import { searchTracks } from './actions'
 import { connect } from 'react-redux';
 
 class App extends React.Component { // pedir datos en component did mount
 
   componentDidMount() {
-      this.props.searchArtist('The');
-      this.props.searchAlbums('2BTZIqw0ntH9MvilQ3ewNY');
+      this.props.searchArtist('The'); // ejemplo de busqueda en la api
+      this.props.searchAlbums('2BTZIqw0ntH9MvilQ3ewNY'); // ejemplo de albumes desde la api
+      this.props.searchTracks('6akEvsycLGftJxYudPjmqK'); // ejemplo de canciones desde la api
   }
 
   render() {
@@ -34,7 +36,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   searchArtist: artist => dispatch(searchArtist(artist)),
-  searchAlbums: artistId => dispatch(searchAlbums(artistId))
+  searchAlbums: artistId => dispatch(searchAlbums(artistId)),
+  searchTracks: albumId => dispatch(searchTracks(albumId))
 })
 
 export default connect (

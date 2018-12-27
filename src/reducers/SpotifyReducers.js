@@ -1,6 +1,7 @@
-import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM} from '../constants.js';
+import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM, SEARCH_TRACK} from '../constants.js';
 import { fetchArtistsSearch } from '../api/api.js';
 import { fetchAlbumSearch } from '../api/api.js';
+import { fetchTrackSearch } from '../api/api.js';
 
 const EMPTY = '';
 
@@ -79,9 +80,41 @@ function spotifyReducer(state = initialState, action) {
           });
 
           return { 
-            listOfAlbums: [...albumSearch],
+            listOfAlbums: albumSearch,
             currentListOfTracks: EMPTY
           }
+
+    case SEARCH_TRACK:
+
+        let promise3 = fetchTrackSearch(action.albumId);
+
+        let trackSearch = []
+
+        promise3.then(function(result) {
+
+            for (let i = 0; i < result.items.length; i++) {
+
+                let element = {
+                  name: result.items[i].name,
+                  duration: Math.trunc(result.items[i].duration / 1000) ,
+                  id: result.items[i].id
+                };
+
+                trackSearch.push(element);
+
+            }
+
+            console.log('---------------------------')
+
+            for (let i = 0; i < trackSearch.length; i++) {
+              console.log(trackSearch[i].name)
+            }
+
+          });
+
+      return {
+          currentListOfTracks: trackSearch
+      }
 
     case ADD_FAVS: // añade un contenido a favoritos
 
