@@ -2,6 +2,12 @@ import React from 'react';
 
 class Artist extends React.Component {
 
+    constructor() {
+        super();
+
+        this.onSearch=this.onSearch.bind(this);
+    }
+
     onSearch(event) {
         event.preventDefault();
 
