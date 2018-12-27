@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import SpotifyComp from './components/SpotifyComp';
+import App from './App.js';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import rootReducer from '/reducers'; // carpeta reducers busca por defecto el index.js suyo
+import rootReducer from './reducers'; // carpeta reducers busca por defecto el index.js suyo
 
 import * as serviceWorker from './serviceWorker';
 
@@ -14,7 +14,7 @@ const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <SpotifyComp test={'xx'}/>
+    <App />
   </Provider>,
   document.getElementById('root')
 )
