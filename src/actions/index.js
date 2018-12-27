@@ -1,4 +1,4 @@
-import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM } from './Constantes.js';
+import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM } from '../constants.js';
 
 export function searchAlbum(artistId) {
     return {

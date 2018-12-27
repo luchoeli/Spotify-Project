@@ -1,10 +1,11 @@
-import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM} from '../Constantes.js';
+import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM} from '../constants.js';
+import { fetchArtistsSearch } from '../api/api.js';
 
 const EMPTY = '';
 
 const initialState = {
   favsElements: [],
-  currentSearch: EMPTY,
+  currentSearch: [],
   currentArtist: EMPTY,
   currentAlbum: EMPTY
 
@@ -14,12 +15,34 @@ function spotifyReducer(state = initialState, action) {
   switch (action.type) {
     case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
 
-        //let temp = llamado a la api (action.TEXTO_DE_BUSQUEDA)
+		let promise = fetchArtistsSearch(action.input);
 
-        // aca habria que filtrar el contenido de temp, para evitar datos basura
+		let artistArray = []
+
+		
+
+		promise.then(function(result){
+
+			for (let i = 0; i < result.artists.items.length; i++) {
+
+			let element = {
+				name: result.artists.items[i].name,
+				id: result.artists.items[i].id,
+				images: [...result.artists.items[i].images],
+				genres: [...result.artists.items[i].genres]
+			};
+
+			artistArray.push(element);
+        }
+		
+		for ( let b = 0; b<artistArray.length; b++){
+			console.log(artistArray[b].name);
+		}
+
+		});
 
         return {
-          currentSearch: {/* temp */},
+          currentSearch: [...artistArray],
           currentArtist: EMPTY,
           currentAlbum: EMPTY
         }
@@ -37,7 +60,7 @@ function spotifyReducer(state = initialState, action) {
 
     case ADD_FAVS: // añade un contenido a favoritos
 
-          let newArray = [...favsElements];
+          var newArray = [...state.favsElements];
           newArray.push(action.track);
 
           return {
@@ -46,7 +69,7 @@ function spotifyReducer(state = initialState, action) {
       
     case DELETE_FAVS: // elimina un contenido de favoritos
 
-        const newArray = state.favsElements.filter(item => item!=action.track) // falta comparar por algun atributo
+        var newArray = state.favsElements.filter(item => item!==action.track) // falta comparar por algun atributo
         return {
           favsElements: newArray
         }

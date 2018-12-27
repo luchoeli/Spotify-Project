@@ -1,21 +1,24 @@
 import React from 'react';
-import Home from './Home.js';
 import './App.css';
+import { searchArtist } from './actions';
+import { connect } from 'react-redux';
 
-class App extends React.Component {
+class App extends React.Component { // pedir datos en component did mount
+
+  componentDidMount() {
+      this.props.searchArtist('The');
+  }
+
   render() {
+
+    
+    
+    //a.then(function(result){console.log(result.artists.items[3].name)});
+    
     return (
       <div id="container">
 
-            <NavigationSide />
-            <hr />
-            <Home />
-            <hr />
-            <ArtistSearch currentSearch={ this/* input de un cuadro de texto */ } />
-            <hr />
-            <Artist />
-            <hr />
-            <Album />
+          HOLA
 
       </div>
     )
@@ -23,5 +26,17 @@ class App extends React.Component {
 }
 
 
+const mapStateToProps = (state) => {
+  return {
+    favsElements: state.spotifyReducers.favsElements
+  }
+}
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  searchArtist: artist => dispatch(searchArtist(artist)),
+})
+
+export default connect (
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
