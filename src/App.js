@@ -11,9 +11,7 @@ class App extends React.Component { // pedir datos en component did mount
 
   render() {
 
-    
-    
-    //a.then(function(result){console.log(result.artists.items[3].name)});
+    // en el return falta insertar el componente "Input" que esta en otro branch
     
     return (
       <div id="container">
