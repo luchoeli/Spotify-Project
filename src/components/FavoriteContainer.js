@@ -21,7 +21,7 @@ class FavoriteContainer extends Component {
                                                 name = {song.name} 
                                                 artist = {song.artist}  
                                                 album = {song.album} 
-                                                albumImg = {song.albumImg}
+                                                albumImg = {song.albumImg ? song.albumImg : "https://i.4pcdn.org/s4s/1510200817001.png"}
                                     />
                             );
                         })
