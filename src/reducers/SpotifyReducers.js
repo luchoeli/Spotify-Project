@@ -1,7 +1,5 @@
 import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM, SEARCH_TRACK} from '../constants.js';
-import { fetchArtistsSearch } from '../api/api.js';
-import { fetchAlbumSearch } from '../api/api.js';
-import { fetchTrackSearch } from '../api/api.js';
+import { fetchArtistsSearch, fetchAlbumSearch, fetchTrackSearch } from '../api/api.js';
 
 const EMPTY = '';
 
@@ -45,7 +43,7 @@ function spotifyReducer(state = initialState, action) {
 		});
 
         return {
-          currentSearch: [...artistArray],
+          currentSearch: artistArray,
           listOfAlbums: EMPTY,
           currentListOfTracks: EMPTY
         }

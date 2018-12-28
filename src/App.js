@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.css';
-import { searchArtist } from './actions';
-import { searchAlbums } from './actions';
-import { searchTracks } from './actions'
+import { searchArtist, searchAlbums, searchTracks } from './actions';
 import { connect } from 'react-redux';
+import Header from './components/Header.js';
 
 class App extends React.Component { // pedir datos en component did mount
 
@@ -20,7 +19,9 @@ class App extends React.Component { // pedir datos en component did mount
     return (
       <div id="container">
 
-          HOLA
+          <h1>Texto de prueba</h1>
+
+          <Header haveSearchBar={ true } />
 
       </div>
     )

@@ -1,16 +1,24 @@
 import React from 'react';
 
-const Input = props => {
-  
-    onSearch = (event) => {
+class Input extends React.Component {
+    
+    constructor() {
+        super();
+
+        this.onSearch = this.onSearch.bind(this);
+    }
+
+    onSearch (event) {
         event.preventDefault();
 
-        props.accion(event.target.attributes.value);
+        this.props.accion(event.target.attributes.value);
     }
- 
-    return (
-        <input class="searchField" onClick={ this.onSearch } placeholder="Search for your favorite artist here" />
-    )
+
+    render() {
+        return (
+            <input className="searchField" onClick={ this.onSearch } placeholder="Search for your favorite artist here" />
+        )
+    }
 };
 
 export default Input;
