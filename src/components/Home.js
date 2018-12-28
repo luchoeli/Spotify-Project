@@ -8,8 +8,7 @@ class Home extends React.Component {
 
     constructor(props){
         super(props)
-        this.artistSearchRef = React.createRef();
-        this.state = {artists : []}
+        this.input_ref = React.createRef();
         
         this.onSubmit = this.onSubmit.bind(this)  
         this.setArtists = this.setArtists.bind(this)  
@@ -32,14 +31,10 @@ class Home extends React.Component {
   
     }
 
-    renderArtists(artists){
-        artists.map((a) => {
-            return(
-                <MusicCard  
-                />
-            )
-        })
+    componentDidUpdate(){
+
     }
+   
 
     render(){
         return(
@@ -51,10 +46,17 @@ class Home extends React.Component {
                     <input type="search" id="artistSearch" name="q" aria-label="Search through site content"
                     placeholder="Type the name of your favorite artist" ref={this.artistSearchRef}/>
                 </form>
-                <ArtistContainer artists={this.state.artists}/>
-                <FavoriteContainer/>
+                <FavoriteContainer />
             </div>
         ) // FAVORITE SONGS SOLO SE MUESTRA CUANDO HAY AL MENOS 1 CANCION, ¿ES COMPONENTE?
+        //<ArtistContainer artists={this.props.currentSearch}/>
+    }
+} 
+
+const mapStateToProps = (state) => {
+    return {    
+        currentSearch: state.SpotifyReducers.currentSearch,
+        favsElements: state.SpotifyReducers.favsElements,
     }
 }
 //<ArtistContainer artists={ejemplo.artists.items}/>  

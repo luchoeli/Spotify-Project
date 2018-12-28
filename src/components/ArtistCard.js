@@ -13,4 +13,5 @@ class ArtistCard extends Component {
     }
 }
 
+
 export default ArtistCard;
