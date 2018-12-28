@@ -1,6 +1,5 @@
-import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM} from '../constants.js';
-import { fetchArtistsSearch } from '../api/api.js';
-import { fetchAlbumSearch } from '../api/api.js';
+import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM, SEARCH_TRACK} from '../constants.js';
+import { fetchArtistsSearch, fetchAlbumSearch, fetchTrackSearch } from '../api/api.js';
 
 const EMPTY = '';
 
@@ -12,37 +11,39 @@ const initialState = {
 
 }
 
+
 function spotifyReducer(state = initialState, action) {
   switch (action.type) {
+    
     case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
 
-		let promise = fetchArtistsSearch(action.input);
+        let promise = fetchArtistsSearch(action.input);
 
-		let artistArray = []
+        let artistArray = []
 
-		promise.then(function(result) {
+        promise.then(function(result) {
 
-		  for (let i = 0; i < result.artists.items.length; i++) {
+        for (let i = 0; i < result.artists.items.length; i++) {
 
-        let element = {
-          name: result.artists.items[i].name,
-          id: result.artists.items[i].id,
-          images: [...result.artists.items[i].images],
-          genres: [...result.artists.items[i].genres]
-        };
+          let element = {
+            name: result.artists.items[i].name,
+            id: result.artists.items[i].id,
+            images: result.artists.items[i].images,
+            genres: result.artists.items[i].genres
+          };
 
-        artistArray.push(element);
+          artistArray.push(element);
 
+        }
+      
+      for ( let i = 0; i<artistArray.length; i++){
+        console.log(artistArray[i].name);
       }
-		
-		for ( let i = 0; i<artistArray.length; i++){
-			console.log(artistArray[i].name);
-		}
 
 		});
 
         return {
-          currentSearch: [...artistArray],
+          currentSearch: artistArray,
           listOfAlbums: EMPTY,
           currentListOfTracks: EMPTY
         }
@@ -60,7 +61,7 @@ function spotifyReducer(state = initialState, action) {
                 let element = {
                   name: result.items[i].name,
                   date: result.items[i].release_date,
-                  images: [...result.items[i].images],
+                  images: result.items[i].images,
                   id: result.items[i].id
                 };
 
@@ -77,9 +78,41 @@ function spotifyReducer(state = initialState, action) {
           });
 
           return { 
-            listOfAlbums: [...albumSearch],
+            listOfAlbums: albumSearch,
             currentListOfTracks: EMPTY
           }
+
+    case SEARCH_TRACK:
+
+        let promise3 = fetchTrackSearch(action.albumId);
+
+        let trackSearch = []
+
+        promise3.then(function(result) {
+
+            for (let i = 0; i < result.items.length; i++) {
+
+                let element = {
+                  name: result.items[i].name,
+                  duration: Math.trunc(result.items[i].duration / 1000), // parte entera superior
+                  id: result.items[i].id
+                };
+
+                trackSearch.push(element);
+
+            }
+
+            console.log('---------------------------')
+
+            for (let i = 0; i < trackSearch.length; i++) {
+              console.log(trackSearch[i].name)
+            }
+
+          });
+
+      return {
+          currentListOfTracks: trackSearch
+      }
 
     case ADD_FAVS: // añade un contenido a favoritos
 
