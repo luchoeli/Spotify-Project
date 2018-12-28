@@ -17,46 +17,13 @@ const initialState = {
               album: 'albumf',
               albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
               artist: 'artist'
-            },
-            
-            {
-              name: 'sds title',
-              id: '3',
-              album: 'albumf',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            },
-            
-            {
-              name: 'sds title',
-              id: '4',
-              album: 'albumf',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            },
-            
-            {
-              name: 'sds title',
-              id: '5',
-              album: 'albumf',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            },
-            
-            {
-              name: 'sds title',
-              id: '6',
-              album: 'albumf',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            }      
+            }    
             ],
-  currentSearch: EMPTY,
+  currentSearch: "kapanga",
+  currentListOfArtists: [],
   currentListOfAlbums: EMPTY,
   currentListOfTracks: EMPTY
 }
-
-
 
 function spotifyReducer(state = initialState, action) {
   switch (action.type) {
@@ -89,7 +56,7 @@ function spotifyReducer(state = initialState, action) {
 		});
 
         return {
-          currentSearch: artistArray,
+          currentListOfArtists: artistArray,
           listOfAlbums: EMPTY,
           currentListOfTracks: EMPTY
         }
