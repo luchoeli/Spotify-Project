@@ -6,14 +6,14 @@ const EMPTY = '';
 const initialState = {
             favsElements: [{
               name: 'song title',
-              id: 'id',
+              id: '1',
               album: 'album',
               albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
               artist: 'artist'
             },
             {
               name: 'sds title',
-              id: 'idws',
+              id: '2',
               album: 'albumf',
               albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
               artist: 'artist'
@@ -21,7 +21,7 @@ const initialState = {
             
             {
               name: 'sds title',
-              id: 'idws',
+              id: '3',
               album: 'albumf',
               albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
               artist: 'artist'
@@ -29,7 +29,7 @@ const initialState = {
             
             {
               name: 'sds title',
-              id: 'idws',
+              id: '4',
               album: 'albumf',
               albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
               artist: 'artist'
@@ -37,7 +37,7 @@ const initialState = {
             
             {
               name: 'sds title',
-              id: 'idws',
+              id: '5',
               album: 'albumf',
               albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
               artist: 'artist'
@@ -45,7 +45,7 @@ const initialState = {
             
             {
               name: 'sds title',
-              id: 'idws',
+              id: '6',
               album: 'albumf',
               albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
               artist: 'artist'

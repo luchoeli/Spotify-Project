@@ -1,35 +1,25 @@
 import React from 'react';
-//import { connect } from 'react-redux'
+import { connect } from 'react-redux'
+import spotifyReducers from '../reducers'
 import FavoriteContainer from './FavoriteContainer'
-//import { fetchArtistsSearch } from '../api/api.js'
+import {searchArtist} from '../actions/index'
 import '../stylecheet/Home.css'
-import MusicCard from './MusicCard';
+
 class Home extends React.Component {
 
     constructor(props){
         super(props)
         this.input_ref = React.createRef();
-        
         this.onSubmit = this.onSubmit.bind(this)  
-        this.setArtists = this.setArtists.bind(this)  
+
     }
 
     onSubmit(e){
-        e.preventDefault();
-        //console.log(this.artistSearchRef.current.value)
-        //let json = fetchArtistsSearch(this.artistSearchRef.current.value)
-        //this.renderArtists(json.items)
-        
-        this.renderArtists(ejemplo.artists.items)
+       
+       
     }
 
-    renderArtists(){
-        //console.log(ejemplo.artists.items)     
-        return(
-            <ArtistContainer artists={ejemplo.artists.items}/>     
-        )
-  
-    }
+   
 
     componentDidUpdate(){
 
@@ -49,15 +39,23 @@ class Home extends React.Component {
                 <FavoriteContainer />
             </div>
         ) // FAVORITE SONGS SOLO SE MUESTRA CUANDO HAY AL MENOS 1 CANCION, ¿ES COMPONENTE?
-        //<ArtistContainer artists={this.props.currentSearch}/>
+        
     }
 } 
 
 const mapStateToProps = (state) => {
     return {    
-        currentSearch: state.SpotifyReducers.currentSearch,
-        favsElements: state.SpotifyReducers.favsElements,
+        currentSearch: state.spotifyReducers.currentSearch,
+        favsElements: state.spotifyReducers.favsElements,
     }
 }
-//<ArtistContainer artists={ejemplo.artists.items}/>  
-export default Home;
+  
+  const mapDispatchToProps = dispatch => ({
+    searchArtist: artist => dispatch(searchArtist(artist)),
+   
+  })
+  
+  export default connect (
+    mapStateToProps,
+    mapDispatchToProps
+  )(Home)

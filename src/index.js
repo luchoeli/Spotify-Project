@@ -6,13 +6,15 @@ import { createStore } from 'redux'
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers'; // carpeta reducers busca por defecto el index.js suyo
 import SpotifyComp from './components/SpotifyComp';
+import App from './App';
 
 const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <SpotifyComp />
+    <SpotifyComp/>
   </Provider>,
   document.getElementById('root')
 )
+    //<App/>
 serviceWorker.unregister();

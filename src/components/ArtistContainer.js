@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MusicCard from './MusicCard'
 import '../stylecheet/FavoriteStyle.css'
 import ArtistCard from './ArtistCard';
 
