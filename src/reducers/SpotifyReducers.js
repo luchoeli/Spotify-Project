@@ -19,28 +19,28 @@ function spotifyReducer(state = initialState, action) {
     
     case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
 
-		let promise = fetchArtistsSearch(action.input);
+        let promise = fetchArtistsSearch(action.input);
 
-		let artistArray = []
+        let artistArray = []
 
-		promise.then(function(result) {
+        promise.then(function(result) {
 
-		  for (let i = 0; i < result.artists.items.length; i++) {
+        for (let i = 0; i < result.artists.items.length; i++) {
 
-        let element = {
-          name: result.artists.items[i].name,
-          id: result.artists.items[i].id,
-          images: [...result.artists.items[i].images],
-          genres: [...result.artists.items[i].genres]
-        };
+          let element = {
+            name: result.artists.items[i].name,
+            id: result.artists.items[i].id,
+            images: result.artists.items[i].images,
+            genres: result.artists.items[i].genres
+          };
 
-        artistArray.push(element);
+          artistArray.push(element);
 
+        }
+      
+      for ( let i = 0; i<artistArray.length; i++){
+        console.log(artistArray[i].name);
       }
-		
-		for ( let i = 0; i<artistArray.length; i++){
-			console.log(artistArray[i].name);
-		}
 
 		});
 
@@ -63,7 +63,7 @@ function spotifyReducer(state = initialState, action) {
                 let element = {
                   name: result.items[i].name,
                   date: result.items[i].release_date,
-                  images: [...result.items[i].images],
+                  images: result.items[i].images,
                   id: result.items[i].id
                 };
 
@@ -96,7 +96,7 @@ function spotifyReducer(state = initialState, action) {
 
                 let element = {
                   name: result.items[i].name,
-                  duration: Math.trunc(result.items[i].duration / 1000) ,
+                  duration: Math.trunc(result.items[i].duration / 1000), // parte entera superior
                   id: result.items[i].id
                 };
 
