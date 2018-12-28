@@ -1,0 +1,27 @@
+.cardContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    justify-content: flex-start;
+    line-height: 0.3rem;
+}
+
+.MusicCard {
+  background-color: aquamarine;
+  border: 1px solid black;
+  box-sizing: border-box;
+  display: flex;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem; 
+  min-width: 33%;
+
+  
+}
+
+.MusicCard img {
+    margin: 0.5rem;
+    width: 80px;
+    height: 80px;
+}

@@ -4,12 +4,58 @@ import { fetchArtistsSearch, fetchAlbumSearch, fetchTrackSearch } from '../api/a
 const EMPTY = '';
 
 const initialState = {
-  favsElements: EMPTY,
+            favsElements: [{
+              name: 'song title',
+              id: '1',
+              album: 'album',
+              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+              artist: 'artist'
+            },
+            {
+              name: 'sds title',
+              id: '2',
+              album: 'albumf',
+              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+              artist: 'artist'
+            },
+            
+            {
+              name: 'sds title',
+              id: '3',
+              album: 'albumf',
+              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+              artist: 'artist'
+            },
+            
+            {
+              name: 'sds title',
+              id: '4',
+              album: 'albumf',
+              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+              artist: 'artist'
+            },
+            
+            {
+              name: 'sds title',
+              id: '5',
+              album: 'albumf',
+              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+              artist: 'artist'
+            },
+            
+            {
+              name: 'sds title',
+              id: '6',
+              album: 'albumf',
+              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+              artist: 'artist'
+            }      
+            ],
   currentSearch: EMPTY,
   currentListOfAlbums: EMPTY,
   currentListOfTracks: EMPTY
-
 }
+
 
 
 function spotifyReducer(state = initialState, action) {

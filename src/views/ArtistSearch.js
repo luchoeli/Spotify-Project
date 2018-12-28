@@ -1,5 +1,6 @@
 import React from 'react';
-
+import ArtistContainer from '../components/ArtistContainer'
+import Input from '../components/Input'
 // deberia recibir como props un json con los resultados de la busqueda q?=ALGO
 
 class ArtistSearch extends React.Component {
@@ -33,7 +34,7 @@ class ArtistSearch extends React.Component {
 
                 <br />
 
-               <p> ACA VA LA ARTISTAS-CONTAINER </p>
+               <ArtistContainer/>
 
             </div>
         )
