@@ -1,5 +1,11 @@
-import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM, SEARCH_TRACK } from '../constants.js';
+import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM, SEARCH_TRACK, UPDATE_SEARCH } from '../constants.js';
 
+export function updateSearch(input) {
+    return {
+        type: UPDATE_SEARCH,
+        input
+    }
+}
 export function searchTracks(albumId) {
     return {
         type: SEARCH_TRACK,

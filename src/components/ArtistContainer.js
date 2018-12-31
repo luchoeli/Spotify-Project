@@ -8,55 +8,34 @@ import {fetchArtistsSearch} from '../api/api'
 
 class ArtistContainer extends Component {
 
-    apiSearch(){
-        let promise = fetchArtistsSearch(this.props.currentSearch);
-
-        let artistArray = []
-
-        promise.then(function(result) {
-
-            for (let i = 0; i < result.artists.items.length; i++) {
-
-                let element = {
-                    name: result.artists.items[i].name,
-                    id: result.artists.items[i].id,
-                    images: result.artists.items[i].images,
-                    genres: result.artists.items[i].genres
-                };
-                artistArray.push(element);
-            }
-      
-            for ( let i = 0; i<artistArray.length; i++){
-                console.log(artistArray[i].name);
-            }
-            console.log(artistArray)
-            this.setState({
-                currentListOfArtists: [...artistArray]
-            })
-            
-
-		});
-    }
-
     render() {
+        
         let artists = this.props.currentListOfArtists;
-        console.log(this.props.currentSearch)
-        return ( 
-            <div>
-                <h2>Artistas</h2>
-                <section className="cardContainer">                  
-                    {
-                        artists.length > 0 && artists.map((a) => {
-                            return (
-                                    <ArtistCard artistImg={a.images[2] ? a.images[2].url : "https://i.4pcdn.org/s4s/1510200817001.png" }
-                                                artistName={a.name}/>
-                            );
-                        })
-                    }
+        console.log(artists)    
+        console.log(this.props.currentListOfArtists.length)
+        if(this.props.currentListOfArtists.length>0){
+            return ( 
+                <div>
+                    <h2>Artistas</h2>
+                    <section className="cardContainer">                  
+                        {
+                            artists.length > 0 && artists.map((a) => {
 
-                </section>
-            </div>
-        )
+                                return (
+                                        <ArtistCard key={a.id}
+                                                    artistName={a.name}
+                                                    artistImg={a.images ? a.images.url : "https://i.4pcdn.org/s4s/1510200817001.png" }
+                                                    />
+                                );
+                            })
+                        }
+
+                    </section>
+                </div>
+            )}
+         return(
+                <p>No artist found for "{this.props.currentSearch}"</p>
+            )   
     }
 }
 

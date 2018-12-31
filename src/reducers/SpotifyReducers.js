@@ -1,4 +1,4 @@
-import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM, SEARCH_TRACK} from '../constants.js';
+import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM, SEARCH_TRACK, UPDATE_SEARCH} from '../constants.js';
 import { fetchArtistsSearch, fetchAlbumSearch, fetchTrackSearch } from '../api/api.js';
 
 const EMPTY = '';
@@ -20,7 +20,21 @@ const initialState = {
             }    
             ],
   currentSearch: "kapanga",
-  currentListOfArtists: [],
+  currentListOfArtists:[{
+                          name: 'artist',
+                          id: '1',
+                          album: 'album',
+                          albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+                          artist: 'arstist'
+                        },
+                        {
+                          name: 'sds title',
+                          id: '2',
+                          album: 'albumf',
+                          albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+                          artist: 'artist'
+                        }    
+                        ],
   currentListOfAlbums: EMPTY,
   currentListOfTracks: EMPTY
 }
@@ -28,38 +42,39 @@ const initialState = {
 function spotifyReducer(state = initialState, action) {
   switch (action.type) {
     
-    case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
+    case UPDATE_SEARCH: 
+      return {
+          currentSearch: action.input
+      }
 
+
+    case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
         let promise = fetchArtistsSearch(action.input);
 
         let artistArray = []
+        promise.then(function(result) { 
+          
+          for (let i = 0; i < result.artists.items.length; i++) {
+            let element = {
+              name: result.artists.items[i].name,
+              id: result.artists.items[i].id,
+              images: result.artists.items[i].images,
+              genres: result.artists.items[i].genres
+            };
 
-        promise.then(function(result) {
-
-        for (let i = 0; i < result.artists.items.length; i++) {
-
-          let element = {
-            name: result.artists.items[i].name,
-            id: result.artists.items[i].id,
-            images: result.artists.items[i].images,
-            genres: result.artists.items[i].genres
-          };
-
-          artistArray.push(element);
-
-        }
-      
-      for ( let i = 0; i<artistArray.length; i++){
-        console.log(artistArray[i].name);
-      }
-
-		});
-
+            artistArray.push(element);
+          }
+          
+          for ( let i = 0; i<artistArray.length; i++){
+            console.log(artistArray[i].name);
+          }
+        });
         return {
-          currentListOfArtists: artistArray,
+          currentSearch: action.input,
+          currentListOfArtists: [artistArray],
           listOfAlbums: EMPTY,
           currentListOfTracks: EMPTY
-        }
+          }
 
     case SEARCH_ALBUM: // pega a la api de spotify y trae json con datos
 
@@ -93,6 +108,7 @@ function spotifyReducer(state = initialState, action) {
           return { 
             listOfAlbums: albumSearch,
             currentListOfTracks: EMPTY
+            
           }
 
     case SEARCH_TRACK:
