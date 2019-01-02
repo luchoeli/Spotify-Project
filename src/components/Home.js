@@ -31,6 +31,7 @@ class Home extends React.Component {
                     placeholder="Type the name of your favorite artist" ref={this.input_ref}/>
                 </form>
                 <FavoriteContainer />
+                <ArtistSearch/>
             </div>
             
         )
@@ -46,7 +47,6 @@ const mapStateToProps = (state) => {
 }
   
   const mapDispatchToProps = dispatch => ({
-    searchArtist: artist => dispatch(searchArtist(artist)),
    
   })
   

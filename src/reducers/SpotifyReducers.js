@@ -1,4 +1,4 @@
-import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST_BEGIN,SEARCH_ARTIST_SUCCESS,SEARCH_ARTIST_FAILURE, SEARCH_ALBUM, SEARCH_TRACK, UPDATE_SEARCH} from '../constants.js';
+import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTISTS_BEGIN,SEARCH_ARTISTS_SUCCESS,SEARCH_ARTISTS_FAILURE, SEARCH_ALBUM, SEARCH_TRACK, UPDATE_SEARCH} from '../constants.js';
 import { fetchArtistsSearch, fetchAlbumSearch, fetchTrackSearch } from '../api/api.js';
 
 const EMPTY = '';
@@ -20,24 +20,10 @@ const initialState = {
             }    
             ],
 
-            currentSearch: "kapanga",
+            currentSearch: EMPTY,
             loading: false,
             error: null,
-            currentListOfArtists:[{
-                                    name: 'artist',
-                                    id: '1',
-                                    album: 'album',
-                                    albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-                                    artist: 'arstist'
-                                  },
-                                  {
-                                    name: 'sds title',
-                                    id: '2',
-                                    album: 'albumf',
-                                    albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-                                    artist: 'artist'
-                                  }    
-                                  ],
+            currentListOfArtists:EMPTY,
             currentListOfAlbums: EMPTY,
             currentListOfTracks: EMPTY
 }
@@ -49,9 +35,9 @@ function spotifyReducer(state = initialState, action) {
       return {
           currentSearch: action.input
       }
-
-      {
-          /*  
+{
+      /*  
+        {
           case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
               let promise = fetchArtistsSearch(action.input);
 
@@ -79,9 +65,10 @@ function spotifyReducer(state = initialState, action) {
                 listOfAlbums: EMPTY,
                 currentListOfTracks: EMPTY
                 }
+              }
       */
-      }
-      case SEARCH_ARTIST_BEGIN:
+}
+      case SEARCH_ARTISTS_BEGIN:
       // Mark the state as "loading" so we can show a spinner or something
       // Also, reset any errors. We're starting fresh.
       return {
@@ -90,16 +77,16 @@ function spotifyReducer(state = initialState, action) {
         error: null
       };
 
-    case SEARCH_ARTIST_SUCCESS:
+    case SEARCH_ARTISTS_SUCCESS:
       // All done: set loading "false".
       // Also, replace the items with the ones from the server
       return {
         ...state,
         loading: false,
-        items: action.payload.artists
+        currentListOfArtists: action.payload.artists
       };
 
-    case SEARCH_ARTIST_FAILURE:
+    case SEARCH_ARTISTS_FAILURE:
       // The request failed. It's done. So set loading to "false".
       // Save the error, so we can display it somewhere.
       // Since it failed, we don't have items to display anymore, so set `items` empty.
@@ -111,7 +98,7 @@ function spotifyReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload.error,
-        items: []
+        currentListOfArtists: []
       }
 
     case SEARCH_ALBUM: // pega a la api de spotify y trae json con datos
