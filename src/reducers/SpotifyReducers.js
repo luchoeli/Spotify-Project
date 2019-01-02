@@ -69,6 +69,7 @@ function spotifyReducer(state = initialState, action) {
 
         promise.then(function(result) {
 
+          debugger
         for (let i = 0; i < result.artists.items.length; i++) {
 
           let element = {
@@ -89,6 +90,7 @@ function spotifyReducer(state = initialState, action) {
 		});
 
         return {
+          favsElements: [...state.favsElements],
           currentSearch: artistArray,
           listOfAlbums: EMPTY,
           currentListOfTracks: EMPTY

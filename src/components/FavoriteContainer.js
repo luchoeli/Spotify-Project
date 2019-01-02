@@ -7,6 +7,7 @@ import '../stylecheet/FavoriteStyle.css'
 
 
 class FavoriteContainer extends Component {
+
     render() {
         console.log(this.props.favsElements)
         let favs = this.props.favsElements;

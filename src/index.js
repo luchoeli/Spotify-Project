@@ -6,13 +6,16 @@ import { createStore } from 'redux'
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers'; // carpeta reducers busca por defecto el index.js suyo
 import SpotifyComp from './components/SpotifyComp';
-import App from './App.js';
+import AppRouter from './routes';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <SpotifyComp/>
+    <Router>
+      <AppRouter />
+    </Router>
   </Provider>,
   document.getElementById('root')
 )

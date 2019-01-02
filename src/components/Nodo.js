@@ -1,82 +1,31 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from 'react';
+import { Router, Route, Link } from 'react-router-dom';
+import Artist from '../views/Artist.js';
+import ArtistSearch from '../views/ArtistSearch.js';
+import Home from '../views/Home.js';
 
-function BasicExample() {
-  return (
-    <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/topics">Topics</Link>
-          </li>
-        </ul>
+class Nodo extends React.Component {
+  render() {
+    return(
+      <Router>
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/Artist">Artist</Link></li>
+            <li><Link to="/ArtistSearch">ArtistSearch</Link></li>
+          </ul>
+          <hr/>
 
-        <hr />
+          // All 3 components below would be rendered when in a homepage
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/" component={Artist}/>
+          <Route exact path="/" component={ArtistSearch}/>
 
-        
-
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/topics" component={Topics} />
-      </div>
-    </Router>
-  );
+          <Route path="/Artist" component={Artist}/>
+          <Route path="/ArtistSearch" component={ArtistSearch}/>
+        </div>
+      </Router>
+  )}
 }
 
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
-}
-
-function Topics({ match }) {
-  return (
-    <div>
-      <h2>Topics</h2>
-      <ul>
-        <li>
-          <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-        </li>
-      </ul>
-
-      <Route path={`${match.path}/:topicId`} component={Topic} />
-      <Route
-        exact
-        path={match.path}
-        render={() => <h3>Please select a topic.</h3>}
-      />
-    </div>
-  );
-}
-
-function Topic({ match }) {
-  return (
-    <div>
-      <h3>{match.params.topicId}</h3>
-    </div>
-  );
-}
-
-export default BasicExample;
+export default Nodo;

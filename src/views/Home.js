@@ -10,15 +10,22 @@ class Home extends React.Component {
     constructor(props){
         super(props)
         this.input_ref = React.createRef();
-        this.onSubmit = this.onSubmit.bind(this)  
+        this.handleOnEnterPress = this.handleOnEnterPress.bind(this)  
+        this.state = {
+            input_ref: React.createRef()
+        }
 
     }
 
-    onSubmit(event){
-       
-    }
+    handleOnEnterPress(e) {
+         if (e.key === 'Enter') {
+            e.preventDefault()
+            console.log(this.state.input_ref.current.value)
+            this.props.searchArtist(this.state.input_ref.current.value)
+         }
+     }
 
-   
+   //onKeyPress={this.handleOnEnterPress}
 
     componentDidUpdate(){
 
@@ -28,14 +35,15 @@ class Home extends React.Component {
     render(){
         return(
             <div id="home_container">
-                <Header haveSearchBar={ false } />
+                <Header haveSearchBar={ true } />
 
                 <h4>Welcome to</h4>
                 <h1><strong>Spotisearch</strong></h1>
                 <p>Search your favourite songs over Spotify, just enter an artist's name in the following search box and enjoy!</p>
-                <form onSubmit={this.onSubmit}>
-                    <input type="search" id="artistSearch" name="q" aria-label="Search through site content"
-                    placeholder="Type the name of your favorite artist" ref={this.input_ref}/>
+                <form onKeyPress={this.handleOnEnterPress} action='/artist'>
+                    <input  type="search" 
+                    id="artistSearch" name="q" aria-label="Search through site content"
+                    placeholder="Search your favorite artist here" ref={this.state.input_ref}/>
                 </form>
                 <FavoriteContainer />
             </div>
