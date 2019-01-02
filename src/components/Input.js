@@ -14,9 +14,17 @@ class Input extends React.Component {
         this.props.accion(event.target.attributes.value);
     }
 
+    handleOnClick = () => {
+        // some action...
+        // then redirect
+        this.setState({redirect: true});
+      }
+
     render() {
         return (
-            <input className="searchField" onClick={ this.onSearch } placeholder="Search for your favorite artist here" />
+            <div>
+                <input className="searchField" onClick={ this.onSearch } placeholder="Search for your favorite artist here" />
+            </div>
         )
     }
 };

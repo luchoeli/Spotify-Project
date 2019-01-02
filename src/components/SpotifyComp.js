@@ -1,14 +1,13 @@
 import React from 'react';
-import Home from './Home';
-import ArtistSearch from '../views/ArtistSearch';
+import Home from '../views/Home.js';
 
 class SpotifyComp extends React.Component {
  
   render() {
     return (
-      <div id="container">
-          <ArtistSearch/> 
-      </div>
+    	<div id="container">
+    		<Home /> 
+    	</div>
     )
   }
 }

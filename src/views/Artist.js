@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from '../components/Input.js';
 
 class Artist extends React.Component {
 
