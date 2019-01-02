@@ -8,3 +8,6 @@ export const SEARCH_ARTIST = 'SEARCH_ARTIST' // busca los artistas desde api de 
 export const SEARCH_ALBUM = 'SEARCH_ALBUM' // busca los albumes dado un artista, desde la api de spotify
 export const SEARCH_TRACK = 'SEARCH_TRACK' // busca las canciones dado un album, desde la api de spotify
 export const UPDATE_SEARCH = 'UPDATE_SEARCH' // actualiza el tecto de busqueda (currentSearch)
+export const SEARCH_ARTIST_BEGIN = 'SEARCH_ARTIST_BEGIN'
+export const SEARCH_ARTIST_SUCCESS = 'SEARCH_ARTIST_SUCCESS'
+export const SEARCH_ARTIST_FAILURE = 'SEARCH_ARTIST_FAILURE'

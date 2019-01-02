@@ -3,14 +3,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../stylecheet/FavoriteStyle.css'
 import ArtistCard from './ArtistCard';
-import {fetchArtistsSearch} from '../api/api'
+//import {fetchArtistsSearch} from '../api/api'
+import {searchArtists} from '../actions'
 
 
 class ArtistContainer extends Component {
+    
+    componentDidMount() {
+        this.props.dispatch(searchArtists());
+    }
 
     render() {
-        
-        let artists = this.props.currentListOfArtists;
+        const { error, loading, artists } = this.props;
+
+        if (error) {
+            return <div>Error! {error.message}</div>;
+        }
+
+        if (loading) {
+            return <div>Loading...</div>;
+        }
+
+        //let artists = this.props.currentListOfArtists;
         console.log(artists)    
         console.log(this.props.currentListOfArtists.length)
         if(this.props.currentListOfArtists.length>0){
@@ -42,12 +56,15 @@ class ArtistContainer extends Component {
 const mapStateToProps = (state) => {
     return {    
         currentSearch: state.spotifyReducers.currentSearch,
-        currentListOfArtists: state.spotifyReducers.currentListOfArtists
+        currentListOfArtists: state.spotifyReducers.currentListOfArtists,
+        artists: state.artists.items,
+        loading: state.artists.loading,
+        error: state.artists.error
     }
 }
   
 const mapDispatchToProps = dispatch => ({
-   // searchArtist: artist => dispatch(searchArtist(artist)),
+    //searchArtist: artist => dispatch(searchArtist(artist)),
 })
 
 export default connect(

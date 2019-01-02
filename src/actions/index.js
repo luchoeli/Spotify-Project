@@ -1,4 +1,4 @@
-import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM, SEARCH_TRACK, UPDATE_SEARCH } from '../constants.js';
+import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST_BEGIN,SEARCH_ARTIST_SUCCESS,SEARCH_ARTIST_FAILURE, SEARCH_ALBUM, SEARCH_TRACK, UPDATE_SEARCH } from '../constants.js';
 
 export function updateSearch(input) {
     return {
@@ -20,12 +20,19 @@ export function searchAlbums(artistId) {
     }
 }
 
-export function searchArtist(input) {
-    return {
-        type: SEARCH_ARTIST,
-        input
-    }
-}
+export const searchArtistBegin = () => ({
+  type: SEARCH_ARTIST_BEGIN
+});
+
+export const searchArtistSucces = artists => ({
+  type: SEARCH_ARTIST_SUCCESS,
+  payload: { artists }
+});
+
+export const searchArtistFailure = error => ({
+  type: SEARCH_ARTIST_FAILURE,
+  payload: { error }
+});
 
 export function addFavs(track) {
     return {

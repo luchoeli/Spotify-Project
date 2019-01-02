@@ -1,4 +1,4 @@
-import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM, SEARCH_TRACK, UPDATE_SEARCH} from '../constants.js';
+import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST_BEGIN,SEARCH_ARTIST_SUCCESS,SEARCH_ARTIST_FAILURE, SEARCH_ALBUM, SEARCH_TRACK, UPDATE_SEARCH} from '../constants.js';
 import { fetchArtistsSearch, fetchAlbumSearch, fetchTrackSearch } from '../api/api.js';
 
 const EMPTY = '';
@@ -19,24 +19,27 @@ const initialState = {
               artist: 'artist'
             }    
             ],
-  currentSearch: "kapanga",
-  currentListOfArtists:[{
-                          name: 'artist',
-                          id: '1',
-                          album: 'album',
-                          albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-                          artist: 'arstist'
-                        },
-                        {
-                          name: 'sds title',
-                          id: '2',
-                          album: 'albumf',
-                          albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-                          artist: 'artist'
-                        }    
-                        ],
-  currentListOfAlbums: EMPTY,
-  currentListOfTracks: EMPTY
+
+            currentSearch: "kapanga",
+            loading: false,
+            error: null,
+            currentListOfArtists:[{
+                                    name: 'artist',
+                                    id: '1',
+                                    album: 'album',
+                                    albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+                                    artist: 'arstist'
+                                  },
+                                  {
+                                    name: 'sds title',
+                                    id: '2',
+                                    album: 'albumf',
+                                    albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
+                                    artist: 'artist'
+                                  }    
+                                  ],
+            currentListOfAlbums: EMPTY,
+            currentListOfTracks: EMPTY
 }
 
 function spotifyReducer(state = initialState, action) {
@@ -47,34 +50,69 @@ function spotifyReducer(state = initialState, action) {
           currentSearch: action.input
       }
 
+      {
+          /*  
+          case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
+              let promise = fetchArtistsSearch(action.input);
 
-    case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
-        let promise = fetchArtistsSearch(action.input);
+              let artistArray = []
+              promise.then(function(result) { 
+                
+                for (let i = 0; i < result.artists.items.length; i++) {
+                  let element = {
+                    name: result.artists.items[i].name,
+                    id: result.artists.items[i].id,
+                    images: result.artists.items[i].images,
+                    genres: result.artists.items[i].genres
+                  };
 
-        let artistArray = []
-        promise.then(function(result) { 
-          
-          for (let i = 0; i < result.artists.items.length; i++) {
-            let element = {
-              name: result.artists.items[i].name,
-              id: result.artists.items[i].id,
-              images: result.artists.items[i].images,
-              genres: result.artists.items[i].genres
-            };
+                  artistArray.push(element);
+                }
+                
+                for ( let i = 0; i<artistArray.length; i++){
+                  console.log(artistArray[i].name);
+                }
+              });
+              return {
+                currentSearch: action.input,
+                currentListOfArtists: [artistArray],
+                listOfAlbums: EMPTY,
+                currentListOfTracks: EMPTY
+                }
+      */
+      }
+      case SEARCH_ARTIST_BEGIN:
+      // Mark the state as "loading" so we can show a spinner or something
+      // Also, reset any errors. We're starting fresh.
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
 
-            artistArray.push(element);
-          }
-          
-          for ( let i = 0; i<artistArray.length; i++){
-            console.log(artistArray[i].name);
-          }
-        });
-        return {
-          currentSearch: action.input,
-          currentListOfArtists: [artistArray],
-          listOfAlbums: EMPTY,
-          currentListOfTracks: EMPTY
-          }
+    case SEARCH_ARTIST_SUCCESS:
+      // All done: set loading "false".
+      // Also, replace the items with the ones from the server
+      return {
+        ...state,
+        loading: false,
+        items: action.payload.artists
+      };
+
+    case SEARCH_ARTIST_FAILURE:
+      // The request failed. It's done. So set loading to "false".
+      // Save the error, so we can display it somewhere.
+      // Since it failed, we don't have items to display anymore, so set `items` empty.
+      //
+      // This is all up to you and your app though:
+      // maybe you want to keep the items around!
+      // Do whatever seems right for your use case.
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        items: []
+      }
 
     case SEARCH_ALBUM: // pega a la api de spotify y trae json con datos
 
