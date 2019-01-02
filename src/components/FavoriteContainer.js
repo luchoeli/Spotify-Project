@@ -11,12 +11,12 @@ class FavoriteContainer extends Component {
     render() {
         console.log(this.props.favsElements)
         let favs = this.props.favsElements;
+        
         return ( 
             <div>
                 <h2>Favorite Songs</h2>
                 <section className="cardContainer">                  
-                    {
-                        favs.length > 0 && favs.map((song) => {
+                    {favs.length > 0 && favs.map((song) => {
                             return (
                                     <MusicCard  key = {song.id}
                                                 name = {song.name} 

@@ -18,8 +18,9 @@ class Album extends React.Component {
         return (
 
             <div>
+                
 
-                <Input accion={ this.onSearch } />
+                <input placeholder={ 'ingresa el artista' } />
 
                 <hr />
 

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../stylecheet/FavoriteStyle.css'
 import ArtistCard from './ArtistCard';
+import {searchArtist} from '../actions/index';
 
 
 class ArtistContainer extends Component {
@@ -30,12 +31,12 @@ class ArtistContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {    
-       
+        artists : state.spotifyReducers.currentListOfArtists,
     }
 }
   
 const mapDispatchToProps = dispatch => ({
-    
+    searchArtist: artist => dispatch(searchArtist(artist))
 })
 
 export default connect(

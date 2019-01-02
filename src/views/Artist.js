@@ -1,5 +1,7 @@
 import React from 'react';
-import Input from '../components/Input.js';
+import { connect } from 'react-redux'
+import {searchArtist} from '../actions/index'
+import { Route, Link } from 'react-router-dom';
 
 class Artist extends React.Component {
 
@@ -21,7 +23,14 @@ class Artist extends React.Component {
 
             <div>
 
-                <Input accion={ this.onSearch } />
+                <Route>
+                    <ul>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/artistsearch">Artist Search</Link></li>
+                    </ul>
+                </Route>
+
+                <input placeholder={ 'ingresa el artista' } />
 
                 <hr />
 
@@ -41,4 +50,20 @@ class Artist extends React.Component {
     }
 }
 
-export default Artist;
+
+const mapStateToProps = (state) => {
+    return {    
+        currentSearch: state.spotifyReducers.currentSearch,
+        currentListOfArtist: state.spotifyReducers.favsElements,
+    }
+}
+  
+  const mapDispatchToProps = dispatch => ({
+    searchArtist: artist => dispatch(searchArtist(artist)),
+   
+  })
+  
+  export default connect (
+    mapStateToProps,
+    mapDispatchToProps
+  )(Artist)

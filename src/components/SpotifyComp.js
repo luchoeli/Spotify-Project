@@ -1,5 +1,4 @@
 import React from 'react';
-import Home from '../views/Home.js';
 import PropTypes from 'prop-types';
 
 class SpotifyComp extends React.Component {
@@ -14,7 +13,7 @@ class SpotifyComp extends React.Component {
 
     return (
     	<div id="container">
-    		<Home body={children} /> 
+        {children} 
     	</div>
     )
   }
