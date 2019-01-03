@@ -26,12 +26,6 @@ class ArtistSearch extends React.Component {
         this.props.searchArtists(mystring);
     }
 
-    // checkInput(event) {
-    //     event.preventDefault();
-    //     if (la busqueda actual === al busquedaEfectiva) return
-    //      si no, busca y renderiza
-    // }
-
     render() {
         
         return(

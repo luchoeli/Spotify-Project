@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../stylecheet/FavoriteStyle.css'
 import ArtistCard from './ArtistCard';
-import {searchArtists} from '../actions'
-
 
 class ArtistContainer extends Component {
 
@@ -61,7 +59,7 @@ const mapStateToProps = (state) => {
 }
   
 const mapDispatchToProps = dispatch => ({
-    searchArtists: artist => dispatch(searchArtists(artist)),
+    //searchArtists: artist => dispatch(searchArtists(artist)),
 })
 
 export default connect(

@@ -1,4 +1,10 @@
-class AlbumContainer extends Component {
+
+import React from 'react';
+import { connect } from 'react-redux'
+import { searchAlbums} from '../actions/index'
+import { ArtistCard } from '../components/ArtistCard'
+
+class AlbumContainer extends React.Component {
 
     render() {
         const { error, loading, currentListOfAlbums } = this.props;

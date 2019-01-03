@@ -1,5 +1,5 @@
 import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTISTS_BEGIN,SEARCH_ARTISTS_SUCCESS,SEARCH_ARTISTS_FAILURE, SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS,SEARCH_ALBUMS_FAILURE, SEARCH_TRACK, UPDATE_SEARCH} from '../constants.js';
-import { fetchAlbumSearch, fetchTrackSearch } from '../api/api.js';
+import {  fetchTrackSearch } from '../api/api.js';
 
 const EMPTY = '';
 
@@ -70,7 +70,7 @@ function spotifyReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        currentListOfArtists: action.payload.artists
+        currentListOfAlbums: action.payload.albums
       };
 
     case SEARCH_ALBUMS_FAILURE:
@@ -79,7 +79,7 @@ function spotifyReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload.error,
-        currentListOfArtists: []
+        currentListOfAlbums: []
       }
     
     case SEARCH_TRACK:

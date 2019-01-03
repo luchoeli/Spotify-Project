@@ -1,35 +1,41 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import {searchArtists} from '../actions/index'
+import { searchAlbums} from '../actions/index'
 import { Route, Link } from 'react-router-dom';
+import AlbumContainer from '../components/AlbumContainer';
 
 class Artist extends React.Component {
 
     constructor() {
         super();
-
-        this.onSearch = this.onSearch.bind(this);
     }
 
     componentDidMount() {
         var mystring = this.props.location.search.replace('?sort=','');
 
         console.log("tu busqueda fue " + mystring);
+        this.props.searchAlbums(mystring)
+        //this.props.searchArtist(mystring)
 
-        // el id se encuentra en "mystring", ¿lo pongo como estado?
-    }
-
-    onSearch(text) {
-
-        this.props.searchArtists(text);
-
+        //buscar in
     }
 
 
     render() {
-        return (
+        const { error, loading, currentListOfAlbums  } = this.props;
+        console.log(currentListOfAlbums)
+        if (error) {
+            return <div>Error! {error.message}</div>;
+        }
 
-            <div>
+        if (loading) {
+            return <div>Loading...</div>;
+        }
+
+        if(this.props.currentListOfAlbums.length>0){
+          
+            return (                
+                <div>
 
                 <Route>
                     <ul>
@@ -48,11 +54,17 @@ class Artist extends React.Component {
 
                 <hr />
 
-                <p> ACA VA EL ALBUMES-CONTAINER </p>
 
             </div>
 
-        )
+               //<AlbumContainer/>
+            )
+        }
+        return(
+            <p>No artist found for "{this.props.busquedaEfectiva}"</p>
+        )   
+
+    
     }
 }
 
@@ -60,12 +72,12 @@ class Artist extends React.Component {
 const mapStateToProps = (state) => {
     return {    
         currentSearch: state.spotifyReducers.currentSearch,
-        currentListOfArtist: state.spotifyReducers.favsElements,
+        currentListOfAlbums: state.spotifyReducers.currentListOfAlbums
     }
 }
   
   const mapDispatchToProps = dispatch => ({
-    searchArtists: artist => dispatch(searchArtists(artist)),
+    searchAlbums: artist => dispatch(searchAlbums(artist)),
    
   })
   
