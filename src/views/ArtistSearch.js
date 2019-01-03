@@ -19,6 +19,13 @@ class ArtistSearch extends React.Component {
 
     }
 
+    componentDidMount() {
+        this.props.searchArtist("prueba");
+        console.log(this.props.currentListOfArtist);
+    }
+
+
+
     render() {
         debugger
         return(
