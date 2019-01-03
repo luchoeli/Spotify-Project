@@ -7,7 +7,9 @@ import {searchArtists} from '../actions'
 
 
 class ArtistContainer extends Component {
-    
+    componentDidMount(){
+        console.log("did mount")
+    }
     render() {
         const { error, loading, currentListOfArtists } = this.props;
 

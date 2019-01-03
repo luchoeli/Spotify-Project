@@ -48,7 +48,6 @@ class ArtistSearch extends React.Component {
 const mapStateToProps = (state) => {
     return {    
         currentSearch: state.spotifyReducers.currentSearch,
-        currentListOfArtists: state.spotifyReducers.currentListOfArtists
     }
 }
   
