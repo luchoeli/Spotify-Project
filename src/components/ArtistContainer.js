@@ -7,9 +7,13 @@ import {searchArtists} from '../actions'
 
 
 class ArtistContainer extends Component {
+
     componentDidMount(){
         console.log("did mount")
     }
+
+    
+
     render() {
         const { error, loading, currentListOfArtists } = this.props;
 
@@ -31,6 +35,7 @@ class ArtistContainer extends Component {
 
                                 return (
                                         <ArtistCard key={a.id}
+                                                    id={a.id}
                                                     artistName={a.name}
                                                     artistImg={a.images[0] ? a.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png" }
                                                     />
