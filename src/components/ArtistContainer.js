@@ -42,7 +42,7 @@ class ArtistContainer extends Component {
                 </div>
             )}
          return(
-                <p>No artist found for "{this.props.currentSearch}"</p>
+                <p>No artist found for "{this.props.busquedaEfectiva}"</p>
             )   
     }
 }

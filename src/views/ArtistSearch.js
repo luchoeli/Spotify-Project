@@ -1,17 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import {searchArtists, updateSearch} from '../actions/index'
 import ArtistContainer from '../components/ArtistContainer'
 import { Route, Link } from 'react-router-dom';
+import { searchArtists } from '../actions';
 // deberia recibir como props un json con los resultados de la busqueda q?=ALGO
 
 class ArtistSearch extends React.Component {
 
-    constructor(props) {
-
-        super(props);
-
+    constructor() {
+        super();
+        this.state = {
+            busquedaEfectiva: ''
+        }
     }
+
+    componentDidMount() {
+        var mystring = this.props.location.search.replace('?q=','');
+
+        console.log("tu busqueda fue " + mystring);
+
+        this.setState({
+            busquedaEfectiva: mystring
+        });
+
+        this.props.searchArtists(mystring);
+    }
+
+    // checkInput(event) {
+    //     event.preventDefault();
+    //     if (la busqueda actual === al busquedaEfectiva) return
+    //      si no, busca y renderiza
+    // }
 
     render() {
         
@@ -19,7 +38,7 @@ class ArtistSearch extends React.Component {
             //TODO realizar componente Input para reutilizar
             <div id="artist_search_container">
                 <h1> Artist </h1>
-                <p> You are currently searching: "{this.props.currentSearch}" </p> 
+                <p> You are currently searching: {this.state.busquedaEfectiva} </p> 
               
                 <br />
 
@@ -29,7 +48,7 @@ class ArtistSearch extends React.Component {
                     </ul>
                 </Route>
 
-                 <form action="artistsearch/:q">
+                  <form action="/artistsearch" /*onSubmit={ this.checkInput }*/ > 
                     <input  type="search" 
                     id="artistSearch" name="q" aria-label="Search through site content"
                     placeholder="Search your favorite artist here" />
@@ -37,7 +56,7 @@ class ArtistSearch extends React.Component {
 
                 <br />
 
-               <ArtistContainer />
+               <ArtistContainer busquedaEfectiva={ this.state.busquedaEfectiva } />
 
             </div>
         )
@@ -51,7 +70,7 @@ const mapStateToProps = (state) => {
 }
   
   const mapDispatchToProps = dispatch => ({
-    //searchArtist: artist => dispatch(searchArtist(artist)),
+    searchArtists: artist => dispatch(searchArtists(artist)),
   })
   
   export default connect (

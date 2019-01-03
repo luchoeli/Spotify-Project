@@ -10,7 +10,7 @@ const AppRoutes = () =>
     <SpotifyComp>
         <Switch>
             <Route path='/artist' component={ Artist } />
-            <Route path='/artistsearch/:q' component={ ArtistSearch } />
+            <Route path='/artistsearch/:q?' component={ ArtistSearch } />
             <Route path='/' component={ Home } />
         </Switch>
     </SpotifyComp>

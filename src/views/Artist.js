@@ -38,8 +38,6 @@ class Artist extends React.Component {
                 <h1> {this.props.name} </h1>
                 <h3> {this.props.genero} </h3>
 
-                <p> NAVIGATION SIDE </p>
-
                 <hr />
 
                 <p> ACA VA EL ALBUMES-CONTAINER </p>

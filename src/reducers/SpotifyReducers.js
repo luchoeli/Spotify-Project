@@ -1,5 +1,5 @@
 import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTISTS_BEGIN,SEARCH_ARTISTS_SUCCESS,SEARCH_ARTISTS_FAILURE, SEARCH_ALBUM, SEARCH_TRACK, UPDATE_SEARCH} from '../constants.js';
-import { fetchArtistsSearch, fetchAlbumSearch, fetchTrackSearch } from '../api/api.js';
+import { fetchAlbumSearch, fetchTrackSearch } from '../api/api.js';
 
 const EMPTY = '';
 
@@ -35,39 +35,7 @@ function spotifyReducer(state = initialState, action) {
       return {
           currentSearch: action.input
       }
-{
-      /*  
-        {
-          case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
-              let promise = fetchArtistsSearch(action.input);
 
-              let artistArray = []
-              promise.then(function(result) { 
-                
-                for (let i = 0; i < result.artists.items.length; i++) {
-                  let element = {
-                    name: result.artists.items[i].name,
-                    id: result.artists.items[i].id,
-                    images: result.artists.items[i].images,
-                    genres: result.artists.items[i].genres
-                  };
-
-                  artistArray.push(element);
-                }
-                
-                for ( let i = 0; i<artistArray.length; i++){
-                  console.log(artistArray[i].name);
-                }
-              });
-              return {
-                currentSearch: action.input,
-                currentListOfArtists: [artistArray],
-                listOfAlbums: EMPTY,
-                currentListOfTracks: EMPTY
-                }
-              }
-      */
-}
       case SEARCH_ARTISTS_BEGIN:
       return {
         ...state,
