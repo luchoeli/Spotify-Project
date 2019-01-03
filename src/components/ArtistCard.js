@@ -14,7 +14,13 @@ class ArtistCard extends Component {
 
     render() {
         return (
-            <Link to={"/artist/"+this.props.id} >
+            <Link className="cardLink" to={{
+                pathname: "/artist",
+                search:"?sort=" + this.props.id,
+                hash: "#the-hash",
+                state: { fromDashboard: true }
+            }} >
+
                 <div className="MusicCard" onClick={ this.avisar } > 
                         <img src={this.props.artistImg} alt={'imagen of artist'} />
                         <div className="SongInfo">
@@ -22,6 +28,7 @@ class ArtistCard extends Component {
                         </div>
                     
                 </div>
+                
             </Link>
         );
     }

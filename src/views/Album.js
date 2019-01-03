@@ -8,26 +8,19 @@ class Album extends React.Component {
         this.onSearch = this.onSearch.bind(this);
     }
 
-    onSearch(text) {
-
-        this.props.searchArtist(text);
-        
-    }
 
     render() {
         return (
 
             <div>
                 
-
                 <input placeholder={ 'ingresa el artista' } />
 
                 <hr />
-
+        
                 <p>LOGO DEL ALBUM [X]</p>
                 <h1> {this.props.name} </h1>
                 <h3> {this.props.banda} - {this.props.anio} </h3>
-
                 <p> NAVIGATION SIDE </p>
 
                 <hr />
