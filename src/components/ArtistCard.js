@@ -5,11 +5,7 @@ class ArtistCard extends Component {
 
     constructor() {
         super();
-        this.avisar=this.avisar.bind(this);
-    }
-
-    avisar = () => {
-        alert("CARD CLICKEADA DE " + this.props.artistName + ", ID [" + this.props.id + "]")
+     
     }
 
     render() {
@@ -17,11 +13,11 @@ class ArtistCard extends Component {
             <Link className="cardLink" to={{
                 pathname: "/artist",
                 search:"?sort=" + this.props.id,
-                hash: "#the-hash",
-                state: { fromDashboard: true }
+                //hash: "#the-hash",
+                //state: { fromDashboard: true }
             }} >
 
-                <div className="MusicCard" onClick={ this.avisar } > 
+                <div className="MusicCard"> 
                         <img src={this.props.artistImg} alt={'imagen of artist'} />
                         <div className="SongInfo">
                             <p><strong>{this.props.artistName}</strong></p>

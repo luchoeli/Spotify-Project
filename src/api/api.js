@@ -24,12 +24,12 @@ export const fetchArtistsSearch = (artist) => {
     return fetchData(url, options); 
 }
 
+//	https://api.spotify.com/v1/artists/{id}/albums
 export const fetchAlbumSearch = (artistId) => {
     const url = baseUrl + 'artists/' + artistId + '/albums';
     return fetchData(url, options);
 }
 
-//	https://api.spotify.com/v1/artists/{id}/albums
 
 export const fetchTrackSearch = (albumId) => {
     const url = baseUrl + 'albums/' + albumId + '/tracks';

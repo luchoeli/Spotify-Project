@@ -21,7 +21,6 @@ export function searchArtists(artistSearch) {
         return fetchArtistsSearch(artistSearch)
             .then(json => {
                 dispatch(searchArtistsSuccess(json.artists.items));
-                return json.artists.items;
             })
             .catch(error =>
                 dispatch(searchArtistsFailure(error))
@@ -48,8 +47,7 @@ export function searchAlbums(artistID){
         dispatch(searchAlbumsBegin());
         return fetchAlbumSearch(artistID)
             .then(json => {
-                dispatch(searchAlbumsSuccess(json.artists.items));
-                return json.artists.items;
+                dispatch(searchAlbumsSuccess(json.items));
             })
             .catch(error =>
                 dispatch(searchAlbumsFailure(error))
