@@ -9,9 +9,9 @@ import ArtistSearch from './views/ArtistSearch';
 const AppRoutes = () =>
     <SpotifyComp>
         <Switch>
-            <Route path='/artist' component={ Artist } />
-            <Route path='/artistsearch' component={ ArtistSearch } />
-            <Route path='/' component={ Home } />
+            <Route path="/artist" component={ Artist } />
+            <Route path="/artistsearch/:q" component={ ArtistSearch } />
+            <Route path="/" component={ Home } />
         </Switch>
     </SpotifyComp>
 

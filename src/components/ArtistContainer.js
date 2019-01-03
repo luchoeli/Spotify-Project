@@ -8,20 +8,14 @@ import {searchArtist} from '../actions/index';
 
 class ArtistContainer extends Component {
     render() {
-        let artists = this.props.artists;
-        console.log(artists)
+        
+
         return ( 
             <div>
                 <h2>Artistas</h2>
                 <section className="cardContainer">                  
-                    {
-                        artists.length > 0 && artists.map((a) => {
-                            return (
-                                    <ArtistCard artistImg={a.images[2] ? a.images[2].url : "https://i.4pcdn.org/s4s/1510200817001.png" }
-                                                artistName={a.name}/>
-                            );
-                        })
-                    }
+                        
+                    <p>ACA VAN LOS ARTISTAS CONTAINER</p>
 
                 </section>
             </div>
@@ -31,7 +25,7 @@ class ArtistContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {    
-        artists : state.spotifyReducers.currentListOfArtists,
+        
     }
 }
   

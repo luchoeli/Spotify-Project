@@ -10,7 +10,9 @@ class ArtistSearch extends React.Component {
     constructor(props) {
 
         super(props);
-
+        this.state = {
+            busquedaActual: ''
+        }
     }
 
     onSearch(text) {
@@ -19,15 +21,17 @@ class ArtistSearch extends React.Component {
 
     }
 
-    componentDidMount() {
-        this.props.searchArtist("prueba");
-        console.log(this.props.currentListOfArtist);
+    componentDidMount() { // en realidad hay que pasar como param la busqueda de la URL
+        this.props.searchArtist("Queen");
+        this.setState({
+            busquedaActual: "Queen"
+        })
     }
 
 
 
     render() {
-        debugger
+        
         return(
             <div id="artist_search_container">
 
@@ -39,7 +43,7 @@ class ArtistSearch extends React.Component {
 
                 <h1> Artist </h1>
 
-                <p> You are currently searching: "{this.props.currentSearch}" </p>
+                <p> You are currently searching: "{this.state.busquedaActual}" </p>
 
                 <input placeholder={ 'aca ingresa nuevamente el artista' }/>
 
@@ -54,8 +58,7 @@ class ArtistSearch extends React.Component {
 
 const mapStateToProps = (state) => {
     return {    
-        currentSearch: state.spotifyReducers.currentSearch,
-        currentListOfArtist: state.spotifyReducers.favsElements,
+        
     }
 }
   
