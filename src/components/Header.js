@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from './Input.js';
-import { searchArtist } from '../actions';
+import { searchArtists } from '../actions';
 import { connect } from 'react-redux';
 
 class Header extends React.Component {
@@ -12,7 +12,7 @@ class Header extends React.Component {
     }
 
     onSearch (text) {
-        this.props.searchArtist(text);
+        this.props.searchArtists(text);
     }
 
 
@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  searchArtist: artist => dispatch(searchArtist(artist))
+  searchArtists: artist => dispatch(searchArtists(artist))
 })
 
 export default connect (
