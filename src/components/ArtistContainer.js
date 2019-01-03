@@ -11,7 +11,6 @@ class ArtistContainer extends Component {
     componentDidMount(){
         console.log("did mount")
     }
-
     
 
     render() {

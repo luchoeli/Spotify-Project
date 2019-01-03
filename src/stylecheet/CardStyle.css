@@ -1,0 +1,7 @@
+.cardLink {
+    text-decoration:none;
+}
+
+.cardLink:hover {
+   color:red;
+}

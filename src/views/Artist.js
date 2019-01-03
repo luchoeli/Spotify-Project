@@ -11,6 +11,14 @@ class Artist extends React.Component {
         this.onSearch = this.onSearch.bind(this);
     }
 
+    componentDidMount() {
+        var mystring = this.props.location.search.replace('?sort=','');
+
+        console.log("tu busqueda fue " + mystring);
+
+        // el id se encuentra en "mystring", ¿lo pongo como estado?
+    }
+
     onSearch(text) {
 
         this.props.searchArtists(text);
