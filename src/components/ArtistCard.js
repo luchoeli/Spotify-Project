@@ -14,7 +14,7 @@ class ArtistCard extends Component {
 
     render() {
         return (
-            <Link className="cardLink" to={{
+            <Link style={{ textDecoration: 'none' , color:'black'}} className="cardLink" to={{
                 pathname: "/artist",
                 search:"?sort=" + this.props.id,
                 hash: "#the-hash",
