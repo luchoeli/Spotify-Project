@@ -20,7 +20,6 @@ class ArtistContainer extends React.Component {
         if(this.props.currentListOfArtists.length>0){
             return ( 
                 <div>
-                    <h2>Artistas</h2>
                     <section className="cardContainer">                  
                         {
                             currentListOfArtists.length > 0 && currentListOfArtists.map((a) => {

@@ -33,10 +33,8 @@ class ArtistSearch extends React.Component {
             //TODO realizar componente Input para reutilizar
             <div id="artist_search_container">
                 
-                <h1> Artist Search </h1>
+                <h1> Artists  </h1>
                 <p> You are currently searching: <strong>{this.state.busquedaEfectiva}</strong> </p> 
-              
-                <br />
 
                 <Input />
 

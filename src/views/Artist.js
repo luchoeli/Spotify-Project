@@ -28,7 +28,7 @@ class Artist extends React.Component {
 
 
     render() {
-        const { error, loading, currentArtistImagen} = this.props;
+        const { error, loading, currentArtistName, currentArtistImagen} = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -41,8 +41,10 @@ class Artist extends React.Component {
         return (                
             <div>
                 <Header haveSearchBar={true} />
-
-                <h1>ARTIST</h1>  
+                <hr />
+                <h1>{currentArtistName}</h1>
+                <p>genero</p> 
+                <img src={currentArtistImagen} alt="Artist logo "/>
                 <Route>
                     <ul>
                         <li><Link to="/">Home</Link></li>
@@ -52,7 +54,6 @@ class Artist extends React.Component {
 
                 <hr />
 
-                <img src={currentArtistImagen} alt="logo de la banda"/>
                 <AlbumContainer  busquedaEfectiva={ this.state.busquedaEfectiva }/>
 
                 <hr />

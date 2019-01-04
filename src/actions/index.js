@@ -76,7 +76,7 @@ export function searchAlbums(artistID){
                 dispatch(searchAlbumsSuccess(json.items));
             })
             .catch(error =>
-                dispatch(searchAlbumsFailure(error))
+                dispatch(searchAlbumsFailure(error)),
             );
     };
 }
