@@ -4,12 +4,6 @@ import Header from '../components/Header';
 
 class Album extends React.Component {
 
-    constructor() {
-        super();
-
-    }
-
-
     render() {
         return (
 

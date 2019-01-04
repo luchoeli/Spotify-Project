@@ -28,7 +28,7 @@ class Artist extends React.Component {
 
 
     render() {
-        const { error, loading, currentListOfAlbums, currentArtistImagen} = this.props;
+        const { error, loading, currentArtistImagen} = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -38,9 +38,8 @@ class Artist extends React.Component {
             return <div>Loading...</div>;
         }
 
-        if(this.props.currentListOfAlbums.length>0){          
-            return (                
-                <div>
+        return (                
+            <div>
                 <Header haveSearchBar={true} />
 
                 <h1>ARTIST</h1>  
@@ -54,21 +53,12 @@ class Artist extends React.Component {
                 <hr />
 
                 <img src={currentArtistImagen} alt="logo de la banda"/>
-               <AlbumContainer  busquedaEfectiva={ this.state.busquedaEfectiva }/>
+                <AlbumContainer  busquedaEfectiva={ this.state.busquedaEfectiva }/>
 
                 <hr />
-
-
             </div>
-
-            )
-        }
-
-        return(
-            <p>No artist found for "{this.props.busquedaEfectiva}"</p>
-        )   
-
-    
+        )
+        
     }
 }
 
