@@ -3,19 +3,9 @@ import '../stylecheet/FavoriteStyle.css'
 import { Link } from 'react-router-dom';
 class ArtistCard extends Component {
 
-    constructor() {
-        super();
-     
-    }
-
     render() {
         return (
-            <Link style={{ textDecoration: 'none' , color:'black'}} className="cardLink" to={{
-                pathname: "/artist",
-                search:"?sort=" + this.props.id,
-                //hash: "#the-hash",
-                //state: { fromDashboard: true }
-            }} >
+            <Link style={{ textDecoration: 'none' , color:'black'}} to={`/artist/${this.props.id}`}>
 
                 <div className="MusicCard"> 
                         <img src={this.props.artistImg} alt={'imagen of artist'} />
