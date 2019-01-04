@@ -1,4 +1,5 @@
 import {ADD_FAVS, DELETE_FAVS, 
+        SEARCH_ARTIST_ID_BEGIN, SEARCH_ARTIST_ID_SUCCESS, SEARCH_ARTIST_ID_FAILURE,
         SEARCH_ARTISTS_BEGIN,SEARCH_ARTISTS_SUCCESS,SEARCH_ARTISTS_FAILURE, 
         SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS,SEARCH_ALBUMS_FAILURE, 
         SEARCH_TRACKS_BEGIN, SEARCH_TRACKS_SUCCESS,SEARCH_TRACKS_FAILURE,
@@ -22,6 +23,9 @@ const initialState = {
               artist: 'artist'
             }    
             ],
+            
+            currentArtist: EMPTY,
+            currentAlbumn: EMPTY,
 
             currentSearch: EMPTY,
             loading: false,
@@ -38,8 +42,34 @@ function spotifyReducer(state = initialState, action) {
       return {
           currentSearch: action.input
       }
+//----------------------------------------------------------//
+    case SEARCH_ARTIST_ID_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
 
-      case SEARCH_ARTISTS_BEGIN:
+    case SEARCH_ARTIST_ID_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+       
+        currentArtistName: action.payload.name,
+        currentArtistImagen:action.payload.images[0].url
+      };
+
+    case SEARCH_ARTIST_ID_FAILURE:
+
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        currentArtistName: EMPTY,
+        currentArtistImagen: EMPTY
+      }
+//----------------------------------------------------------//
+    case SEARCH_ARTISTS_BEGIN:
       return {
         ...state,
         loading: true,
@@ -61,7 +91,7 @@ function spotifyReducer(state = initialState, action) {
         error: action.payload.error,
         currentListOfArtists: []
       }
-     
+     //----------------------------------------------------------//
       case SEARCH_ALBUMS_BEGIN:
       return {
         ...state,
@@ -84,7 +114,7 @@ function spotifyReducer(state = initialState, action) {
         error: action.payload.error,
         currentListOfAlbums: []
       }
-
+//----------------------------------------------------------//
       case SEARCH_TRACKS_BEGIN:
       return {
         ...state,
@@ -108,7 +138,7 @@ function spotifyReducer(state = initialState, action) {
         currentListOfTracks: []
       }
     
-    
+    //----------------------------------------------------------//
     case ADD_FAVS: // añade un contenido a favoritos
 
           var newArray = [...state.favsElements];

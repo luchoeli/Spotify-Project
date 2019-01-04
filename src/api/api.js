@@ -26,7 +26,7 @@ export const fetchArtistsSearch = (artist) => {
 // https://api.spotify.com/v1/artists/{id}
 
 export const fetchArtist = (artistID) => {
-    const url = baseUrl + "artists" + artistID;
+    const url = baseUrl + "artists/" + artistID;
     return fetchData(url, options); 
 }
 
