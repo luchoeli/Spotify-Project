@@ -8,7 +8,7 @@ class AlbumContainer extends React.Component {
 
     render() {
         const { error, loading, currentListOfAlbums } = this.props;
-
+        console.log(currentListOfAlbums)
         if (error) {
             return <div>Error! {error.message}</div>;
         }
@@ -24,6 +24,8 @@ class AlbumContainer extends React.Component {
                     <section className="cardContainer">                  
                         {
                             currentListOfAlbums.length > 0 && currentListOfAlbums.map((a) => {
+                                console.log(a.name)
+                                /*
                                 return (
                                         <ArtistCard key={a.id}
                                                     id={a.id}
@@ -31,6 +33,7 @@ class AlbumContainer extends React.Component {
                                                     artistImg={a.images[0] ? a.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png" }
                                                     />
                                 );
+                                */
                             })
                         }
                     </section>
@@ -43,7 +46,7 @@ class AlbumContainer extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {    
-        currentListOfAlbums: state.spotifyReducers.currentListOfAlbumns,
+        currentListOfAlbums: state.spotifyReducers.currentListOfAlbums,
         loading: state.spotifyReducers.loading,
         error: state.spotifyReducers.error
     }

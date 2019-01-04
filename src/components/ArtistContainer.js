@@ -1,15 +1,10 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import '../stylecheet/FavoriteStyle.css'
 import ArtistCard from './ArtistCard';
 
-class ArtistContainer extends Component {
-
-    componentDidMount(){
-        console.log("did mount")
-    }
-    
+class ArtistContainer extends React.Component {
 
     render() {
         const { error, loading, currentListOfArtists } = this.props;
