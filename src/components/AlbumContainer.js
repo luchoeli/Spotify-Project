@@ -1,18 +1,7 @@
-
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import '../stylecheet/FavoriteStyle.css'
-import ArtistCard from './ArtistCard';
-
-class ArtistContainer extends Component {
-
-    componentDidMount(){
-        console.log("did mount")
-    }
-    
+class AlbumContainer extends Component {
 
     render() {
-        const { error, loading, currentListOfArtists } = this.props;
+        const { error, loading, currentListOfAlbums } = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -22,14 +11,13 @@ class ArtistContainer extends Component {
             return <div>Loading...</div>;
         }
 
-        if(this.props.currentListOfArtists.length>0){
+        if(this.props.currentListOfAlbums.length>0){
             return ( 
                 <div>
                     <h2>Artistas</h2>
                     <section className="cardContainer">                  
                         {
-                            currentListOfArtists.length > 0 && currentListOfArtists.map((a) => {
-
+                            currentListOfAlbums.length > 0 && currentListOfAlbums.map((a) => {
                                 return (
                                         <ArtistCard key={a.id}
                                                     id={a.id}
@@ -39,31 +27,28 @@ class ArtistContainer extends Component {
                                 );
                             })
                         }
-
                     </section>
                 </div>
             )}
          return(
                 <p>No artist found for "{this.props.busquedaEfectiva}"</p>
             )   
-    }
+    } 
 }
-
 const mapStateToProps = (state) => {
     return {    
-        currentSearch: state.spotifyReducers.currentSearch,
-        currentListOfArtists: state.spotifyReducers.currentListOfArtists,
+        currentListOfAlbums: state.spotifyReducers.currentListOfAlbumns,
         loading: state.spotifyReducers.loading,
         error: state.spotifyReducers.error
     }
 }
   
 const mapDispatchToProps = dispatch => ({
-    //searchArtists: artist => dispatch(searchArtists(artist)),
+    searchAlbums: artist => dispatch(searchAlbums(artist)),
 })
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ArtistContainer)
+)(AlbumContainer)
 

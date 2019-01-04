@@ -1,14 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import {searchArtists} from '../actions/index'
+import { searchAlbums} from '../actions/index'
 import { Route, Link } from 'react-router-dom';
 
 class Artist extends React.Component {
 
     constructor() {
         super();
-
-        this.onSearch = this.onSearch.bind(this);
     }
 
     componentDidMount() {
@@ -16,20 +14,25 @@ class Artist extends React.Component {
 
         console.log("tu busqueda fue " + mystring);
 
-        // el id se encuentra en "mystring", ¿lo pongo como estado?
-    }
-
-    onSearch(text) {
-
-        this.props.searchArtists(text);
-
+       this.props.searchAlbums(mystring)
     }
 
 
     render() {
-        return (
+        const { error, loading, currentListOfAlbums  } = this.props;
+        console.log(currentListOfAlbums)
+        if (error) {
+            return <div>Error! {error.message}</div>;
+        }
 
-            <div>
+        if (loading) {
+            return <div>Loading...</div>;
+        }
+
+        if(this.props.currentListOfAlbums.length>0){
+          
+            return (                
+                <div>
 
                 <Route>
                     <ul>
@@ -52,7 +55,13 @@ class Artist extends React.Component {
 
             </div>
 
-        )
+            )
+        }
+        return(
+            <p>No artist found for "{this.props.busquedaEfectiva}"</p>
+        )   
+
+    
     }
 }
 
@@ -60,12 +69,12 @@ class Artist extends React.Component {
 const mapStateToProps = (state) => {
     return {    
         currentSearch: state.spotifyReducers.currentSearch,
-        currentListOfArtist: state.spotifyReducers.favsElements,
+        currentListOfAlbums: state.spotifyReducers.currentListOfAlbums
     }
 }
   
   const mapDispatchToProps = dispatch => ({
-    searchArtists: artist => dispatch(searchArtists(artist)),
+    searchAlbums: artist => dispatch(searchAlbums(artist)),
    
   })
   

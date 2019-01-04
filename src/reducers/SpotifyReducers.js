@@ -1,5 +1,5 @@
-import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTISTS_BEGIN,SEARCH_ARTISTS_SUCCESS,SEARCH_ARTISTS_FAILURE, SEARCH_ALBUM, SEARCH_TRACK, UPDATE_SEARCH} from '../constants.js';
-import { fetchAlbumSearch, fetchTrackSearch } from '../api/api.js';
+import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTISTS_BEGIN,SEARCH_ARTISTS_SUCCESS,SEARCH_ARTISTS_FAILURE, SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS,SEARCH_ALBUMS_FAILURE, SEARCH_TRACK, UPDATE_SEARCH} from '../constants.js';
+import {  fetchTrackSearch } from '../api/api.js';
 
 const EMPTY = '';
 
@@ -58,42 +58,30 @@ function spotifyReducer(state = initialState, action) {
         error: action.payload.error,
         currentListOfArtists: []
       }
+     
+      case SEARCH_ALBUMS_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
 
-    case SEARCH_ALBUM: // pega a la api de spotify y trae json con datos
+    case SEARCH_ALBUMS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        currentListOfAlbums: action.payload.albums
+      };
 
-          let promise2 = fetchAlbumSearch(action.artistId)
+    case SEARCH_ALBUMS_FAILURE:
 
-          let albumSearch = []
-
-          promise2.then(function(result) {
-
-            for (let i = 0; i < result.items.length; i++) {
-
-                let element = {
-                  name: result.items[i].name,
-                  date: result.items[i].release_date,
-                  images: result.items[i].images,
-                  id: result.items[i].id
-                };
-
-                albumSearch.push(element);
-
-            }
-
-            console.log('---------------------------')
-
-            for (let i = 0; i < albumSearch.length; i++) {
-              console.log(albumSearch[i].name + ' - ' + albumSearch[i].date)
-            }
-
-          });
-
-          return { 
-            listOfAlbums: albumSearch,
-            currentListOfTracks: EMPTY
-            
-          }
-
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        currentListOfAlbums: []
+      }
+    
     case SEARCH_TRACK:
 
         let promise3 = fetchTrackSearch(action.albumId);
