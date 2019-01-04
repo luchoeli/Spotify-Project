@@ -1,30 +1,32 @@
 
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
-import { searchAlbums} from '../actions/index'
-import AlbumCard from '../components/ArtistCard'
+import '../stylecheet/FavoriteStyle.css'
+import AlbumCard from '../components/AlbumCard'
 
 class AlbumContainer extends React.Component {
 
     render() {
         const { error, loading, currentListOfAlbums } = this.props;
         console.log(currentListOfAlbums.length)
+        
         if (error) {
-            return <div>Error! {error.message}</div>;
+            return <div>Error! {error.message} </div>; // TIRA ERROR ACA
         }
 
         if (loading) {
             return <div>Loading...</div>;
         }
 
-        if(this.props.currentListOfAlbums.length>0){
+        if(currentListOfAlbums.length>0)
+            
             return ( 
                 <div>
                     <h2>Artistas</h2>
                     <section className="cardContainer">                  
                         {
                             currentListOfAlbums.length > 0 && currentListOfAlbums.map((a) => {
-                                console.log(a.name)
+                                console.log("nombre: " + a.name)
                                 
                                 return (
                                         <AlbumCard  key={a.id}
@@ -39,7 +41,7 @@ class AlbumContainer extends React.Component {
                         }
                     </section>
                 </div>
-            )}
+            )
          return(
                 <p>No artist found for "{this.props.busquedaEfectiva}"</p>
             )   
@@ -54,7 +56,7 @@ const mapStateToProps = (state) => {
 }
   
 const mapDispatchToProps = dispatch => ({
-    searchAlbums: artist => dispatch(searchAlbums(artist)),
+    
 })
 
 export default connect(

@@ -23,12 +23,11 @@ class Artist extends React.Component {
 
         this.props.searchAlbums(mystring)
         this.props.searchArtistID(mystring)
-        this.props.searchTracks("1WMVvswNzB9i2UMh9svso5")
     }
 
 
     render() {
-        const { error, loading, currentListOfAlbums, currentArtistImagen} = this.props;
+        const { error, loading, currentArtistImagen} = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -54,7 +53,7 @@ class Artist extends React.Component {
                 <hr />
 
                 <img src={currentArtistImagen} alt="logo de la banda"/>
-               <AlbumContainer  busquedaEfectiva={ this.state.busquedaEfectiva }/>
+                <AlbumContainer  busquedaEfectiva={ this.state.busquedaEfectiva }/>
 
                 <hr />
 
@@ -75,7 +74,6 @@ class Artist extends React.Component {
 
 const mapStateToProps = (state) => {
     return {    
-        currentSearch: state.spotifyReducers.currentSearch,
         currentListOfAlbums: state.spotifyReducers.currentListOfAlbums,
         currentListOfTracks: state.spotifyReducers.currentListOfTracks,
 
