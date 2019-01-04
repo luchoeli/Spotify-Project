@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { searchAlbums} from '../actions/index'
+import { searchAlbums, searchTracks} from '../actions/index'
 import { Route, Link } from 'react-router-dom';
 import AlbumContainer from '../components/AlbumContainer';
 import Header from '../components/Header.js'
@@ -16,12 +16,14 @@ class Artist extends React.Component {
         console.log("tu busqueda fue " + mystring);
         this.props.searchAlbums(mystring)
         //this.props.searchArtist(mystring)
+        this.props.searchTracks("1WMVvswNzB9i2UMh9svso5")
     }
 
 
     render() {
         const { error, loading, currentListOfAlbums  } = this.props;
         console.log(currentListOfAlbums)
+        
         if (error) {
             return <div>Error! {error.message}</div>;
         }
@@ -75,6 +77,7 @@ const mapStateToProps = (state) => {
   
   const mapDispatchToProps = dispatch => ({
     searchAlbums: artist => dispatch(searchAlbums(artist)),
+    searchTracks: albumID => dispatch(searchTracks(albumID)),
    
   })
   

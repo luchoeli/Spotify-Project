@@ -37,9 +37,9 @@ export const fetchAlbumSearch = (artistId) => {
 }
 
 
-export const fetchTrackSearch = (albumId) => {
+// https://api.spotify.com/v1/albums/{id}/tracks
+export const fetchAlbumTracks = (albumId) => {
     const url = baseUrl + 'albums/' + albumId + '/tracks';
     return fetchData(url, options);
 }
 
-// https://api.spotify.com/v1/albums/{id}/tracks

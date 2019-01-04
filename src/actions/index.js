@@ -1,16 +1,15 @@
-import { ADD_FAVS, DELETE_FAVS, SEARCH_ARTISTS_BEGIN, SEARCH_ARTISTS_SUCCESS, SEARCH_ARTISTS_FAILURE, SEARCH_ALBUM, SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS, SEARCH_ALBUMS_FAILURE, SEARCH_TRACK, UPDATE_SEARCH } from '../constants.js';
+import {ADD_FAVS, DELETE_FAVS, 
+        SEARCH_ARTISTS_BEGIN, SEARCH_ARTISTS_SUCCESS, SEARCH_ARTISTS_FAILURE,
+        SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS, SEARCH_ALBUMS_FAILURE, 
+        SEARCH_TRACKS_BEGIN, SEARCH_TRACKS_SUCCESS,SEARCH_TRACKS_FAILURE, 
+        UPDATE_SEARCH } from '../constants.js';
 
-import {fetchArtistsSearch, fetchAlbumSearch} from '../api/api.js'
+import {fetchArtistsSearch, fetchAlbumSearch, fetchAlbumTracks} from '../api/api.js'
+
 export function updateSearch(input) {
     return {
         type: UPDATE_SEARCH,
         input
-    }
-}
-export function searchTracks(albumId) {
-    return {
-        type: SEARCH_TRACK,
-        albumId
     }
 }
 
@@ -69,6 +68,33 @@ export const searchAlbumsBegin = () => ({
     payload: { error }
   });
 //---------------------------------------------
+export function searchTracks(albumID){
+    return dispatch => {
+        dispatch(searchAlbumsBegin());
+        return fetchAlbumTracks(albumID)
+            .then(json => {
+                dispatch(searchAlbumsSuccess(json.items));
+            })
+            .catch(error =>
+                dispatch(searchAlbumsFailure(error))
+            );
+    };
+}
+
+export const searchTracksBegin = () => ({
+    type: SEARCH_TRACKS_BEGIN
+  });
+  
+  export const searchTracksSuccess = tracks => ({
+    type: SEARCH_TRACKS_SUCCESS,
+    payload: { tracks }
+  });
+  
+  export const searchTracksFailure = error => ({
+    type: SEARCH_TRACKS_FAILURE,
+    payload: { error }
+  });
+  //---------------------------------------------
 export function addFavs(track) {
     return {
         type: ADD_FAVS,

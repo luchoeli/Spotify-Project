@@ -1,5 +1,8 @@
-import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTISTS_BEGIN,SEARCH_ARTISTS_SUCCESS,SEARCH_ARTISTS_FAILURE, SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS,SEARCH_ALBUMS_FAILURE, SEARCH_TRACK, UPDATE_SEARCH} from '../constants.js';
-import {  fetchTrackSearch } from '../api/api.js';
+import {ADD_FAVS, DELETE_FAVS, 
+        SEARCH_ARTISTS_BEGIN,SEARCH_ARTISTS_SUCCESS,SEARCH_ARTISTS_FAILURE, 
+        SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS,SEARCH_ALBUMS_FAILURE, 
+        SEARCH_TRACKS_BEGIN, SEARCH_TRACKS_SUCCESS,SEARCH_TRACKS_FAILURE,
+        UPDATE_SEARCH} from '../constants.js';
 
 const EMPTY = '';
 
@@ -81,39 +84,31 @@ function spotifyReducer(state = initialState, action) {
         error: action.payload.error,
         currentListOfAlbums: []
       }
-    
-    case SEARCH_TRACK:
 
-        let promise3 = fetchTrackSearch(action.albumId);
+      case SEARCH_TRACKS_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
 
-        let trackSearch = []
+    case SEARCH_TRACKS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        currentListOfTracks: action.payload.tracks
+      };
 
-        promise3.then(function(result) {
-
-            for (let i = 0; i < result.items.length; i++) {
-
-                let element = {
-                  name: result.items[i].name,
-                  duration: Math.trunc(result.items[i].duration / 1000), // parte entera superior
-                  id: result.items[i].id
-                };
-
-                trackSearch.push(element);
-
-            }
-
-            console.log('---------------------------')
-
-            for (let i = 0; i < trackSearch.length; i++) {
-              console.log(trackSearch[i].name)
-            }
-
-          });
+    case SEARCH_TRACKS_FAILURE:
 
       return {
-          currentListOfTracks: trackSearch
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        currentListOfTracks: []
       }
-
+    
+    
     case ADD_FAVS: // añade un contenido a favoritos
 
           var newArray = [...state.favsElements];
