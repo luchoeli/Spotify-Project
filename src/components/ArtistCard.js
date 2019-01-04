@@ -1,21 +1,10 @@
 import React, { Component } from 'react';
 import '../stylecheet/FavoriteStyle.css'
 import { Link } from 'react-router-dom';
-class ArtistCard extends Component {
-
-    constructor() {
-        super();
-     
-    }
-
+class ArtistCard extends React.Component {
     render() {
         return (
-            <Link className="cardLink" to={{
-                pathname: "/artist",
-                search:"?sort=" + this.props.id,
-                //hash: "#the-hash",
-                //state: { fromDashboard: true }
-            }} >
+            <Link style={{ textDecoration: 'none' , color:'black'}} to={`/artist/${this.props.id}`}>
 
                 <div className="MusicCard"> 
                         <img src={this.props.artistImg} alt={'imagen of artist'} />
@@ -29,5 +18,4 @@ class ArtistCard extends Component {
         );
     }
 }
-
 export default ArtistCard;

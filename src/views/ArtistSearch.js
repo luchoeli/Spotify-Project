@@ -1,8 +1,9 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
 import ArtistContainer from '../components/ArtistContainer'
-import { Route, Link } from 'react-router-dom';
-import { searchArtists } from '../actions';
+import { Route, Link } from 'react-router-dom'
+import { searchArtists } from '../actions'
+import Input from '../components/Input'
 // deberia recibir como props un json con los resultados de la busqueda q?=ALGO
 
 class ArtistSearch extends React.Component {
@@ -31,9 +32,14 @@ class ArtistSearch extends React.Component {
         return(
             //TODO realizar componente Input para reutilizar
             <div id="artist_search_container">
-                <h1> Artist </h1>
+                
+                <h1> Artist Search </h1>
                 <p> You are currently searching: <strong>{this.state.busquedaEfectiva}</strong> </p> 
               
+                <br />
+
+                <Input />
+
                 <br />
 
                 <Route>
@@ -41,14 +47,6 @@ class ArtistSearch extends React.Component {
                         <li><Link to="/">Home</Link></li>
                     </ul>
                 </Route>
-
-                  <form action="/artistsearch" /*onSubmit={ this.checkInput }*/ > 
-                    <input  type="search" 
-                    id="artistSearch" name="q" aria-label="Search through site content"
-                    placeholder="Search your favorite artist here" />
-                </form>
-
-                <br />
 
                <ArtistContainer busquedaEfectiva={ this.state.busquedaEfectiva } />
 
