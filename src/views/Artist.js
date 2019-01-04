@@ -15,14 +15,14 @@ class Artist extends React.Component {
         var mystring = this.props.match.params.id;
         console.log("tu busqueda fue " + mystring);
         this.props.searchAlbums(mystring)
-        //this.props.searchArtist(mystring)
         this.props.searchTracks("1WMVvswNzB9i2UMh9svso5")
     }
 
 
     render() {
-        const { error, loading, currentListOfAlbums  } = this.props;
+        const { error, loading, currentListOfAlbums, currentListOfTracks } = this.props;
         console.log(currentListOfAlbums)
+        console.log(currentListOfTracks)
         
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -71,7 +71,8 @@ class Artist extends React.Component {
 const mapStateToProps = (state) => {
     return {    
         currentSearch: state.spotifyReducers.currentSearch,
-        currentListOfAlbums: state.spotifyReducers.currentListOfAlbums
+        currentListOfAlbums: state.spotifyReducers.currentListOfAlbums,
+        currentListOfTracks: state.spotifyReducers.currentListOfTracks
     }
 }
   

@@ -70,13 +70,13 @@ export const searchAlbumsBegin = () => ({
 //---------------------------------------------
 export function searchTracks(albumID){
     return dispatch => {
-        dispatch(searchAlbumsBegin());
+        dispatch(searchTracksBegin());
         return fetchAlbumTracks(albumID)
             .then(json => {
-                dispatch(searchAlbumsSuccess(json.items));
+                dispatch(searchTracksSuccess(json.items));
             })
             .catch(error =>
-                dispatch(searchAlbumsFailure(error))
+                dispatch(searchTracksFailure(error))
             );
     };
 }
