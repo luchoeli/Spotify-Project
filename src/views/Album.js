@@ -4,40 +4,57 @@ import Header from '../components/Header';
 
 class Album extends React.Component {
 
-    render() {
-        return (
+    componentWillMount() {
+        var mystring = this.props.match.params.id;
+        console.log("tu busqueda fue " + mystring);
 
-            <div>
-                
+        this.props.searchTrack(mystring)
+    }
+
+    render() {
+        const { error, loading} = this.props;
+
+        if (error) {
+            return <div>Error! {error.message}</div>;
+        }
+
+        if (loading) {
+            return <div>Loading...</div>;
+        }
+
+        if(this.props.currentListOfTracks.length>0){          
+            return (                
+                <div>
                 <Header haveSearchBar={true} />
 
-                <h1>ALBUM</h1>
-
+                <h1>ARTIST</h1>  
                 <Route>
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/artistsearch">Artist Search</Link></li>
-                        <li><Link to="/artist">Artist</Link></li>
                     </ul>
                 </Route>
 
+                <hr />
+
+                <img src={currentArtistImagen} alt="logo de la banda"/>
+                <AlbumContainer  busquedaEfectiva={ this.state.busquedaEfectiva }/>
 
                 <hr />
 
-                <hr />
-        
-                <p>LOGO DEL ALBUM [X]</p>
-                <h1> {this.props.name} </h1>
-                <h3> {this.props.banda} - {this.props.anio} </h3>
-
-                <hr />
-
-                <p> ACA VA EL SONGS-CONTAINER </p>
 
             </div>
 
-        )
+            )
+        }
+
+        return(
+            <p>No artist found for "{this.props.busquedaEfectiva}"</p>
+        )   
+
+    
     }
 }
 
 export default Album;
+
