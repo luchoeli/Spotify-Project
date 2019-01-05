@@ -14,13 +14,14 @@ class Album extends React.Component {
                 <h1>ALBUM</h1>
 
                 <Route>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-                        <li class="breadcrumb-item"><Link to="/artistsearch">Artist Search</Link></li>
-                        <li class="breadcrumb-item active"><Link to="/artist">Artist</Link></li>
-                    </ol>
-                </nav>
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                            <li className="breadcrumb-item "><Link to="/artistsearch">Artist</Link></li>         
+                            <li className="breadcrumb-item "><Link to="/artist">artistName</Link></li>    
+                            <li className="breadcrumb-item active"><Link to="/album">albumName</Link></li>    
+                        </ol>
+                    </nav>
                 </Route>
 
                 <hr />

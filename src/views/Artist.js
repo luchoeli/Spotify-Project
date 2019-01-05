@@ -47,11 +47,15 @@ class Artist extends React.Component {
                     <p>{currenteArtistGenre}</p> 
                     <img src={currentArtistImagen} alt="Artist logo "/>
                 </div>     
+
                 <Route>
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/artistsearch">Artist Search</Link></li>
-                    </ul>
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                            <li className="breadcrumb-item "><Link to="/artistsearch">Artist</Link></li>         
+                            <li className="breadcrumb-item active"><Link to="/artist/">{currentArtistName}</Link></li>      
+                        </ol>
+                    </nav>
                 </Route>
 
                 <hr />
