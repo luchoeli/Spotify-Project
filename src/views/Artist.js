@@ -46,7 +46,7 @@ class Artist extends React.Component {
                     <h1>{currentArtistName}</h1>
                     <p>{currenteArtistGenre}</p> 
                     <img src={currentArtistImagen} alt="Artist logo "/>
-                </div>
+                </div>     
                 <Route>
                     <ul>
                         <li><Link to="/">Home</Link></li>
