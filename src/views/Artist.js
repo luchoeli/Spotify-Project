@@ -4,6 +4,7 @@ import { searchAlbums, searchTracks, searchArtistID} from '../actions/index'
 import { Route, Link } from 'react-router-dom';
 import AlbumContainer from '../components/AlbumContainer';
 import Header from '../components/Header.js'
+import '../stylecheet/View.css'
 
 class Artist extends React.Component {
 
@@ -38,12 +39,14 @@ class Artist extends React.Component {
         }
 
         return (             
-            <div>
+            <div className="main_view">
                 <Header haveSearchBar={true} />
                 <hr />
-                <h1>{currentArtistName}</h1>
-                <p>{currenteArtistGenre}</p> 
-                <img src={currentArtistImagen} alt="Artist logo "/>
+                <div className="artistInfo">
+                    <h1>{currentArtistName}</h1>
+                    <p>{currenteArtistGenre}</p> 
+                    <img src={currentArtistImagen} alt="Artist logo "/>
+                </div>
                 <Route>
                     <ul>
                         <li><Link to="/">Home</Link></li>

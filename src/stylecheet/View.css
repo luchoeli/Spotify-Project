@@ -50,8 +50,7 @@ html {
 .clearfix {
     *zoom: 1;
 }
-
-
-#home_container {
+/* clase de cada una de las vistas*/
+.main_view{
     margin: 1% 13%;
 }

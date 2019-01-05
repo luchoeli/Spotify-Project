@@ -7,7 +7,7 @@ class Album extends React.Component {
     render() {
         return (
 
-            <div>
+            <div className="main_view">
                 
                 <Header haveSearchBar={true} />
 

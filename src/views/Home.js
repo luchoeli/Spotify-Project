@@ -1,7 +1,7 @@
 import React from 'react'
 import FavoriteContainer from '../components/FavoriteContainer'
 import Header from '../components/Header.js'
-import '../stylecheet/Home.css'
+import '../stylecheet/View.css'
 import Input from '../components/Input'
 
 
@@ -11,7 +11,7 @@ class Home extends React.Component {
 
         
         return(
-            <div id="home_container">
+            <div className="main_view">
                 <Header haveSearchBar={ false } />
                 <hr />  
                 <h4>Welcome to</h4>

@@ -8,7 +8,6 @@ class AlbumContainer extends React.Component {
 
     render() {
         const { error, loading, currentListOfAlbums } = this.props;
-        console.log(currentListOfAlbums.length)
         
         if (error) {
             return <div>Error! {error.message} </div>; // TIRA ERROR ACA

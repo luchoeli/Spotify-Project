@@ -32,7 +32,7 @@ class ArtistSearch extends React.Component {
         
         return(
             //TODO realizar componente Input para reutilizar
-            <div id="artist_search_container">
+            <div className="main_view">
                 
                 <Header haveSearchBar={ false } />
 
