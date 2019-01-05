@@ -15,9 +15,9 @@ class AlbumContainer extends React.Component {
 
         if (loading) {
             return (
-                <div class="text-center">
-                    <div class="spinner-border" role="status">
-                        <span class="sr-only">Loading...</span>
+                <div className="text-center">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
                     </div>
                 </div>
             );
@@ -26,7 +26,7 @@ class AlbumContainer extends React.Component {
         if(currentListOfAlbums.length>0)
             
             return ( 
-                <div>
+                <div >
                     <h2>Artistas</h2>
                     <section className="cardContainer">                  
                         {

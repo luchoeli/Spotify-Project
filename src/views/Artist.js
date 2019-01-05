@@ -36,8 +36,8 @@ class Artist extends React.Component {
 
         if (loading) {
             return (
-                <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
+                <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
                 </div>
             );
         }
@@ -46,7 +46,7 @@ class Artist extends React.Component {
             <div className="main_view">
                 <Header haveSearchBar={true} />
                 <hr />
-                <div className="artistInfo">
+                <div className="artistInfo" className="shadow p-3 mb-5 bg-white rounded">
                     <h1>{currentArtistName}</h1>
                     <p>{currenteArtistGenre}</p> 
                     <img src={currentArtistImagen} alt="Artist logo "/>
