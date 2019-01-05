@@ -11,7 +11,7 @@ class MusicCard extends Component {
                     <p>Artist: {this.props.artist} </p>
                     <p>Album: {this.props.album}</p>
                 </div>
-            </div>
+            </div>      
         );
     }
 }

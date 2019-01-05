@@ -48,11 +48,15 @@ class Album extends React.Component {
 
                 <hr />
                 <div className="shadow p-3 mb-5 bg-white rounded">
-                    <h1>{currentAlbumName}</h1>
-                    <p>{currentAlbumArtist} - {currentAlbumReleaseDate}</p> 
-                    <img src={currentAlbumImg} alt="Album logo "/>
+                    <div className="media">
+                        <img src={currentAlbumImg}  className="align-self-start mr-3" alt="Album Logo"/>
+                        <div className="media-body">
+                            <h3 className="mt-0">{currentAlbumName}</h3>
+                            <p>{currentAlbumArtist} - {currentAlbumReleaseDate}</p>
+                        </div>
+                    </div>
+                       
                 </div>     
-                
 
                 <hr />
                 <Route>

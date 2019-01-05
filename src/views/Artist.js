@@ -47,9 +47,13 @@ class Artist extends React.Component {
                 <Header haveSearchBar={true} />
                 <hr />
                 <div className="shadow p-3 mb-5 bg-white rounded">
-                    <h1>{currentArtistName}</h1>
-                    <p>{currenteArtistGenre}</p> 
-                    <img src={currentArtistImagen} alt="Artist logo "/>
+                    <div className="media">
+                        <img src={currentArtistImagen}  className="align-self-start mr-3" alt="Album Logo"/>
+                        <div className="media-body">
+                            <h3 className="mt-0">{currentArtistName}</h3>
+                            <p>{currenteArtistGenre}</p>
+                        </div>
+                    </div>
                 </div>     
 
                 <Route>
