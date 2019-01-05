@@ -4,6 +4,7 @@ import ArtistContainer from '../components/ArtistContainer'
 import { Route, Link } from 'react-router-dom'
 import { searchArtists } from '../actions'
 import Input from '../components/Input'
+import Header from '../components/Header'
 // deberia recibir como props un json con los resultados de la busqueda q?=ALGO
 
 class ArtistSearch extends React.Component {
@@ -33,7 +34,9 @@ class ArtistSearch extends React.Component {
             //TODO realizar componente Input para reutilizar
             <div id="artist_search_container">
                 
-                <h1> Artists  </h1>
+                <Header haveSearchBar={ false } />
+
+                <h1> Artists </h1>
                 <p> You are currently searching: <strong>{this.state.busquedaEfectiva}</strong> </p> 
 
                 <Input />

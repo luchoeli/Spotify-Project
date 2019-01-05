@@ -1,8 +1,8 @@
 
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 import '../stylecheet/FavoriteStyle.css'
-import ArtistCard from './ArtistCard';
+import ArtistCard from './ArtistCard'
 
 class ArtistContainer extends React.Component {
 
@@ -45,7 +45,6 @@ class ArtistContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {    
-        currentSearch: state.spotifyReducers.currentSearch,
         currentListOfArtists: state.spotifyReducers.currentListOfArtists,
         loading: state.spotifyReducers.loading,
         error: state.spotifyReducers.error
@@ -53,7 +52,7 @@ const mapStateToProps = (state) => {
 }
   
 const mapDispatchToProps = dispatch => ({
-    //searchArtists: artist => dispatch(searchArtists(artist)),
+    
 })
 
 export default connect(

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import '../stylecheet/FavoriteStyle.css'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 class ArtistCard extends React.Component {
     render() {
         return (

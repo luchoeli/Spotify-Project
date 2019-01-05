@@ -9,6 +9,8 @@
    
 }
 
+
+
 .MusicCard {
   background-color: rgb(10, 197, 135);
   border: 1px solid black;
@@ -19,6 +21,12 @@
   min-width: 33%;
   border-radius: 5px;
   padding:5px;
+  
+}
+
+.MusicCard:hover {
+    transition: 0.155s;
+    filter: brightness(80%);
 }
 
 .MusicCard img {
