@@ -28,11 +28,9 @@ class TrackContainer extends React.Component{
                 <section className="cardContainer">                  
                 <ol>
                     {
-                        currentListOfTracks.length > 0 && currentListOfTracks.map((a) => {
-                            console.log("nombre: " + a.name)
-                            
+                        currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {
                             return (
-                                <li>
+                                <li key={index}>
                                     <p>{a.name}</p>
                                 </li>        
                             );

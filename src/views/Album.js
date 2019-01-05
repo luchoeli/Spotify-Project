@@ -47,7 +47,7 @@ class Album extends React.Component {
                 <Header haveSearchBar={true} />
 
                 <hr />
-                <div className="artistInfo" className="shadow p-3 mb-5 bg-white rounded">
+                <div className="shadow p-3 mb-5 bg-white rounded">
                     <h1>{currentAlbumName}</h1>
                     <p>{currentAlbumArtist} - {currentAlbumReleaseDate}</p> 
                     <img src={currentAlbumImg} alt="Album logo "/>
