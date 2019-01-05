@@ -14,7 +14,13 @@ class ArtistContainer extends React.Component {
         }
 
         if (loading) {
-            return <div>Loading...</div>;
+            return (
+                <div class="text-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            );
         }
 
         if(this.props.currentListOfArtists.length>0){
