@@ -8,20 +8,25 @@ class AlbumContainer extends React.Component {
 
     render() {
         const { error, loading, currentListOfAlbums } = this.props;
-        console.log(currentListOfAlbums.length)
         
         if (error) {
             return <div>Error! {error.message} </div>; // TIRA ERROR ACA
         }
 
         if (loading) {
-            return <div>Loading...</div>;
+            return (
+                <div className="text-center">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            );
         }
 
         if(currentListOfAlbums.length>0)
             
             return ( 
-                <div>
+                <div >
                     <h2>Artistas</h2>
                     <section className="cardContainer">                  
                         {
@@ -36,6 +41,8 @@ class AlbumContainer extends React.Component {
                                                     albumImg={a.images[0] ? a.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png" }
                                                     />
                                 );
+                                
+                                
                                 
                             })
                         }

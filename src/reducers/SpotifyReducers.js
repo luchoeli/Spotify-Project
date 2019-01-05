@@ -56,7 +56,8 @@ function spotifyReducer(state = initialState, action) {
         loading: false,
        
         currentArtistName: action.payload.name,
-        currentArtistImagen:action.payload.images[0].url
+        currentArtistImagen: action.payload.images[0].url,
+        currentArtistGenre: action.payload.genres[0]
       };
 
     case SEARCH_ARTIST_ID_FAILURE:
@@ -66,7 +67,8 @@ function spotifyReducer(state = initialState, action) {
         loading: false,
         error: action.payload.error,
         currentArtistName: EMPTY,
-        currentArtistImagen: EMPTY
+        currentArtistImagen: EMPTY,
+        currentArtistGenre: EMPTY
       }
 //----------------------------------------------------------//
     case SEARCH_ARTISTS_BEGIN:
@@ -126,7 +128,7 @@ function spotifyReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        currentListOfTracks: action.payload.tracks
+        currentListOfTracks: action.payload.tracks,
       };
 
     case SEARCH_TRACKS_FAILURE:

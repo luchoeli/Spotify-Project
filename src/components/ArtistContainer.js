@@ -14,13 +14,18 @@ class ArtistContainer extends React.Component {
         }
 
         if (loading) {
-            return <div>Loading...</div>;
+            return (
+                <div className="text-center">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            );
         }
 
         if(this.props.currentListOfArtists.length>0){
             return ( 
                 <div>
-                    <h2>Artistas</h2>
                     <section className="cardContainer">                  
                         {
                             currentListOfArtists.length > 0 && currentListOfArtists.map((a) => {

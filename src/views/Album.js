@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import Header from '../components/Header';
+import { connect } from 'react-redux'
+import { searchTracks } from '../actions/index'
 
 class Album extends React.Component {
 
@@ -8,11 +10,13 @@ class Album extends React.Component {
         var mystring = this.props.match.params.id;
         console.log("tu busqueda fue " + mystring);
 
-        this.props.searchTrack(mystring)
+        this.props.searchTracks(mystring)
+        console.log(this.props.currentListOfTracks.length)
+        debugger
     }
 
     render() {
-        const { error, loading} = this.props;
+        const { error, loading } = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -29,16 +33,19 @@ class Album extends React.Component {
 
                 <h1>ARTIST</h1>  
                 <Route>
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/artistsearch">Artist Search</Link></li>
-                    </ul>
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                            <li className="breadcrumb-item "><Link to="/artistsearch">Artist</Link></li>         
+                            <li className="breadcrumb-item "><Link to="/artist">artistName</Link></li>    
+                            <li className="breadcrumb-item active"><Link to="/album">albumName</Link></li>    
+                        </ol>
+                    </nav>
                 </Route>
 
                 <hr />
 
-                <img src={currentArtistImagen} alt="logo de la banda"/>
-                <AlbumContainer  busquedaEfectiva={ this.state.busquedaEfectiva }/>
+        
 
                 <hr />
 
@@ -49,12 +56,25 @@ class Album extends React.Component {
         }
 
         return(
-            <p>No artist found for "{this.props.busquedaEfectiva}"</p>
+            <p>No album found for "{this.props.busquedaEfectiva}"</p>
         )   
 
     
     }
 }
 
-export default Album;
+const mapStateToProps = (state) => {
+    return {    
+        currentListOfTracks: state.spotifyReducers.currentListOfTracks
+    }
+}
+  
+  const mapDispatchToProps = dispatch => ({
+    searchTracks: albumID => dispatch(searchTracks(albumID))
+  })
+  
+  export default connect (
+    mapStateToProps,
+    mapDispatchToProps
+  )(Album)
 

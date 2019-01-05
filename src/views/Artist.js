@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { searchAlbums, searchTracks, searchArtistID} from '../actions/index'
+import { searchAlbums, searchArtistID} from '../actions/index'
 import { Route, Link } from 'react-router-dom';
 import AlbumContainer from '../components/AlbumContainer';
 import Header from '../components/Header.js'
+import '../stylecheet/View.css'
 
 class Artist extends React.Component {
 
@@ -27,47 +28,47 @@ class Artist extends React.Component {
 
 
     render() {
-        const { error, loading, currentArtistImagen} = this.props;
+        const { error, loading, currentArtistImagen, currentArtistName, currenteArtistGenre} = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
         }
 
         if (loading) {
-            return <div>Loading...</div>;
+            return (
+                <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            );
         }
 
-        if(this.props.currentListOfAlbums.length>0){          
-            return (                
-                <div>
+        return (             
+            <div className="main_view">
                 <Header haveSearchBar={true} />
+                <hr />
+                <div className="artistInfo, shadow p-3 mb-5 bg-white rounded">
+                    <h1>{currentArtistName}</h1>
+                    <p>{currenteArtistGenre}</p> 
+                    <img src={currentArtistImagen} alt="Artist logo "/>
+                </div>     
 
-                <h1>ARTIST</h1>  
                 <Route>
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/artistsearch">Artist Search</Link></li>
-                    </ul>
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                            <li className="breadcrumb-item "><Link to="/artistsearch">Artist</Link></li>         
+                            <li className="breadcrumb-item active"><Link to="/artist/">{currentArtistName}</Link></li>      
+                        </ol>
+                    </nav>
                 </Route>
 
                 <hr />
-
-                <img src={currentArtistImagen} alt="logo de la banda"/>
                 <AlbumContainer  busquedaEfectiva={ this.state.busquedaEfectiva }/>
 
                 <hr />
-
-
             </div>
-
-            )
-        }
-
-        return(
-            <p>No artist found for "{this.props.busquedaEfectiva}"</p>
-        )   
-
-    
+        )
+        
     }
 }
 
@@ -75,18 +76,17 @@ class Artist extends React.Component {
 const mapStateToProps = (state) => {
     return {    
         currentListOfAlbums: state.spotifyReducers.currentListOfAlbums,
-        currentListOfTracks: state.spotifyReducers.currentListOfTracks,
 
         currentArtistName: state.spotifyReducers.currentArtistName,
-        currentArtistImagen: state.spotifyReducers.currentArtistImagen
+        currentArtistImagen: state.spotifyReducers.currentArtistImagen,
+        currenteArtistGenre: state.spotifyReducers.currentArtistGenre
+
     }
 }
   
   const mapDispatchToProps = dispatch => ({
     searchAlbums: artist => dispatch(searchAlbums(artist)),
     searchArtistID: artist => dispatch(searchArtistID(artist)),
-    searchTracks: albumID => dispatch(searchTracks(albumID))
-   
   })
   
   export default connect (

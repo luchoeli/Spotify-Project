@@ -1,7 +1,5 @@
 import $ from 'jquery';
-const REFRESH_TOKEN = 'AQCiiV7eaXE7NASq03POL0p3aPOTOQeBz9fmfyAnW9cYoj1dko4i3pH7BLUQ_4z6ZYfviqRuaOKITX8csElEh0cKaduiTAuS4n5M34n2GzUTJxM7oHIyuB3_9Xcr8_Z_Z4gUhQ';
-//const REFRESH_TOKEN = 'AQBNn8hg4vNPeX-SSYtecupL1vXcJuN61p12IuOpQMsdg_UQgZDO7LQz81yh_kYc1HGcI3ylPsV5fzSlE8dNRFi5V-DreNcG5nbWN7JR0lellUiE2FM7HHFzkYgR5J3Hijvvpw';
-
+const REFRESH_TOKEN = 'AQBVtKNC17U9g692pbmFB9n9LdipfPZRpaX1iSDujmiVkIVPI_dKFymTfRc_w6dUFIL9wxOcWAbNWY6N0V-ljNkav3UK-F5YyKD68pZ8XE1OG0aKo-e-fahJDKxG_gSMNGGSDg';
 class SpotifyOptions {
     constructor() {
         this.options = {

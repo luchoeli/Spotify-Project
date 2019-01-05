@@ -32,23 +32,24 @@ class ArtistSearch extends React.Component {
         
         return(
             //TODO realizar componente Input para reutilizar
-            <div id="artist_search_container">
+            <div className="main_view">
                 
                 <Header haveSearchBar={ false } />
 
-                <h1> Artist Search </h1>
+                <h1> Artists </h1>
                 <p> You are currently searching: <strong>{this.state.busquedaEfectiva}</strong> </p> 
-              
-                <br />
 
                 <Input />
 
                 <br />
 
                 <Route>
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                    </ul>
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item" aria-current="page"><Link to="/">Home</Link></li>
+                            <li className="breadcrumb-item active" aria-current="page"><Link to="/artistsearch">Artists</Link></li>
+                        </ol>
+                    </nav>    
                 </Route>
 
                <ArtistContainer busquedaEfectiva={ this.state.busquedaEfectiva } />
