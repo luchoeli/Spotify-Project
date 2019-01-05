@@ -19,7 +19,7 @@ export function searchArtistID(artistID) {
         dispatch(searchArtistsBegin());
         return fetchArtist(artistID)
             .then(json => {
-                dispatch(searchArtistsIDSuccess(json.name, json.images));
+                dispatch(searchArtistsIDSuccess(json.name, json.images, json.genres));
             })
             .catch(error =>
                 dispatch(searchArtistsIDFailure(error))
@@ -31,9 +31,9 @@ export const searchArtistsIDBegin = () => ({
   type: SEARCH_ARTIST_ID_BEGIN
 });
 
-export const searchArtistsIDSuccess = (name, images) => ({
+export const searchArtistsIDSuccess = (name, images, genres) => ({
   type: SEARCH_ARTIST_ID_SUCCESS,
-  payload: { name, images }
+  payload: { name, images, genres }
 });
 
 export const searchArtistsIDFailure = error => ({

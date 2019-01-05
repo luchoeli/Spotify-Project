@@ -27,7 +27,7 @@ class Artist extends React.Component {
 
 
     render() {
-        const { error, loading, currentArtistImagen, currentArtistName} = this.props;
+        const { error, loading, currentArtistImagen, currentArtistName, currenteArtistGenre} = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -37,12 +37,12 @@ class Artist extends React.Component {
             return <div>Loading...</div>;
         }
 
-        return (                
+        return (             
             <div>
                 <Header haveSearchBar={true} />
                 <hr />
                 <h1>{currentArtistName}</h1>
-                <p>genero</p> 
+                <p>{currenteArtistGenre}</p> 
                 <img src={currentArtistImagen} alt="Artist logo "/>
                 <Route>
                     <ul>
@@ -68,7 +68,9 @@ const mapStateToProps = (state) => {
         currentListOfTracks: state.spotifyReducers.currentListOfTracks,
 
         currentArtistName: state.spotifyReducers.currentArtistName,
-        currentArtistImagen: state.spotifyReducers.currentArtistImagen
+        currentArtistImagen: state.spotifyReducers.currentArtistImagen,
+        currenteArtistGenre: state.spotifyReducers.currentArtistGenre
+
     }
 }
   
