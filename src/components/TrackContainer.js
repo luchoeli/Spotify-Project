@@ -26,17 +26,29 @@ class TrackContainer extends React.Component{
             <div >
                 <h2>Tracks</h2>
                 <section className="cardContainer">                  
-                <ol>
-                    {
-                        currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {
-                            return (
-                                <li key={index}>
-                                    <p>{a.name}</p>
-                                </li>        
-                            );
-                        })
-                    }
-                </ol>
+                    <table className="table table-striped">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Favorite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {
+                            currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <th scope="row">{index}</th>
+                                        <td>{a.name}</td>
+                                        <td>Star</td>
+                                    </tr>  
+                                );
+                            })
+                        }
+                        </tbody>
+                    </table>
+                
 
                 </section>
             </div>
