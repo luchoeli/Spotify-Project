@@ -9,14 +9,15 @@ class Header extends React.Component {
         if (this.props.haveSearchBar){ 
             return (
                 <div>
-                    <header className='headerALaIzquierda'> LOGO PROPIO DE LA APP [X] </header>
+                    <header className='headerALaIzquierda'> <img id='logoApp' src='https://image.flaticon.com/icons/png/128/246/246141.png' alt={'logo de spotify'}/></header>
                     <Input />
                 </div>
             )
         }
         else
             {
-                return  <header className='headerAlCentro'> LOGO PROPIO DE LA APP [X] </header>
+                return  <header className='headerAlCentro'> <img id='logoApp' src='https://image.flaticon.com/icons/png/128/246/246141.png' alt={'logo de spotify'}/> </header>
+
             }
     }
 

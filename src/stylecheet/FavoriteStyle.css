@@ -47,3 +47,8 @@ img {
 .artistInfo {
     background-color: beige;
  }
+
+ #logoApp  {
+    border: none;
+    align-items: center;
+ }
