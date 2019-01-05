@@ -27,7 +27,7 @@ class AlbumContainer extends React.Component {
             
             return ( 
                 <div >
-                    <h2>Artistas</h2>
+                    <h2>Albums</h2>
                     <section className="cardContainer">                  
                         {
                             currentListOfAlbums.length > 0 && currentListOfAlbums.map((a) => {

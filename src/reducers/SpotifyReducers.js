@@ -2,7 +2,7 @@ import {ADD_FAVS, DELETE_FAVS,
         SEARCH_ARTIST_ID_BEGIN, SEARCH_ARTIST_ID_SUCCESS, SEARCH_ARTIST_ID_FAILURE,
         SEARCH_ARTISTS_BEGIN,SEARCH_ARTISTS_SUCCESS,SEARCH_ARTISTS_FAILURE, 
         SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS,SEARCH_ALBUMS_FAILURE, 
-        SEARCH_TRACKS_BEGIN, SEARCH_TRACKS_SUCCESS,SEARCH_TRACKS_FAILURE,
+        SEARCH_ALBUM_ID_BEGIN, SEARCH_ALBUM_ID_SUCCESS,SEARCH_ALBUM_ID_FAILURE,
         UPDATE_SEARCH} from '../constants.js';
 
 const EMPTY = '';
@@ -25,7 +25,7 @@ const initialState = {
             ],
             
             currentArtist: EMPTY,
-            currentAlbumn: EMPTY,
+            currentAlbum: EMPTY,
 
             currentSearch: EMPTY,
             loading: false,
@@ -117,21 +117,25 @@ function spotifyReducer(state = initialState, action) {
         currentListOfAlbums: []
       }
 //----------------------------------------------------------//
-      case SEARCH_TRACKS_BEGIN:
+      case SEARCH_ALBUM_ID_BEGIN:
       return {
         ...state,
         loading: true,
         error: null
       };
 
-    case SEARCH_TRACKS_SUCCESS:
+    case SEARCH_ALBUM_ID_SUCCESS:
       return {
         ...state,
         loading: false,
+        currentAlbumName: action.payload.name,
+        currentAlbumArtist: action.payload.artists,
+        currentAlbumReleaseDate: action.payload.release_date,
+        currentAlbumImg: action.payload.images[0].url,
         currentListOfTracks: action.payload.tracks
       };
 
-    case SEARCH_TRACKS_FAILURE:
+    case SEARCH_ALBUM_ID_FAILURE:
 
       return {
         ...state,

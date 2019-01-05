@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { searchAlbums, searchTracks, searchArtistID} from '../actions/index'
+import { searchAlbums, searchArtistID} from '../actions/index'
 import { Route, Link } from 'react-router-dom';
 import AlbumContainer from '../components/AlbumContainer';
 import Header from '../components/Header.js'
@@ -87,9 +87,7 @@ const mapStateToProps = (state) => {
   
   const mapDispatchToProps = dispatch => ({
     searchAlbums: artist => dispatch(searchAlbums(artist)),
-    searchArtistID: artist => dispatch(searchArtistID(artist)),
-    searchTracks: albumID => dispatch(searchTracks(albumID))
-   
+    searchArtistID: artist => dispatch(searchArtistID(artist))   
   })
   
   export default connect (

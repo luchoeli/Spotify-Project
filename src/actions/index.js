@@ -2,10 +2,10 @@ import {ADD_FAVS, DELETE_FAVS,
         SEARCH_ARTIST_ID_BEGIN, SEARCH_ARTIST_ID_SUCCESS, SEARCH_ARTIST_ID_FAILURE,
         SEARCH_ARTISTS_BEGIN, SEARCH_ARTISTS_SUCCESS, SEARCH_ARTISTS_FAILURE,
         SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS, SEARCH_ALBUMS_FAILURE, 
-        SEARCH_TRACKS_BEGIN, SEARCH_TRACKS_SUCCESS,SEARCH_TRACKS_FAILURE, 
+        SEARCH_ALBUM_ID_BEGIN, SEARCH_ALBUM_ID_SUCCESS,SEARCH_ALBUM_ID_FAILURE, 
         UPDATE_SEARCH } from '../constants.js';
 
-import {fetchArtistsSearch, fetchAlbumSearch, fetchAlbumTracks, fetchArtist} from '../api/api.js'
+import {fetchArtistsSearch, fetchAlbumSearch, fetchAlbum, fetchArtist} from '../api/api.js'
 
 export function updateSearch(input) {
     return {
@@ -95,30 +95,30 @@ export const searchAlbumsBegin = () => ({
     payload: { error }
   });
 //---------------------------------------------
-export function searchTracks(albumID){
+export function searchAlbumID(albumID){
     return dispatch => {
-        dispatch(searchTracksBegin());
-        return fetchAlbumTracks(albumID)
+        dispatch(searchAlbumIDBegin());
+        return fetchAlbum(albumID)
             .then(json => {
-                dispatch(searchTracksSuccess(json.tracks.items));
+                dispatch(searchAlbumIDSuccess(json.name, json.artists[0].name, json.release_date, json.images, json.tracks.items));
             })
             .catch(error =>
-                dispatch(searchTracksFailure(error))
+                dispatch(searchAlbumIDFailure(error))
             );
     };
 }
 
-export const searchTracksBegin = () => ({
-    type: SEARCH_TRACKS_BEGIN
+export const searchAlbumIDBegin = () => ({
+    type: SEARCH_ALBUM_ID_BEGIN
   });
   
-  export const searchTracksSuccess = tracks => ({
-    type: SEARCH_TRACKS_SUCCESS,
-    payload: { tracks }
+  export const searchAlbumIDSuccess = (name, artists, release_date, images, tracks) => ({
+    type: SEARCH_ALBUM_ID_SUCCESS,
+    payload: { name, artists, release_date, images, tracks }
   });
   
-  export const searchTracksFailure = error => ({
-    type: SEARCH_TRACKS_FAILURE,
+  export const searchAlbumIDFailure = error => ({
+    type: SEARCH_ALBUM_ID_FAILURE,
     payload: { error }
   });
   //---------------------------------------------
