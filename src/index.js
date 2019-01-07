@@ -13,11 +13,21 @@ import thunk from "redux-thunk";
 import AppRoutes from './routes';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import {loadState, saveState} from './localStorage/localStorage.js'
+
+const persistedState = loadState();
+
+
 const store = createStore(
   rootReducer, 
+  persistedState,
   applyMiddleware(thunk)
- );
-
+  );
+  
+store.subscribe(() => {
+  saveState({
+    favsElements: store.getState})
+})
 ReactDOM.render(
   <Provider store={store}>
     <Router>
