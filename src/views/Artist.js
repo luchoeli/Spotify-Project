@@ -16,7 +16,6 @@ class Artist extends React.Component {
     }
     componentDidMount() {
         var mystring = this.props.match.params.id;
-        console.log("tu busqueda fue " + mystring);
 
         this.setState({
             busquedaEfectiva: mystring

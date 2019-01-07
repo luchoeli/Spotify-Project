@@ -31,7 +31,6 @@ class TrackContainer extends React.Component{
                 </div>
             );
         }
-        console.log(currentListOfTracks)
         if(currentListOfTracks.length>0)
          
         return ( 
@@ -51,7 +50,6 @@ class TrackContainer extends React.Component{
                            
                             currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {                                
                                 const isFav = favsID.includes(a.id)
-                                console.log(isFav)
                                 let fun ='';
                                 if (isFav){
                                     fun = () => this.props.deleteFavs(a.id);
