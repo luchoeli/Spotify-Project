@@ -24,10 +24,10 @@ const store = createStore(
   applyMiddleware(thunk)
   );
   
-store.subscribe(() => {
-  saveState({
-    favsElements: store.getState})
-})
+  store.subscribe(() => {
+    saveState(
+      store.getState())
+    });
 ReactDOM.render(
   <Provider store={store}>
     <Router>

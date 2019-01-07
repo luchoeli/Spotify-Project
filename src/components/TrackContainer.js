@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import '../stylecheet/FavoriteStyle.css'
 import Star from './Star'
-import { addFavs } from '../actions'
+import { addFavs, deleteFavs } from '../actions'
 
 class TrackContainer extends React.Component{
 
@@ -43,12 +43,19 @@ class TrackContainer extends React.Component{
                         <tbody>
                         {
                             currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {                                
+                                const isFav = this.props.favsElements.includes(a.id)
+                                let fun ='';
+                                if (isFav){
+                                    fun = () => this.props.deleteFavs(a.id);
+                                }else{
+                                    fun = () => this.props.addFavs(a.id, a.name, a.artists[0].name, this.props.currentAlbumImg, this.props.currentAlbumName);
+                                }
                                 return (
                                     <tr key={index}>
                                         <th scope="row">{a.track_number}</th>
                                         <td>{a.name}</td>
                                         <td>
-                                            <Star isFav={true} onClick={() => this.props.addFavs(a.id, a.name, a.artists[0].name, this.props.currentAlbumImg, this.props.currentAlbumName)}/> 
+                                            <Star isFav={isFav} onClick={fun}/> 
                                         </td>
                                     </tr>  
                                 );
@@ -68,7 +75,8 @@ class TrackContainer extends React.Component{
     }
 }
 const mapStateToProps = (state) => {
-    return {    
+    return {
+        favsElements: state.spotifyReducers.favsElements,    
         currentListOfTracks: state.spotifyReducers.currentListOfTracks,
         currentAlbumImg: state.spotifyReducers.currentAlbumImg,
         currentAlbumName: state.spotifyReducers.currentAlbumName,
@@ -77,7 +85,8 @@ const mapStateToProps = (state) => {
 }
   
 const mapDispatchToProps = dispatch => ({
-    addFavs: (songID, name, artists, albumImg, albumName) => dispatch(addFavs(songID, name, artists, albumImg, albumName))
+    addFavs: (songID, name, artists, albumImg, albumName) => dispatch(addFavs(songID, name, artists, albumImg, albumName)),
+    deleteFavs: song => dispatch(deleteFavs(song)),
 })
 
 export default connect(
