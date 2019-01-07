@@ -2,8 +2,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import '../stylecheet/FavoriteStyle.css'
+import Star from './Star'
 
 class TrackContainer extends React.Component{
+
+    starClick(e){
+        console.log(e)
+    }
+
     render(){
         const { error, loading, currentListOfTracks } = this.props;
         
@@ -21,7 +27,7 @@ class TrackContainer extends React.Component{
             );
         }
         if(currentListOfTracks.length>0)
-            
+         
         return ( 
             <div >
                 <h2>Tracks</h2>
@@ -41,7 +47,9 @@ class TrackContainer extends React.Component{
                                     <tr key={index}>
                                         <th scope="row">{index}</th>
                                         <td>{a.name}</td>
-                                        <td>Star</td>
+                                        <td>
+                                            <Star isFav={true} onClick={this.starClick}/> 
+                                        </td>
                                     </tr>  
                                 );
                             })
