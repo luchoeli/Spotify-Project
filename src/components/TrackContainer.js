@@ -12,6 +12,12 @@ class TrackContainer extends React.Component{
     render(){
         const { error, loading, currentListOfTracks } = this.props;
         
+        let favsID=[];
+
+        this.props.favsElements.length>0 && this.props.favsElements.map((a) => {
+            favsID.push(a.id)
+        })
+
         if (error) {
             return <div>Error! {error.message} </div>; // TIRA ERROR ACA
         }
@@ -41,9 +47,11 @@ class TrackContainer extends React.Component{
                             </tr>
                         </thead>
                         <tbody>
-                        {
+                        {   
+                           
                             currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {                                
-                                const isFav = this.props.favsElements.includes(a.id)
+                                const isFav = favsID.includes(a.id)
+                                console.log(isFav)
                                 let fun ='';
                                 if (isFav){
                                     fun = () => this.props.deleteFavs(a.id);
