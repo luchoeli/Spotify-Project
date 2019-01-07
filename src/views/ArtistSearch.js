@@ -19,7 +19,6 @@ class ArtistSearch extends React.Component {
     componentDidMount() {
         var mystring = this.props.location.search.replace('?q=','');
 
-        console.log("tu busqueda fue " + mystring);
 
         this.setState({
             busquedaEfectiva: mystring

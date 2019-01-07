@@ -123,7 +123,7 @@ export const searchAlbumIDBegin = () => ({
   });
   //---------------------------------------------
 export function addFavs(track, name, artists, albumImg, albumName) {
-    console.log("add")
+    
     return {
         type: ADD_FAVS,
         track,
@@ -135,7 +135,7 @@ export function addFavs(track, name, artists, albumImg, albumName) {
 }
 
 export function deleteFavs(id) {
-    console.log("delet")
+   
     return {
         type: DELETE_FAVS,
         id

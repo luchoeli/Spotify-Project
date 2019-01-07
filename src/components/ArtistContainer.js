@@ -56,13 +56,9 @@ const mapStateToProps = (state) => {
         error: state.spotifyReducers.error
     }
 }
-  
-const mapDispatchToProps = dispatch => ({
-    
-})
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    null
 )(ArtistContainer)
 

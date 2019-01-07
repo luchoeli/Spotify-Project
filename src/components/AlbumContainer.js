@@ -30,9 +30,7 @@ class AlbumContainer extends React.Component {
                     <h2>Albums</h2>
                     <section className="cardContainer">                  
                         {
-                            currentListOfAlbums.length > 0 && currentListOfAlbums.map((a) => {
-                                console.log("nombre: " + a.name)
-                                
+                            currentListOfAlbums.length > 0 && currentListOfAlbums.map((a) => {                                
                                 return (
                                         <AlbumCard  key={a.id}
                                                     id={a.id}
