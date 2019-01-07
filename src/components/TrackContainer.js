@@ -3,12 +3,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import '../stylecheet/FavoriteStyle.css'
 import Star from './Star'
+import { addFavs } from '../actions'
 
 class TrackContainer extends React.Component{
 
-    starClick(e){
-        console.log("jej")
-    }
+
 
     render(){
         const { error, loading, currentListOfTracks } = this.props;
@@ -26,6 +25,7 @@ class TrackContainer extends React.Component{
                 </div>
             );
         }
+        console.log(currentListOfTracks)
         if(currentListOfTracks.length>0)
          
         return ( 
@@ -42,13 +42,13 @@ class TrackContainer extends React.Component{
                         </thead>
                         <tbody>
                         {
-                            currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {
+                            currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {                                
                                 return (
                                     <tr key={index}>
-                                        <th scope="row">{index}</th>
+                                        <th scope="row">{a.track_number}</th>
                                         <td>{a.name}</td>
                                         <td>
-                                            <Star isFav={true} onClick={this.starClick}/> 
+                                            <Star isFav={true} onClick={() => this.props.addFavs(a.id, a.name, a.artists[0].name, this.props.currentAlbumImg, this.props.currentAlbumName)}/> 
                                         </td>
                                     </tr>  
                                 );
@@ -70,11 +70,14 @@ class TrackContainer extends React.Component{
 const mapStateToProps = (state) => {
     return {    
         currentListOfTracks: state.spotifyReducers.currentListOfTracks,
+        currentAlbumImg: state.spotifyReducers.currentAlbumImg,
+        currentAlbumName: state.spotifyReducers.currentAlbumName,
+
     }
 }
   
 const mapDispatchToProps = dispatch => ({
-    
+    addFavs: (songID, name, artists, albumImg, albumName) => dispatch(addFavs(songID, name, artists, albumImg, albumName))
 })
 
 export default connect(

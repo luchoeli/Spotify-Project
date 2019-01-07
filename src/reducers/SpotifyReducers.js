@@ -146,18 +146,29 @@ function spotifyReducer(state = initialState, action) {
     
     //----------------------------------------------------------//
     case ADD_FAVS: // añade un contenido a favoritos
+      console.log(action.artists)
+          const fav = {
+            name: action.name,
+            id: action.track,
+            album: action.albumName,
+            albumImg: action.albumImg,
+            artist: action.artists
+          };
 
           var newArray = [...state.favsElements];
-          newArray.push(action.track);
+          newArray.push(fav);
 
           return {
-            favsElements: newArray
+            ...state,
+            favsElements: [...newArray]
           }
       
     case DELETE_FAVS: // elimina un contenido de favoritos
-
+     
         newArray = state.favsElements.filter(item => item.id !== action.id) // falta comparar por algun atributo
+        console.log(newArray)
         return {
+          ...state,
           favsElements: newArray
         }
 

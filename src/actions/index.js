@@ -122,10 +122,14 @@ export const searchAlbumIDBegin = () => ({
     payload: { error }
   });
   //---------------------------------------------
-export function addFavs(track) {
+export function addFavs(track, name, artists, albumImg, albumName) {
     return {
         type: ADD_FAVS,
-        track
+        track,
+        name,
+        artists,
+        albumImg,
+        albumName,
     }
 }
 
