@@ -156,7 +156,7 @@ function spotifyReducer(state = initialState, action) {
       
     case DELETE_FAVS: // elimina un contenido de favoritos
 
-        newArray = state.favsElements.filter(item => item!==action.track) // falta comparar por algun atributo
+        newArray = state.favsElements.filter(item => item.id !== action.id) // falta comparar por algun atributo
         return {
           favsElements: newArray
         }

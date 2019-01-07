@@ -8,6 +8,7 @@ import '../stylecheet/FavoriteStyle.css'
 
 class FavoriteContainer extends Component {
 
+ 
     render() {
         console.log(this.props.favsElements)
         let favs = this.props.favsElements;
@@ -23,6 +24,7 @@ class FavoriteContainer extends Component {
                                                 artist = {song.artist}  
                                                 album = {song.album} 
                                                 albumImg = {song.albumImg ? song.albumImg : "https://i.4pcdn.org/s4s/1510200817001.png"}
+                                                onClick = { () => this.props.deleteFavs(song.id)}
                                     />
                             );
                         })

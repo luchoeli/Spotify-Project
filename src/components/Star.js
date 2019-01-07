@@ -11,16 +11,17 @@ export default class Star extends React.Component {
     }
 
     clickHandler(e){
-        console.log(e.target)
+        console.log(e)
+        //this.props.on
     }
     render() {
         if (this.props.isFav)
         /*
         */
             return (
-                <div>
+                <span onClick={this.props.onClick}>
                     <TiStarFullOutline/>
-                </div>
+                </span>
             );
         else{
             return(

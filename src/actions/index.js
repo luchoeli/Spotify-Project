@@ -129,10 +129,10 @@ export function addFavs(track) {
     }
 }
 
-export function deleteFavs(track) {
+export function deleteFavs(id) {
     return {
         type: DELETE_FAVS,
-        track
+        id
     }
 }
 

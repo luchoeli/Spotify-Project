@@ -7,7 +7,7 @@ import Star from './Star'
 class TrackContainer extends React.Component{
 
     starClick(e){
-        console.log(e)
+        console.log("jej")
     }
 
     render(){
