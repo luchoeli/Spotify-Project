@@ -17,7 +17,6 @@ import {loadState, saveState} from './localStorage/localStorage.js'
 
 const persistedState = loadState();
 
-
 const store = createStore(
   rootReducer, 
   persistedState,
@@ -28,6 +27,7 @@ const store = createStore(
     saveState(
       store.getState())
     });
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>

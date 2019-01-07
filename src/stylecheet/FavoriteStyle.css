@@ -13,14 +13,15 @@
 .MusicCard {
   background-color: rgb(10, 197, 135);
   border: 1px solid black;
+  border-radius: 5px;
   box-sizing: border-box;
+  color:'black';
   display: flex;
   margin-right: 0.5rem;
   margin-top: 0.5rem; 
   min-width: 33%;
-  border-radius: 5px;
+  text-decoration: none;
   padding:5px;
-  
 }
 
 .MusicCard:hover {
