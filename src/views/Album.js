@@ -15,8 +15,7 @@ class Album extends React.Component {
 
     componentDidMount() {
         var mystring = this.props.match.params.id;
-        console.log("tu busqueda fue " + mystring);
-
+    
         this.setState({
             busquedaEfectiva: mystring
         }); 
@@ -25,8 +24,8 @@ class Album extends React.Component {
     }
 
     render() {
-        const { error, loading, currentListOfTracks, currentAlbumName, currentAlbumArtist, currentAlbumReleaseDate, currentAlbumImg} = this.props;
-        console.log(currentListOfTracks)
+        const { error, loading, currentAlbumName, currentAlbumArtist, currentAlbumReleaseDate, currentAlbumImg} = this.props;
+    
         if (error) {
             return <div>Error! {error.message}</div>;
         }
@@ -78,7 +77,7 @@ class Album extends React.Component {
 
 const mapStateToProps = (state) => {
     return {    
-        currentListOfTracks: state.spotifyReducers.currentListOfTracks,
+       
         currentAlbumName: state.spotifyReducers.currentAlbumName,
         currentAlbumArtist: state.spotifyReducers.currentAlbumArtist,
         currentAlbumReleaseDate: state.spotifyReducers.currentAlbumReleaseDate,

@@ -35,8 +35,16 @@ class TrackContainer extends React.Component{
                             </tr>
                         </thead>
                         <tbody>
-                        {
-                            currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {
+                        {   
+                           
+                            currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {                                
+                                const isFav = favsID.includes(a.id)
+                                let fun ='';
+                                if (isFav){
+                                    fun = () => this.props.deleteFavs(a.id);
+                                }else{
+                                    fun = () => this.props.addFavs(a.id, a.name, a.artists[0].name, this.props.currentAlbumImg, this.props.currentAlbumName);
+                                }
                                 return (
                                     <tr key={index}>
                                         <th scope="row">{index}</th>
