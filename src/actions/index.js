@@ -96,6 +96,7 @@ export const searchAlbumsBegin = () => ({
   });
 //---------------------------------------------
 export function searchAlbumID(albumID){
+    console.log("hello")
     return dispatch => {
         dispatch(searchAlbumIDBegin());
         return fetchAlbum(albumID)

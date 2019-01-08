@@ -63,5 +63,6 @@ class ArtistSearch extends React.Component {
   })
   
   export default connect (
+    null,
     mapDispatchToProps
   )(ArtistSearch)

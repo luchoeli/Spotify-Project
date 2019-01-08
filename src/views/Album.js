@@ -19,7 +19,8 @@ class Album extends React.Component {
         this.setState({
             busquedaEfectiva: mystring
         }); 
-
+        console.log("sls")
+        console.log(mystring)
         this.props.searchAlbumID(mystring)
     }
 

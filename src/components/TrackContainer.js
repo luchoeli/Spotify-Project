@@ -2,11 +2,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import '../stylecheet/FavoriteStyle.css'
+import Star from './Star'
+import { addFavs, deleteFavs } from '../actions'
 
 class TrackContainer extends React.Component{
+
+
+
     render(){
         const { error, loading, currentAlbum } = this.props;
         
+        let favsID=[];
+        console.log(currentAlbum)
+        this.props.favsElements.length>0 && this.props.favsElements.map((a) => {
+            favsID.push(a.id)
+        })
+
         if (error) {
             return <div>Error! {error.message} </div>; // TIRA ERROR ACA
         }
@@ -53,9 +64,11 @@ class TrackContainer extends React.Component{
                                 }
                                 return (
                                     <tr key={index}>
-                                        <th scope="row">{index}</th>
+                                        <th scope="row">{a.track_number}</th>
                                         <td>{a.name}</td>
-                                        <td>Star</td>
+                                        <td>
+                                            <Star isFav={isFav} onClick={fun}/> 
+                                        </td>
                                     </tr>  
                                 );
                             })

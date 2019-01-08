@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../stylecheet/FavoriteStyle.css'
+import Star from './Star'
 class MusicCard extends Component {
-
     render() {
         return (
             <div className="music-card">
@@ -10,6 +10,7 @@ class MusicCard extends Component {
                     <p> <strong>{this.props.name}</strong></p>
                     <p>Artist: {this.props.artist} </p>
                     <p>Album: {this.props.album}</p>
+                    <Star isFav={true} onClick={this.props.onClick}/>
                 </div>
             </div>      
         );
