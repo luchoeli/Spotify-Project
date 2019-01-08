@@ -6,7 +6,7 @@ class ArtistCard extends React.Component {
         return (
             <Link style={{ textDecoration: 'none' , color:'black'}} to={`/artist/${this.props.id}`}>
 
-                <div className="MusicCard"> 
+                <div className="music-card"> 
                         <img src={this.props.artistImg} alt={'imagen of artist'} />
                         <div className="SongInfo">
                             <p><strong>{this.props.artistName}</strong></p>

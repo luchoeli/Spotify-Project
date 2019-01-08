@@ -9,7 +9,7 @@ class MusicCard extends Component {
     }
     render() {
         return (
-            <div className="MusicCard">
+            <div className="music-card">
                 <img src={this.props.albumImg} alt={'imagen of album'} />
                 <div className="SongInfo">
                     <p> <strong>{this.props.name}</strong></p>
