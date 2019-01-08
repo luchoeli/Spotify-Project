@@ -128,11 +128,7 @@ function spotifyReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        currentAlbumName: action.payload.name,
-        currentAlbumArtist: action.payload.artists,
-        currentAlbumReleaseDate: action.payload.release_date,
-        currentAlbumImg: action.payload.images[0].url,
-        currentListOfTracks: action.payload.tracks
+        currentAlbum: action.payload.album,
       };
 
     case SEARCH_ALBUM_ID_FAILURE:
@@ -148,7 +144,11 @@ function spotifyReducer(state = initialState, action) {
     case ADD_FAVS: // añade un contenido a favoritos
 
           var newArray = [...state.favsElements];
+<<<<<<< HEAD
           newArray.push(action.track);
+=======
+          newArray.push(action.fav);
+>>>>>>> eceb082... usando objetos entre actions, reducers, views y comps
 
           return {
             favsElements: newArray

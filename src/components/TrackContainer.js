@@ -5,7 +5,7 @@ import '../stylecheet/FavoriteStyle.css'
 
 class TrackContainer extends React.Component{
     render(){
-        const { error, loading, currentListOfTracks } = this.props;
+        const { error, loading, currentAlbum } = this.props;
         
         if (error) {
             return <div>Error! {error.message} </div>; // TIRA ERROR ACA
@@ -20,8 +20,8 @@ class TrackContainer extends React.Component{
                 </div>
             );
         }
-        if(currentListOfTracks.length>0)
-            
+        if(currentAlbum.tracks.length>0)
+         
         return ( 
             <div >
                 <h2>Tracks</h2>
@@ -36,14 +36,20 @@ class TrackContainer extends React.Component{
                         </thead>
                         <tbody>
                         {   
-                           
-                            currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {                                
+                            currentAlbum.tracks.map((a, index) => {                                
                                 const isFav = favsID.includes(a.id)
                                 let fun ='';
                                 if (isFav){
                                     fun = () => this.props.deleteFavs(a.id);
                                 }else{
-                                    fun = () => this.props.addFavs(a.id, a.name, a.artists[0].name, this.props.currentAlbumImg, this.props.currentAlbumName);
+                                    let fav = {
+                                        id: a.id,
+                                        name: a.name,
+                                        artist: a.artists[0].name,
+                                        albumimage: currentAlbum.images,
+                                        albumName: currentAlbum.name
+                                    } 
+                                    fun = () => this.props.addFavs(fav);
                                 }
                                 return (
                                     <tr key={index}>
@@ -68,13 +74,15 @@ class TrackContainer extends React.Component{
     }
 }
 const mapStateToProps = (state) => {
-    return {    
-        currentListOfTracks: state.spotifyReducers.currentListOfTracks,
+    return {
+        currentAlbum: state.spotifyReducers.currentAlbum,
+        favsElements: state.spotifyReducers.favsElements,
     }
 }
   
 const mapDispatchToProps = dispatch => ({
-    
+    addFavs: fav => dispatch(addFavs(fav)),
+    deleteFavs: song => dispatch(deleteFavs(song)),
 })
 
 export default connect(
