@@ -7,8 +7,6 @@ import { addFavs, deleteFavs } from '../actions'
 
 class TrackContainer extends React.Component{
 
-
-
     render(){
         const { error, loading, currentAlbum } = this.props;
         
@@ -68,8 +66,10 @@ class TrackContainer extends React.Component{
                                         <th scope="row">{a.track_number}</th>
                                         <td>{a.name}</td>
                                         <td>
-                                        <a href={a.preview_url} class="btn btn-primary btn-sm" role="button" aria-pressed="true">play</a>
-                                           
+                                            <audio controls>
+                                                <source src={a.preview_url} type="audio/ogg"/>
+                                                <p>Your browser does not support the audio element.</p>
+                                            </audio>
                                         </td>
                                         <td>
                                             <Star isFav={isFav} onClick={fun}/> 
