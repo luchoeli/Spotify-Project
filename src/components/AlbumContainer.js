@@ -23,33 +23,30 @@ class AlbumContainer extends React.Component {
             );
         }
 
-        if(currentListOfAlbums.length>0)
-            
-            return ( 
+        return currentListOfAlbums.length>0 ? 
+             ( 
                 <div >
                     <h2>Albums</h2>
                     <section className="cardContainer">                  
                         {
                             currentListOfAlbums.length > 0 && currentListOfAlbums.map((a) => {                                
                                 return (
-                                        <AlbumCard  key={a.id}
-                                                    id={a.id}
-                                                    albumName={a.name}
-                                                    albumReleaseDate={a.albumReleaseDate}
-                                                    albumImg={a.images[0] ? a.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png" }
-                                                    />
-                                );
-                                
-                                
-                                
+                                    <AlbumCard  key={a.id}
+                                                id={a.id}
+                                                albumName={a.name}
+                                                albumReleaseDate={a.albumReleaseDate}
+                                                albumImg={a.images[0] ? a.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png" }
+                                                />
+                                );    
                             })
                         }
                     </section>
                 </div>
             )
-         return(
-                <p>No artist found for "{this.props.busquedaEfectiva}"</p>
-            )   
+        : 
+            (
+                <p>No artist found for "{this.props.busquedaEfectiva}"</p>  
+            );
     } 
 }
 const mapStateToProps = (state) => {
