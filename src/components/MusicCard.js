@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import '../stylecheet/FavoriteStyle.css'
 import Star from './Star'
 class MusicCard extends Component {
-
-    removeFav(e){
-       
-       
-    }
+    
     render() {
         return (
             <div className="music-card">

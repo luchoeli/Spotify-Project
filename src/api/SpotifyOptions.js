@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import { token } from './token';
 const REFRESH_TOKEN = token;
-console.log(REFRESH_TOKEN)
 
 class SpotifyOptions {
     constructor() {

@@ -57,18 +57,12 @@ class ArtistSearch extends React.Component {
         )
     }
 }
-
-const mapStateToProps = (state) => {
-    return {    
-
-    }
-}
   
   const mapDispatchToProps = dispatch => ({
     searchArtists: artist => dispatch(searchArtists(artist)),
   })
   
   export default connect (
-    mapStateToProps,
-    mapDispatchToProps
+    null,
+    mapDispatchToProps,
   )(ArtistSearch)

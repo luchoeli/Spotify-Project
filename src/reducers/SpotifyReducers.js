@@ -8,21 +8,7 @@ import {ADD_FAVS, DELETE_FAVS,
 const EMPTY = '';
 
 const initialState = {
-            favsElements: [{
-              name: 'song title',
-              id: '1',
-              album: 'album',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            },
-            {
-              name: 'sds title',
-              id: '2',
-              album: 'albumf',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            }    
-            ],
+            favsElements: [],
             
             currentArtist: EMPTY,
             currentAlbum: EMPTY,
