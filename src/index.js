@@ -13,7 +13,7 @@ import thunk from "redux-thunk";
 import AppRoutes from './routes';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import {loadState, saveState} from './localStorage/localStorage.js'
+import {loadState, saveState} from './localstorage/localStorage.js'
 
 const persistedState = loadState();
 
