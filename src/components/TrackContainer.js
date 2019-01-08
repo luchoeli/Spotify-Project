@@ -10,7 +10,7 @@ class TrackContainer extends React.Component{
 
 
     render(){
-        const { error, loading, currentListOfTracks } = this.props;
+        const { error, loading, currentAlbum } = this.props;
         
         let favsID=[];
 
@@ -31,7 +31,7 @@ class TrackContainer extends React.Component{
                 </div>
             );
         }
-        if(currentListOfTracks.length>0)
+        if(currentAlbum.tracks.length>0)
          
         return ( 
             <div >
@@ -47,14 +47,20 @@ class TrackContainer extends React.Component{
                         </thead>
                         <tbody>
                         {   
-                           
-                            currentListOfTracks.length > 0 && currentListOfTracks.map((a, index) => {                                
+                            currentAlbum.tracks.map((a, index) => {                                
                                 const isFav = favsID.includes(a.id)
                                 let fun ='';
                                 if (isFav){
                                     fun = () => this.props.deleteFavs(a.id);
                                 }else{
-                                    fun = () => this.props.addFavs(a.id, a.name, a.artists[0].name, this.props.currentAlbumImg, this.props.currentAlbumName);
+                                    let fav = {
+                                        id: a.id,
+                                        name: a.name,
+                                        artist: a.artists[0].name,
+                                        albumimage: currentAlbum.images,
+                                        albumName: currentAlbum.name
+                                    } 
+                                    fun = () => this.props.addFavs(fav);
                                 }
                                 return (
                                     <tr key={index}>
@@ -82,16 +88,13 @@ class TrackContainer extends React.Component{
 }
 const mapStateToProps = (state) => {
     return {
-        favsElements: state.spotifyReducers.favsElements,    
-        currentListOfTracks: state.spotifyReducers.currentListOfTracks,
-        currentAlbumImg: state.spotifyReducers.currentAlbumImg,
-        currentAlbumName: state.spotifyReducers.currentAlbumName,
-
+        currentAlbum: state.spotifyReducers.currentAlbum,
+        favsElements: state.spotifyReducers.favsElements,
     }
 }
   
 const mapDispatchToProps = dispatch => ({
-    addFavs: (songID, name, artists, albumImg, albumName) => dispatch(addFavs(songID, name, artists, albumImg, albumName)),
+    addFavs: fav => dispatch(addFavs(fav)),
     deleteFavs: song => dispatch(deleteFavs(song)),
 })
 

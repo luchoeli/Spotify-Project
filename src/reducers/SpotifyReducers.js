@@ -128,11 +128,7 @@ function spotifyReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        currentAlbumName: action.payload.name,
-        currentAlbumArtist: action.payload.artists,
-        currentAlbumReleaseDate: action.payload.release_date,
-        currentAlbumImg: action.payload.images[0].url,
-        currentListOfTracks: action.payload.tracks
+        currentAlbum: action.payload.album,
       };
 
     case SEARCH_ALBUM_ID_FAILURE:
@@ -146,17 +142,9 @@ function spotifyReducer(state = initialState, action) {
     
     //----------------------------------------------------------//
     case ADD_FAVS: // añade un contenido a favoritos
-  
-          const fav = {
-            name: action.name,
-            id: action.track,
-            album: action.albumName,
-            albumImg: action.albumImg,
-            artist: action.artists
-          };
 
           var newArray = [...state.favsElements];
-          newArray.push(fav);
+          newArray.push(action.fav);
 
           return {
             ...state,

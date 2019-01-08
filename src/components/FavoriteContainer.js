@@ -21,8 +21,8 @@ class FavoriteContainer extends Component {
                                     <MusicCard  key = {song.id}
                                                 name = {song.name} 
                                                 artist = {song.artist}  
-                                                album = {song.album} 
-                                                albumImg = {song.albumImg ? song.albumImg : "https://i.4pcdn.org/s4s/1510200817001.png"}
+                                                album = {song.albumName} 
+                                                albumImg = {song.albumimage ? song.albumimage : "https://i.4pcdn.org/s4s/1510200817001.png"}
                                                 onClick = { () => this.props.deleteFavs(song.id)}
                                     />
                             );
