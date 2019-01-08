@@ -2,7 +2,8 @@ import React from 'react'
 import '../stylecheet/FavoriteStyle.css'
 import { Link } from 'react-router-dom'
 
-function AlbumCard(props) {
+export default function AlbumCard(props) {
+   
     return (
         <Link style={{ textDecoration: 'none' , color:'black'}} to={`/album/${props.id}`}>
 
@@ -18,4 +19,4 @@ function AlbumCard(props) {
     );
   }
 
-export default AlbumCard;
+

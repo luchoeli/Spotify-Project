@@ -122,7 +122,7 @@ export const searchAlbumIDBegin = () => ({
   
   export const searchAlbumIDSuccess = (album) => ({
     type: SEARCH_ALBUM_ID_SUCCESS,
-    payload: {album}
+    payload: { album }
   });
   
   export const searchAlbumIDFailure = error => ({

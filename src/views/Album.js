@@ -21,6 +21,7 @@ class Album extends React.Component {
         }); 
 
         this.props.searchAlbumID(mystring)
+        console.log("montado")
     }
 
     render() {

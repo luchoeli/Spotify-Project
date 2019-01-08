@@ -9,7 +9,6 @@ class TrackContainer extends React.Component{
 
     render(){
         const { error, loading, currentAlbum } = this.props;
-        
         let favsID=[];
 
         this.props.favsElements.length>0 && this.props.favsElements.map((a) => {
