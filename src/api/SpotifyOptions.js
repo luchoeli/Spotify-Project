@@ -1,6 +1,6 @@
 import $ from 'jquery';
-var myToken = require('./token')
-const REFRESH_TOKEN = myToken.token;
+import { token } from './token';
+const REFRESH_TOKEN = token;
 console.log(REFRESH_TOKEN)
 
 class SpotifyOptions {
