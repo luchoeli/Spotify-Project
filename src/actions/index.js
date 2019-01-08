@@ -99,7 +99,8 @@ export function searchAlbumID(albumID){
     return dispatch => {
         dispatch(searchAlbumIDBegin());
         return fetchAlbum(albumID)
-            .then(json => {
+        .then(json => {
+            console.log(json)
                 let album = {
                     name: json.name, 
                     artist: json.artists[0].name,

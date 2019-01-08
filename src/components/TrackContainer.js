@@ -42,6 +42,7 @@ class TrackContainer extends React.Component{
                             <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Preview</th>
                             <th scope="col">Favorite</th>
                             </tr>
                         </thead>
@@ -66,6 +67,10 @@ class TrackContainer extends React.Component{
                                     <tr key={index}>
                                         <th scope="row">{a.track_number}</th>
                                         <td>{a.name}</td>
+                                        <td>
+                                        <a href={a.preview_url} class="btn btn-primary btn-sm" role="button" aria-pressed="true">play</a>
+                                           
+                                        </td>
                                         <td>
                                             <Star isFav={isFav} onClick={fun}/> 
                                         </td>
