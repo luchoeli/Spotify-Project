@@ -10,7 +10,7 @@
 }
 
 
-.MusicCard {
+.music-card {
   background-color: rgb(10, 197, 135);
   border: 1px solid black;
   box-sizing: border-box;
@@ -23,12 +23,12 @@
   
 }
 
-.MusicCard:hover {
+.music-card:hover {
     transition: 0.155s;
     filter: brightness(80%);
 }
 
-.MusicCard img {
+.music-card img {
     margin: 0.5rem;
     width: 80px;
     height: 80px;

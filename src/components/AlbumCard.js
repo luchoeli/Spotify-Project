@@ -6,7 +6,7 @@ function AlbumCard(props) {
     return (
         <Link style={{ textDecoration: 'none' , color:'black'}} to={`/album/${props.id}`}>
 
-            <div className="MusicCard"> 
+            <div className="music-card"> 
                     <img src={props.albumImg} alt={'imagen of artist'} />
                     <div className="SongInfo">
                         <p><strong>{props.albumName}</strong></p>
