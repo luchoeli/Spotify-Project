@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # token propio
-/api/token.js
+/src/api/token.js
