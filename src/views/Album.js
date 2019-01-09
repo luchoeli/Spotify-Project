@@ -25,7 +25,6 @@ class Album extends React.Component {
 
     render() {
         const { error, loading, currentAlbum} = this.props;
-    
         if (error) {
             return <div>Error! {error.message}</div>;
         }
@@ -40,9 +39,8 @@ class Album extends React.Component {
 /*
 */
         return (
-
             <div className="main_view">
-                
+                {console.log("render")}
                 <Header haveSearchBar={true} />
 
                 <hr />

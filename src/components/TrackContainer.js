@@ -59,7 +59,7 @@ class TrackContainer extends React.Component{
                                         id: a.id,
                                         name: a.name,
                                         artist: a.artists[0].name,
-                                        albumimage: currentAlbum.images,
+                                        albumimage: currentAlbum.image,
                                         albumName: currentAlbum.name
                                     } 
                                     fun = () => this.props.addFavs(fav);
@@ -69,8 +69,8 @@ class TrackContainer extends React.Component{
                                         <th scope="row">{a.track_number}</th>
                                         <td>{a.name}</td>
                                         <td>
-                                            <audio controls>
-                                                <source src={a.preview_url} type="audio/ogg"/>
+                                            <audio controls  >
+                                                <source src={a.preview_url ? a.preview_url : null} type="audio/ogg"/>
                                                 <p>Your browser does not support the audio element.</p>
                                             </audio>
                                         </td>
@@ -95,7 +95,7 @@ class TrackContainer extends React.Component{
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state.spotifyReducers.currentListOfTracks)
+    
     return {
         favsElements: state.spotifyReducers.favsElements,
         currentListOfTracks: state.spotifyReducers.currentListOfTracks,
