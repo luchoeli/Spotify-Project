@@ -100,7 +100,15 @@ export function searchAlbumID(albumID){
         dispatch(searchAlbumIDBegin());
         return fetchAlbum(albumID)
             .then(json => {
-                dispatch(searchAlbumIDSuccess(json.name, json.artists[0].name, json.release_date, json.images, json.tracks.items));
+                
+                const album = {
+                    name: json.name, 
+                    artist: json.artists[0].name, 
+                    release_date: json.release_date, 
+                    image: json.images[0].url, 
+                    tracks: json.tracks.items
+                }
+                dispatch(searchAlbumIDSuccess(album));
             })
             .catch(error =>
                 dispatch(searchAlbumIDFailure(error))
@@ -112,9 +120,9 @@ export const searchAlbumIDBegin = () => ({
     type: SEARCH_ALBUM_ID_BEGIN
   });
   
-  export const searchAlbumIDSuccess = (name, artists, release_date, images, tracks) => ({
+  export const searchAlbumIDSuccess = (album) => ({
     type: SEARCH_ALBUM_ID_SUCCESS,
-    payload: { name, artists, release_date, images, tracks }
+    payload: { album }
   });
   
   export const searchAlbumIDFailure = error => ({

@@ -19,12 +19,12 @@ class Album extends React.Component {
         this.setState({
             busquedaEfectiva: mystring
         }); 
-
+        console.log("MONTADO    ")
         this.props.searchAlbumID(mystring)
     }
 
     render() {
-        const { error, loading, currentAlbumName, currentAlbumArtist, currentAlbumReleaseDate, currentAlbumImg} = this.props;
+        const { error, loading,currentAlbum} = this.props;
     
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -48,10 +48,10 @@ class Album extends React.Component {
                 <hr />
                 <div className="shadow p-3 mb-5 bg-white rounded">
                     <div className="media">
-                        <img src={currentAlbumImg}  className="align-self-start mr-3" alt="Album Logo"/>
+                        <img src={currentAlbum.image}  className="align-self-start mr-3" alt="Album Logo"/>
                         <div className="media-body">
-                            <h3 className="mt-0">{currentAlbumName}</h3>
-                            <p>{currentAlbumArtist} - {currentAlbumReleaseDate}</p>
+                            <h3 className="mt-0">{currentAlbum.name}</h3>
+                            <p>{currentAlbum.artist} - {currentAlbum.release_date}</p>
                         </div>
                     </div>
                        
@@ -63,13 +63,13 @@ class Album extends React.Component {
                         <ol className="breadcrumb">
                             <li className="breadcrumb-item"><Link to="/">Home</Link></li>
                             <li className="breadcrumb-item "><Link to="/artistsearch">ArtistSearch</Link></li>         
-                            <li className="breadcrumb-item "><Link to="/artist">{currentAlbumArtist}</Link></li>    
-                            <li className="breadcrumb-item active"><Link to="/album">{currentAlbumName}</Link></li>    
+                            <li className="breadcrumb-item "><Link to="/artist">{currentAlbum.artist}</Link></li>    
+                            <li className="breadcrumb-item active"><Link to="/album">{currentAlbum.name}</Link></li>    
                         </ol>
                     </nav>
                 </Route>
                 <hr />
-                <TrackContainer/>
+                <TrackContainer currentAlbum={this.props.currentAlbum} />
             </div>
         )
     }
@@ -77,11 +77,7 @@ class Album extends React.Component {
 
 const mapStateToProps = (state) => {
     return {    
-       
-        currentAlbumName: state.spotifyReducers.currentAlbumName,
-        currentAlbumArtist: state.spotifyReducers.currentAlbumArtist,
-        currentAlbumReleaseDate: state.spotifyReducers.currentAlbumReleaseDate,
-        currentAlbumImg: state.spotifyReducers.currentAlbumImg
+        currentAlbum: state.spotifyReducers.currentAlbum, 
     }
 }
   
