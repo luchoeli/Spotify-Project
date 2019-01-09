@@ -31,7 +31,7 @@ class TrackContainer extends React.Component{
                 </div>
             );
         }
-        if(currentAlbum.tracks.length>0)
+        if(currentListOfTracks.length>0)
          
         return ( 
             <div >
@@ -47,7 +47,7 @@ class TrackContainer extends React.Component{
                         </thead>
                         <tbody>
                         {   
-                            currentAlbum.tracks.map((a, index) => {                                
+                            currentListOfTracks.map((a, index) => {                                
                                 const isFav = favsID.includes(a.id)
                                 let fun ='';
                                 if (isFav){
