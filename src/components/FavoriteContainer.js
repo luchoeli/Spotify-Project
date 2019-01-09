@@ -37,7 +37,7 @@ class FavoriteContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {    
-        favsElements: state.spotifyReducers.favsElements  
+        favsElements: state.favReducers.favsElements  
     }
 }
   

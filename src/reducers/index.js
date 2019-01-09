@@ -1,6 +1,16 @@
 import { combineReducers } from 'redux';
-import spotifyReducers from './SpotifyReducers.js';
+import favReducers from './FavReducers.js';
+import searchAlbumIdReducers from './SearchAlbumIdReducers.js';
+import searchAlbumReducers from './SearchAlbumReducers.js';
+import searchArtistIdReducers from './SearchArtistIdReducers.js';
+import searchArtistReducers from './SearchArtistReducers.js';
+import updateSearchReducers from './UpdateSearchReducers.js';
 
 export default combineReducers({
-    spotifyReducers
+    favReducers,
+    searchAlbumIdReducers,
+    searchAlbumReducers,
+    searchArtistIdReducers,
+    searchArtistReducers,
+    updateSearchReducers
 })

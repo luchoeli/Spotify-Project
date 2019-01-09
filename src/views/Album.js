@@ -77,7 +77,7 @@ class Album extends React.Component {
 
 const mapStateToProps = (state) => {
     return {    
-        currentAlbum: state.spotifyReducers.currentAlbum, 
+        currentAlbum: state.searchAlbumIdReducers.currentAlbum, 
     }
 }
   

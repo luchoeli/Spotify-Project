@@ -78,12 +78,12 @@ class Artist extends React.Component {
 
 const mapStateToProps = (state) => {
     return {    
-        currentListOfAlbums: state.spotifyReducers.currentListOfAlbums,
-        currentListOfTracks: state.spotifyReducers.currentListOfTracks,
+        currentListOfAlbums: state.searchAlbumReducers.currentListOfAlbums,
+        currentListOfTracks: state.searchAlbumIdReducers.currentListOfTracks,
 
-        currentArtistName: state.spotifyReducers.currentArtistName,
-        currentArtistImagen: state.spotifyReducers.currentArtistImagen,
-        currenteArtistGenre: state.spotifyReducers.currentArtistGenre
+        currentArtistName: state.searchArtistReducers.currentArtistName,
+        currentArtistImagen: state.searchArtistReducers.currentArtistImagen,
+        currenteArtistGenre: state.searchArtistReducers.currentArtistGenre
 
     }
 }

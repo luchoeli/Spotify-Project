@@ -49,7 +49,7 @@ class TrackContainer extends React.Component{
                         <tbody>
                         {   
                            
-                            currentListOfTracks.map((a, index) => {                                
+                            currentListOfTracks.map((a, index) => {   // poner opcion de sort                              
                                 const isFav = favsID.includes(a.id)
                                 let fun ='';
                                 if (isFav){
@@ -95,12 +95,12 @@ class TrackContainer extends React.Component{
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state.spotifyReducers.currentListOfTracks)
+    console.log(state.searchAlbumIdReducers.currentListOfTracks)
     return {
-        favsElements: state.spotifyReducers.favsElements,
-        currentListOfTracks: state.spotifyReducers.currentListOfTracks,
+        favsElements: state.favReducers.favsElements,
+        currentListOfTracks: state.searchAlbumIdReducers.currentListOfTracks,
 
-        currentAlbum: state.spotifyReducers.currentAlbum,
+        currentAlbum: state.searchAlbumReducers.currentAlbum,
 
     }
 }

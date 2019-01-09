@@ -51,9 +51,9 @@ class ArtistContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {    
-        currentListOfArtists: state.spotifyReducers.currentListOfArtists,
-        loading: state.spotifyReducers.loading,
-        error: state.spotifyReducers.error
+        currentListOfArtists: state.searchArtistReducers.currentListOfArtists,
+        loading: state.searchArtistReducers.loading,
+        error: state.searchArtistReducers.error
     }
 }
   
