@@ -69,7 +69,7 @@ class Album extends React.Component {
                     </nav>
                 </Route>
                 <hr />
-                <TrackContainer currentAlbum={this.props.currentAlbum} />
+                <TrackContainer />
             </div>
         )
     }
