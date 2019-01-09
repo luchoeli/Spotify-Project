@@ -6,7 +6,7 @@ import Input from '../components/Input'
 
 function Home(){
     return(
-        <div className="main_view">
+        <div className="main_view bg-image">
             <Header haveSearchBar={ false } />
             <hr />  
             <h4>Welcome to</h4>
