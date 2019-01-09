@@ -114,7 +114,11 @@ function spotifyReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        currentAlbum: action.payload.album,
+       
+        currentListOfTracks: action.payload.album.tracks,
+        
+        currentAlbum: action.payload.album
+
       };
 
     case SEARCH_ALBUM_ID_FAILURE:
@@ -123,7 +127,8 @@ function spotifyReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload.error,
-        currentListOfTracks: []
+        currentListOfTracks: [],
+        currentAlbum: EMPTY,
       }
     
     //----------------------------------------------------------//

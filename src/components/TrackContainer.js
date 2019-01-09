@@ -10,7 +10,7 @@ class TrackContainer extends React.Component{
 
 
     render(){
-        const { error, loading, currentAlbum } = this.props;
+        const { error, loading, currentAlbum, currentListOfTracks } = this.props;
         
         let favsID=[];
 
@@ -31,7 +31,7 @@ class TrackContainer extends React.Component{
                 </div>
             );
         }
-        if(currentAlbum.tracks.length>0)
+        if(currentListOfTracks.length>0)
          
         return ( 
             <div >
@@ -42,12 +42,14 @@ class TrackContainer extends React.Component{
                             <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Preview</th>
                             <th scope="col">Favorite</th>
                             </tr>
                         </thead>
                         <tbody>
                         {   
-                            currentAlbum.tracks.map((a, index) => {                                
+                           
+                            currentListOfTracks.map((a, index) => {                                
                                 const isFav = favsID.includes(a.id)
                                 let fun ='';
                                 if (isFav){
@@ -66,6 +68,12 @@ class TrackContainer extends React.Component{
                                     <tr key={index}>
                                         <th scope="row">{a.track_number}</th>
                                         <td>{a.name}</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src={a.preview_url} type="audio/ogg"/>
+                                                <p>Your browser does not support the audio element.</p>
+                                            </audio>
+                                        </td>
                                         <td>
                                             <Star isFav={isFav} onClick={fun}/> 
                                         </td>
@@ -87,9 +95,13 @@ class TrackContainer extends React.Component{
     }
 }
 const mapStateToProps = (state) => {
+    console.log(state.spotifyReducers.currentListOfTracks)
     return {
-        currentAlbum: state.spotifyReducers.currentAlbum,
         favsElements: state.spotifyReducers.favsElements,
+        currentListOfTracks: state.spotifyReducers.currentListOfTracks,
+
+        currentAlbum: state.spotifyReducers.currentAlbum,
+
     }
 }
   

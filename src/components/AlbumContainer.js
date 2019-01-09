@@ -50,7 +50,7 @@ class AlbumContainer extends React.Component {
     } 
 }
 const mapStateToProps = (state) => {
-    return {    
+    return {
         currentListOfAlbums: state.spotifyReducers.currentListOfAlbums,
         loading: state.spotifyReducers.loading,
         error: state.spotifyReducers.error
