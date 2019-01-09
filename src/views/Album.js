@@ -19,13 +19,12 @@ class Album extends React.Component {
         this.setState({
             busquedaEfectiva: mystring
         }); 
-        console.log("sls")
-        console.log(mystring)
+        console.log("MONTADO    ")
         this.props.searchAlbumID(mystring)
     }
 
     render() {
-        const { error, loading, currentAlbum} = this.props;
+        const { error, loading,currentAlbum} = this.props;
     
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -49,7 +48,7 @@ class Album extends React.Component {
                 <hr />
                 <div className="shadow p-3 mb-5 bg-white rounded">
                     <div className="media">
-                        <img src={currentAlbum.images}  className="align-self-start mr-3" alt="Album Logo"/>
+                        <img src={currentAlbum.image}  className="align-self-start mr-3" alt="Album Logo"/>
                         <div className="media-body">
                             <h3 className="mt-0">{currentAlbum.name}</h3>
                             <p>{currentAlbum.artist} - {currentAlbum.release_date}</p>
@@ -70,7 +69,7 @@ class Album extends React.Component {
                     </nav>
                 </Route>
                 <hr />
-                <TrackContainer/>
+                <TrackContainer currentAlbum={this.props.currentAlbum} />
             </div>
         )
     }
@@ -78,7 +77,7 @@ class Album extends React.Component {
 
 const mapStateToProps = (state) => {
     return {    
-        currentAlbum: state.spotifyReducers.currentAlbum,
+        currentAlbum: state.spotifyReducers.currentAlbum, 
     }
 }
   

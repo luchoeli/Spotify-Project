@@ -10,7 +10,7 @@ class TrackContainer extends React.Component{
 
 
     render(){
-        const { error, loading, currentAlbum } = this.props;
+        const { error, loading, currentAlbum, currentListOfTracks } = this.props;
         
         let favsID=[];
         console.log(currentAlbum)
@@ -53,14 +53,7 @@ class TrackContainer extends React.Component{
                                 if (isFav){
                                     fun = () => this.props.deleteFavs(a.id);
                                 }else{
-                                    let fav = {
-                                        id: a.id,
-                                        name: a.name,
-                                        artist: a.artists[0].name,
-                                        albumimage: currentAlbum.images,
-                                        albumName: currentAlbum.name
-                                    } 
-                                    fun = () => this.props.addFavs(fav);
+                                    fun = () => this.props.addFavs(a.id, a.name, a.artists[0].name, currentAlbum.image, currentAlbum.name);
                                 }
                                 return (
                                     <tr key={index}>
@@ -88,8 +81,12 @@ class TrackContainer extends React.Component{
 }
 const mapStateToProps = (state) => {
     return {
-        currentAlbum: state.spotifyReducers.currentAlbum,
         favsElements: state.spotifyReducers.favsElements,
+        currentListOfTracks: state.spotifyReducers.currentListOfTracks,
+        
+
+        currentAlbum: state.spotifyReducers.currentAlbum,
+
     }
 }
   
