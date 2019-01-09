@@ -45,7 +45,7 @@ class Artist extends React.Component {
             <div className="main_view">
                 <Header haveSearchBar={true} />
                 <hr />
-                <div className="shadow p-3 mb-5 bg-white rounded">
+                <div className="shadow p-3 mb-5 rounded artistInfo">
                     <div className="media">
                         <img src={currentArtistImagen}  className="align-self-start mr-3" alt="Album Logo"/>
                         <div className="media-body">

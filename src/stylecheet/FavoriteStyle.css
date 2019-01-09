@@ -4,25 +4,30 @@
     flex-flow: row wrap;
     font-size: 0.8rem;
     justify-content: flex-start;
-    line-height: 0.3rem;
    
 }
-
+/*
+    .music-card {
+    }
+    */
 .music-card {
-  background-color: rgb(10, 197, 135);
-  border: 1px solid black;
-  box-sizing: border-box;
-  display: flex;
- 
-  margin-right: 0.5rem;
-  margin-top: 0.5rem; 
-  flex: 1 1 200px;
-  border-radius: 5px;
-  padding:5px;
-  
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmNWs_3NyocaZ7WCimNCDlSH56qILhpsiXwp0RrY0hRhf4I7NF");
+    background-size: 100%;
+    border: 1px solid black;
+    box-sizing: border-box;
+
+    display: flex;
+    
+    margin: 0.5rem;
+    min-width: 45%;
+    border-radius: 7px;
+    padding:5px;
 }
+
 .SongInfo{
     margin-top: 0.7rem;
+    margin-left: 1rem;
+    line-height: 1rem;
     
 }
 
@@ -47,24 +52,10 @@ img {
     border-radius: 1.5px;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    grid-gap: 10px;
-    background-color: #2196F3;
-    padding: 10px;
-  }
-  
-  .grid-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
-  }
 
   
 .artistInfo {
-    background-color: beige;
+    background-color: rgb(143, 143, 50);
  }
 
  #logoApp  {
