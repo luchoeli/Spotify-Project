@@ -16,32 +16,33 @@ export function updateSearch(input) {
 //--------------------------------- 
 export function searchArtistID(artistID) {
     return dispatch => {
-        dispatch(searchArtistsBegin());
+        dispatch(searchArtistIDBegin());
         return fetchArtist(artistID)
-            .then(json => {
+            .then(json => {            
                 const artist = {
                     name: json.name,
-                    image: json.images[0].url ? json.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png",
-                    genres: json.genres,
+                    image: json.images.length ? json.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png",
+                    genres: json.genres
                 }
-                dispatch(searchArtistsIDSuccess(artist));
+                console.log(artist);
+                dispatch(searchArtistIDSuccess(artist));
             })
             .catch(error =>
-                dispatch(searchArtistsIDFailure(error))
+                dispatch(searchArtistIDFailure(error))
             );
     };
 }
 
-export const searchArtistsIDBegin = () => ({
+export const searchArtistIDBegin = () => ({
   type: SEARCH_ARTIST_ID_BEGIN
 });
 
-export const searchArtistsIDSuccess = (artist) => ({
+export const searchArtistIDSuccess = (artist) => ({
   type: SEARCH_ARTIST_ID_SUCCESS,
   payload: {artist}
 });
 
-export const searchArtistsIDFailure = error => ({
+export const searchArtistIDFailure = error => ({
   type: SEARCH_ARTIST_ID_FAILURE,
   payload: { error }
 });
@@ -95,13 +96,13 @@ export const searchAlbumsBegin = () => ({
     payload: { albums }
   });
   
-  export const searchAlbumsFailure = error => ({
+  export const searchAlbumsFailure = error2 => ({
     type: SEARCH_ALBUMS_FAILURE,
-    payload: { error }
+    payload: { error2 }
   });
 //---------------------------------------------
 export function searchAlbumID(albumID){
-    console.log("hello")
+
     return dispatch => {
         dispatch(searchAlbumIDBegin());
         return fetchAlbum(albumID)
@@ -111,8 +112,8 @@ export function searchAlbumID(albumID){
                     name: json.name, 
                     artist: json.artists[0].name, 
                     release_date: json.release_date, 
-                    image: json.images[0].url ? json.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png",
-                    tracks: json.tracks.items
+                    image: json.images.length ? json.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png",
+                    tracks: json.tracks.items || []
                 }
                 dispatch(searchAlbumIDSuccess(album));
             })

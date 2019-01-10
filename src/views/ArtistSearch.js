@@ -3,8 +3,10 @@ import { connect } from 'react-redux'
 import ArtistContainer from '../components/ArtistContainer'
 import { Route, Link } from 'react-router-dom'
 import { searchArtists } from '../actions'
-import Input from '../components/Input'
+import SearchForm from '../components/SearchForm'
 import Header from '../components/Header'
+import BreadCrumbs from '../components/BreadCrumbs'
+
 // deberia recibir como props un json con los resultados de la busqueda q?=ALGO
 
 class ArtistSearch extends React.Component {
@@ -38,10 +40,14 @@ class ArtistSearch extends React.Component {
                 <h1> Artists </h1>
                 <p> You are currently searching: <strong>{this.state.busquedaEfectiva}</strong> </p> 
 
-                <Input />
+                <SearchForm />
 
                 <br />
 
+                <BreadCrumbs listItems={ [
+                                            {link: "/" , text: "Home", classname: "breadcrumb-item"},
+                                            {link: "/artistsearch" , text: "Artist", classname: "breadcrumb-item active"},
+                                         ] } />
                 <Route>
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">

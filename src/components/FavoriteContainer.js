@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MusicCard from './MusicCard'
 import { deleteFavs } from '../actions'
-import '../stylecheet/FavoriteStyle.css'
+ 
 
 
 class FavoriteContainer extends Component {

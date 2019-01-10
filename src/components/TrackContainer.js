@@ -1,14 +1,11 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import '../stylecheet/FavoriteStyle.css'
 import Star from './Star'
 import { addFavs, deleteFavs } from '../actions'
 
 class TrackContainer extends React.Component{
-
-
-
+    
     render(){
         const { error, loading, currentAlbum } = this.props;
         
@@ -83,9 +80,6 @@ class TrackContainer extends React.Component{
 const mapStateToProps = (state) => {
     return {
         favsElements: state.spotifyReducers.favsElements,
-        //currentListOfTracks: state.spotifyReducers.currentListOfTracks,
-        //currentAlbum: state.spotifyReducers.currentAlbum,
-
     }
 }
   

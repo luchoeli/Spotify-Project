@@ -1,16 +1,17 @@
 import React from 'react'
-import '../stylecheet/FavoriteStyle.css'
+
 import { Link } from 'react-router-dom'
 
-function AlbumCard(props) {
+const AlbumCard = (props) => {
+    const { id, albumImg, albumName, albumReleaseDate } = props;
     return (
-        <Link style={{ textDecoration: 'none' , color:'black'}} to={`/album/${props.id}`}>
+        <Link className="card-link" to={`/album/${id}`}>
 
             <div className="music-card"> 
-                    <img src={props.albumImg} alt={'imagen of artist'} />
+                    <img src={albumImg} alt={'imagen of artist'} />
                     <div className="SongInfo">
-                        <p><strong>{props.albumName}</strong></p>
-                        <p>{props.albumReleaseDate}</p>
+                        <p><strong>{albumName}</strong></p>
+                        <p>{albumReleaseDate}</p>
                     </div>                   
             </div>
             

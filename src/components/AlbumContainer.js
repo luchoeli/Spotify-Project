@@ -1,11 +1,19 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import '../stylecheet/FavoriteStyle.css'
+import { searchAlbums } from '../actions/index'
 import AlbumCard from '../components/AlbumCard'
+import Loading from './Loading';
 
 class AlbumContainer extends React.Component {
-
+    
+    componentDidMount() {
+        console.log("AAAAAAAAAAAAAAA")
+        console.log(this.props)
+        this.props.searchAlbums(this.props.artistId);
+        
+    }
+    
     render() {
         const { error, loading, currentListOfAlbums } = this.props;
         
@@ -14,13 +22,7 @@ class AlbumContainer extends React.Component {
         }
 
         if (loading) {
-            return (
-                <div className="text-center">
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                </div>
-            );
+            return <Loading/>
         }
 
         return currentListOfAlbums.length>0 ? 
@@ -29,7 +31,7 @@ class AlbumContainer extends React.Component {
                     <h2>Albums</h2>
                     <section className="cardContainer">                  
                         {
-                            currentListOfAlbums.length > 0 && currentListOfAlbums.map((a) => {                                
+                            currentListOfAlbums.map((a) => {                                
                                 return (
                                     <AlbumCard  key={a.id}
                                                 id={a.id}
@@ -45,21 +47,26 @@ class AlbumContainer extends React.Component {
             )
         : 
             (
-                <p>No artist found for "{this.props.busquedaEfectiva}"</p>  
+                <p>No albums found</p>  
             );
     } 
 }
 const mapStateToProps = (state) => {
     return {
         currentListOfAlbums: state.spotifyReducers.currentListOfAlbums,
-        loading: state.spotifyReducers.loading,
-        error: state.spotifyReducers.error
+
+        loading: state.spotifyReducers.loadingAlbums,
+        error: state.spotifyReducers.errorAlbums
     }
 }
+const mapDispatchToProps = dispatch => ({
+    searchAlbums: artist => dispatch(searchAlbums(artist)),
+  })
+  
 
 
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(AlbumContainer)
 

@@ -20,7 +20,7 @@ const persistedState = loadState();
 
 const store = createStore(
   rootReducer, 
-  persistedState,
+  //persistedState,
   applyMiddleware(thunk)
   );
   

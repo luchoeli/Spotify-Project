@@ -20,12 +20,16 @@
   min-width: 33%;
   border-radius: 5px;
   padding:5px;
+  text-decoration: none;
+  color: black;
   
 }
 
 .music-card:hover {
     transition: 0.155s;
     filter: brightness(80%);
+    text-decoration: none;
+    color: black;
 }
 
 .music-card img {

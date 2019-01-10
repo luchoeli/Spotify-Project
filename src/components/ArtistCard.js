@@ -1,21 +1,20 @@
 import React from 'react'
-import '../stylecheet/FavoriteStyle.css'
 import { Link } from 'react-router-dom'
-class ArtistCard extends React.Component {
-    render() {
-        return (
-            <Link style={{ textDecoration: 'none' , color:'black'}} to={`/artist/${this.props.id}`}>
 
-                <div className="music-card"> 
-                        <img src={this.props.artistImg} alt={'imagen of artist'} />
-                        <div className="SongInfo">
-                            <p><strong>{this.props.artistName}</strong></p>
-                        </div>
-                    
-                </div>
+const ArtistCard = (props) => {
+    return (
+        <Link className="card-link" to={`/artist/${props.id}`}>
+
+            <div className="music-card"> 
+                    <img src={props.artistImg} alt={'imagen of artist'} />
+                    <div className="SongInfo">
+                        <p><strong>{props.artistName}</strong></p>
+                    </div>
                 
-            </Link>
-        );
-    }
+            </div>
+            
+        </Link>
+    );
 }
+
 export default ArtistCard;

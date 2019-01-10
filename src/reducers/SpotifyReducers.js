@@ -16,40 +16,46 @@ const initialState = {
             currentSearch: EMPTY,
             loading: false,
             error: null,
+            
+            loadingAlbums: false,
+            errorAlbums: null,
+            
             currentListOfArtists:EMPTY,
             currentListOfAlbums: EMPTY,
             currentListOfTracks: EMPTY
 }
 
 function spotifyReducer(state = initialState, action) {
+  
   switch (action.type) {
-    
     case UPDATE_SEARCH: 
       return {
           currentSearch: action.input
       }
+  
 //----------------------------------------------------------//
     case SEARCH_ARTIST_ID_BEGIN:
       return {
         ...state,
         loading: true,
-        error: null
+        error: null,
+        currentArtist: null
       };
 
     case SEARCH_ARTIST_ID_SUCCESS:
       return {
         ...state,
         loading: false,
-        currentArtist: action.payload.artist,
-      
+        error: false,
+        currentArtist: action.payload.artist
       };
 
     case SEARCH_ARTIST_ID_FAILURE:
 
       return {
         ...state,
-        loading: false,
-        error: action.payload.error,
+        loading1: false,
+        error1: action.payload.error,
         currentArtist: null
       }
 //----------------------------------------------------------//
@@ -64,6 +70,7 @@ function spotifyReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        error: false,
         currentListOfArtists: action.payload.artists
       };
 
@@ -79,14 +86,15 @@ function spotifyReducer(state = initialState, action) {
       case SEARCH_ALBUMS_BEGIN:
       return {
         ...state,
-        loading: true,
-        error: null
+        loadingAlbums: true,
+        errorAlbums: null
       };
 
     case SEARCH_ALBUMS_SUCCESS:
       return {
         ...state,
-        loading: false,
+        loadingAlbums: false,
+        errorAlbums: false,
         currentListOfAlbums: action.payload.albums
       };
 
@@ -94,8 +102,8 @@ function spotifyReducer(state = initialState, action) {
 
       return {
         ...state,
-        loading: false,
-        error: action.payload.error,
+        loadingAlbums: false,
+        errorAlbums: action.payload.error,
         currentListOfAlbums: []
       }
 //----------------------------------------------------------//
@@ -149,7 +157,6 @@ function spotifyReducer(state = initialState, action) {
 
     default:
     return state
-
   }
 }
 

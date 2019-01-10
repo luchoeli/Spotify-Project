@@ -1,8 +1,8 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import '../stylecheet/FavoriteStyle.css'
 import ArtistCard from './ArtistCard'
+import Loading from './Loading';
 
 class ArtistContainer extends React.Component {
 
@@ -14,13 +14,7 @@ class ArtistContainer extends React.Component {
         }
 
         if (loading) {
-            return (
-                <div className="text-center">
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                </div>
-            );
+            return(<Loading/>)
         }
 
         if(currentListOfArtists.length){
