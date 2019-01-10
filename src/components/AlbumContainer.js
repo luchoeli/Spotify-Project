@@ -36,7 +36,7 @@ class AlbumContainer extends React.Component {
                                         id={a.id}
                                         albumName={a.name}
                                         albumReleaseDate={a.albumReleaseDate}
-                                        albumImg={a.images[ 0 ] ? a.images[ 0 ].url : "https://i.4pcdn.org/s4s/1510200817001.png"}
+                                        albumImg={a.images[0] ? a.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png"}
                                     />
                                 );
                             })

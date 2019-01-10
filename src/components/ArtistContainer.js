@@ -22,13 +22,12 @@ class ArtistContainer extends React.Component {
                 <div>
                     <section className="cardContainer">
                         {
-                            currentListOfArtists.length > 0 && currentListOfArtists.map((a) => {
-
+                            currentListOfArtists.map((a) => {
                                 return (
                                     <ArtistCard key={a.id}
                                         id={a.id}
                                         artistName={a.name}
-                                        artistImg={a.images[ 0 ] ? a.images[ 0 ].url : "https://i.4pcdn.org/s4s/1510200817001.png"}
+                                        artistImg={a.images[0] ? a.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png"}
                                     />
                                 );
                             })

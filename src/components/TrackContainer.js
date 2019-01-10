@@ -40,7 +40,7 @@ class TrackContainer extends React.Component {
                                         if (isFav) {
                                             fun = () => this.props.deleteFavs(a.id);
                                         } else {
-                                            fun = () => this.props.addFavs(a.id, a.name, a.artists[ 0 ].name, currentAlbum.image, currentAlbum.name);
+                                            fun = () => this.props.addFavs(a.id, a.name, a.artists[0].name, currentAlbum.image, currentAlbum.name);
                                         }
                                         return (
                                             <tr key={index}>
