@@ -1,48 +1,60 @@
-import React from 'react';
+import React from 'react'
+import { connect } from 'react-redux'
 import ArtistContainer from '../components/ArtistContainer'
-import Input from '../components/Input'
-// deberia recibir como props un json con los resultados de la busqueda q?=ALGO
+import { Route, Link } from 'react-router-dom'
+import { searchArtists } from '../actions'
+import SearchForm from '../components/SearchForm'
+import Header from '../components/Header'
 
 class ArtistSearch extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            currentSearch: this.props.currentSearch // yo llamo al componente al efectuar una busqueda, eso se vuelve este estado
+            busquedaEfectiva: this.props.location.search.replace('?q=', '')
         }
-        this.onSearch = this.onSearch.bind(this);
     }
 
-    onSearch(text) {
-    
-        this.props.searchArtist(text); // input del cuadro de busqueda
-
-        this.setState({
-            currentSearch: text
-        })
+    componentDidMount() {
+        this.props.searchArtists(this.state.busquedaEfectiva);
     }
 
     render() {
-        return(
-            <div id="artist_search_container">
 
-                <h1> Artist </h1>
+        return (
 
-                <p> You are currently searching: {this.state.currentSearch} </p>
+            <div className="main_view">
 
-                <Input accion={ this.onSearch } />
+                <Header haveSearchBar={false} />
+
+                <h1> Artists </h1>
+                <p> You are currently searching: <strong>{this.state.busquedaEfectiva}</strong> </p>
+
+                <SearchForm />
 
                 <br />
 
-               <ArtistContainer/>
+                <Route>
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item" aria-current="page"><Link to="/">Home</Link></li>
+                            <li className="breadcrumb-item active" aria-current="page"><Link to="/artistsearch">Artists</Link></li>
+                        </ol>
+                    </nav>
+                </Route>
+
+                <ArtistContainer busquedaEfectiva={this.state.busquedaEfectiva} />
 
             </div>
         )
     }
 }
 
-export default ArtistSearch;
+const mapDispatchToProps = dispatch => ({
+    searchArtists: artist => dispatch(searchArtists(artist)),
+})
 
-//mapstatetoprops
-//mapdispatchtoprops
-//connect
+export default connect(
+    null,
+    mapDispatchToProps
+)(ArtistSearch)

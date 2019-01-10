@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
-import '../stylecheet/FavoriteStyle.css'
-class ArtistCard extends Component {
-    render() {
-        return (
-            <div className="MusicCard">
-                <img src={this.props.artistImg} alt={'imagen of artist'} />
-                <div className="SongInfo">
-                    <p><strong>{this.props.artistName}</strong></p>
-                </div>
-            </div>
-        );
-    }
-}
+import React from 'react'
+import { Link } from 'react-router-dom'
 
+const ArtistCard = (props) => {
+    return (
+        <Link className="card-link" to={`/artist/${props.id}`}>
+
+            <div className="music-card">
+                <img src={props.artistImg} alt={'imagen of artist'} />
+                <div className="SongInfo">
+                    <p><strong>{props.artistName}</strong></p>
+                </div>
+
+            </div>
+
+        </Link>
+    );
+}
 
 export default ArtistCard;

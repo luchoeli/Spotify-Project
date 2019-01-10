@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import '../stylecheet/FavoriteStyle.css'
-class MusicCard extends Component {
+import React from 'react';
 
-    render() {
-        return (
-            <div className="MusicCard">
-                <img src={this.props.albumImg} alt={'imagen of album'} />
-                <div className="SongInfo">
-                    <p> <strong>{this.props.name}</strong></p>
-                    <p>Artist: {this.props.artist} </p>
-                    <p>Album: {this.props.album}</p>
-                </div>
+import Star from './Star'
+
+const MusicCard = (props) => {
+    return (
+        <div className="music-card">
+            <img src={props.albumImg} alt={'imagen of album'} />
+            <div className="SongInfo">
+                <p> <strong>{props.name}</strong></p>
+                <p>Artist: {props.artist} </p>
+                <p>Album: {props.album}</p>
+                <Star isFav={true} onClick={props.onClick} />
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default MusicCard;

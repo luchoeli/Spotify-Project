@@ -1,0 +1,58 @@
+.cardContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    justify-content: flex-start;
+    line-height: 0.3rem;
+   
+}
+
+
+.music-card {
+  background-color: rgb(10, 197, 135);
+  border: 1px solid black;
+  box-sizing: border-box;
+  display: flex;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem; 
+  min-width: 33%;
+  border-radius: 5px;
+  padding:5px;
+  text-decoration: none;
+  color: black;
+  
+}
+
+.music-card:hover {
+    transition: 0.155s;
+    filter: brightness(80%);
+    text-decoration: none;
+    color: black;
+}
+
+.music-card img {
+    margin: 0.5rem;
+    width: 80px;
+    height: 80px;
+    border:solid black 1.2px;
+    border-radius: 1.5px;
+}   
+
+img {
+    margin: 0.5rem;
+    width: 80px;
+    height: 80px;
+    border:solid black 1.2px;
+    border-radius: 1.5px;
+}
+
+.artistInfo {
+    background-color: beige;
+ }
+
+ #logoApp  {
+    border: none;
+    align-items: center;
+ }

@@ -23,6 +23,7 @@ class App extends React.Component { // pedir datos en component did mount
 
           <Header haveSearchBar={ true } />
 
+
       </div>
     )
   }

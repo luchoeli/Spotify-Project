@@ -1,184 +1,162 @@
-import {ADD_FAVS, DELETE_FAVS, SEARCH_ARTIST, SEARCH_ALBUM, SEARCH_TRACK} from '../constants.js';
-import { fetchArtistsSearch, fetchAlbumSearch, fetchTrackSearch } from '../api/api.js';
+import {ADD_FAVS, DELETE_FAVS, 
+        SEARCH_ARTIST_ID_BEGIN, SEARCH_ARTIST_ID_SUCCESS, SEARCH_ARTIST_ID_FAILURE,
+        SEARCH_ARTISTS_BEGIN,SEARCH_ARTISTS_SUCCESS,SEARCH_ARTISTS_FAILURE, 
+        SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS,SEARCH_ALBUMS_FAILURE, 
+        SEARCH_ALBUM_ID_BEGIN, SEARCH_ALBUM_ID_SUCCESS,SEARCH_ALBUM_ID_FAILURE,
+        UPDATE_SEARCH} from '../constants.js';
 
 const EMPTY = '';
 
 const initialState = {
-            favsElements: [{
-              name: 'song title',
-              id: '1',
-              album: 'album',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            },
-            {
-              name: 'sds title',
-              id: '2',
-              album: 'albumf',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            },
+            favsElements: [],
             
-            {
-              name: 'sds title',
-              id: '3',
-              album: 'albumf',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            },
+            currentArtist: EMPTY,
+            currentAlbum: EMPTY,
+
+            currentSearch: EMPTY,
+            loading: false,
+            error: null,
             
-            {
-              name: 'sds title',
-              id: '4',
-              album: 'albumf',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            },
+            loadingAlbums: false,
+            errorAlbums: null,
             
-            {
-              name: 'sds title',
-              id: '5',
-              album: 'albumf',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            },
-            
-            {
-              name: 'sds title',
-              id: '6',
-              album: 'albumf',
-              albumImg: 'https://i.scdn.co/image/95191136789abd43fc7ad7b4ea5526eca2986c26',
-              artist: 'artist'
-            }      
-            ],
-  currentSearch: EMPTY,
-  currentListOfAlbums: EMPTY,
-  currentListOfTracks: EMPTY
+            currentListOfArtists:EMPTY,
+            currentListOfAlbums: EMPTY,
+            currentListOfTracks: EMPTY
 }
 
-
-
 function spotifyReducer(state = initialState, action) {
+  
   switch (action.type) {
-    
-    case SEARCH_ARTIST: // pega a la api de spotify y trae json con datos
-
-        let promise = fetchArtistsSearch(action.input);
-
-        let artistArray = []
-
-        promise.then(function(result) {
-
-        for (let i = 0; i < result.artists.items.length; i++) {
-
-          let element = {
-            name: result.artists.items[i].name,
-            id: result.artists.items[i].id,
-            images: result.artists.items[i].images,
-            genres: result.artists.items[i].genres
-          };
-
-          artistArray.push(element);
-
-        }
-      
-      for ( let i = 0; i<artistArray.length; i++){
-        console.log(artistArray[i].name);
+    case UPDATE_SEARCH: 
+      return {
+          currentSearch: action.input
       }
+  
+//----------------------------------------------------------//
+    case SEARCH_ARTIST_ID_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+        currentArtist: null
+      };
 
-		});
+    case SEARCH_ARTIST_ID_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        currentArtist: action.payload.artist
+      };
 
-        return {
-          currentSearch: artistArray,
-          listOfAlbums: EMPTY,
-          currentListOfTracks: EMPTY
-        }
-
-    case SEARCH_ALBUM: // pega a la api de spotify y trae json con datos
-
-          let promise2 = fetchAlbumSearch(action.artistId)
-
-          let albumSearch = []
-
-          promise2.then(function(result) {
-
-            for (let i = 0; i < result.items.length; i++) {
-
-                let element = {
-                  name: result.items[i].name,
-                  date: result.items[i].release_date,
-                  images: result.items[i].images,
-                  id: result.items[i].id
-                };
-
-                albumSearch.push(element);
-
-            }
-
-            console.log('---------------------------')
-
-            for (let i = 0; i < albumSearch.length; i++) {
-              console.log(albumSearch[i].name + ' - ' + albumSearch[i].date)
-            }
-
-          });
-
-          return { 
-            listOfAlbums: albumSearch,
-            currentListOfTracks: EMPTY
-          }
-
-    case SEARCH_TRACK:
-
-        let promise3 = fetchTrackSearch(action.albumId);
-
-        let trackSearch = []
-
-        promise3.then(function(result) {
-
-            for (let i = 0; i < result.items.length; i++) {
-
-                let element = {
-                  name: result.items[i].name,
-                  duration: Math.trunc(result.items[i].duration / 1000), // parte entera superior
-                  id: result.items[i].id
-                };
-
-                trackSearch.push(element);
-
-            }
-
-            console.log('---------------------------')
-
-            for (let i = 0; i < trackSearch.length; i++) {
-              console.log(trackSearch[i].name)
-            }
-
-          });
+    case SEARCH_ARTIST_ID_FAILURE:
 
       return {
-          currentListOfTracks: trackSearch
+        ...state,
+        loading1: false,
+        error1: action.payload.error,
+        currentArtist: null
       }
+//----------------------------------------------------------//
+    case SEARCH_ARTISTS_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
 
+    case SEARCH_ARTISTS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        currentListOfArtists: action.payload.artists
+      };
+
+    case SEARCH_ARTISTS_FAILURE:
+
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        currentListOfArtists: []
+      }
+     //----------------------------------------------------------//
+      case SEARCH_ALBUMS_BEGIN:
+      return {
+        ...state,
+        loadingAlbums: true,
+        errorAlbums: null
+      };
+
+    case SEARCH_ALBUMS_SUCCESS:
+      return {
+        ...state,
+        loadingAlbums: false,
+        errorAlbums: false,
+        currentListOfAlbums: action.payload.albums
+      };
+
+    case SEARCH_ALBUMS_FAILURE:
+
+      return {
+        ...state,
+        loadingAlbums: false,
+        errorAlbums: action.payload.error,
+        currentListOfAlbums: []
+      }
+//----------------------------------------------------------//
+      case SEARCH_ALBUM_ID_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+
+    case SEARCH_ALBUM_ID_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+       
+        currentListOfTracks: action.payload.album.tracks,
+        
+        currentAlbum: action.payload.album
+
+      };
+
+    case SEARCH_ALBUM_ID_FAILURE:
+
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        currentListOfTracks: [],
+        currentAlbum: EMPTY,
+      }
+    
+    //----------------------------------------------------------//
     case ADD_FAVS: // añade un contenido a favoritos
 
-          var newArray = [...state.favsElements];
-          newArray.push(action.track);
+      var newArray = [...state.favsElements];
+      newArray.push(action.fav);
 
-          return {
-            favsElements: newArray
-          }
-      
+      return {
+        ...state,
+        favsElements: [...newArray]
+      }
+
     case DELETE_FAVS: // elimina un contenido de favoritos
 
-        newArray = state.favsElements.filter(item => item!==action.track) // falta comparar por algun atributo
-        return {
-          favsElements: newArray
-        }
+      newArray = state.favsElements.filter(item => item.id !== action.id) // falta comparar por algun atributo
+      
+      return {
+        ...state,
+        favsElements: newArray
+      }
 
     default:
-      return state
-
+    return state
   }
 }
 

@@ -2,17 +2,38 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers'; // carpeta reducers busca por defecto el index.js suyo
-import SpotifyComp from './components/SpotifyComp';
-import App from './App';
 
-const store = createStore(rootReducer);
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
+
+import AppRoutes from './routes';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import {loadState, saveState} from './localstorage/localStorage.js'
+
+const persistedState = loadState();
+
+
+const store = createStore(
+  rootReducer, 
+  //persistedState,
+  applyMiddleware(thunk)
+  );
+  
+  store.subscribe(() => {
+    saveState(
+      store.getState())
+    });
+    
 ReactDOM.render(
   <Provider store={store}>
-    <SpotifyComp/>
+    <Router>
+      <AppRoutes />
+    </Router>
   </Provider>,
   document.getElementById('root')
 )

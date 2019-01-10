@@ -1,45 +1,60 @@
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import '../stylecheet/FavoriteStyle.css'
-import ArtistCard from './ArtistCard';
+import React from 'react'
+import { connect } from 'react-redux'
+import ArtistCard from './ArtistCard'
+import Loading from './Loading';
 
+class ArtistContainer extends React.Component {
 
-class ArtistContainer extends Component {
     render() {
-        let artists = this.props.artists;
-        console.log(artists)
-        return ( 
-            <div>
-                <h2>Artistas</h2>
-                <section className="cardContainer">                  
-                    {
-                        artists.length > 0 && artists.map((a) => {
-                            return (
-                                    <ArtistCard artistImg={a.images[2] ? a.images[2].url : "https://i.4pcdn.org/s4s/1510200817001.png" }
-                                                artistName={a.name}/>
-                            );
-                        })
-                    }
+        const { error, loading, currentListOfArtists } = this.props;
 
-                </section>
-            </div>
+        if (error) {
+            return <div>Error! {error.message}</div>;
+        }
+
+        if (loading) {
+            return (<Loading />)
+        }
+
+        if (currentListOfArtists.length) {
+            return (
+                <div>
+                    <section className="cardContainer">
+                        {
+                            currentListOfArtists.map((a) => {
+                                return (
+                                    <ArtistCard key={a.id}
+                                        id={a.id}
+                                        artistName={a.name}
+                                        artistImg={a.images[0] ? a.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png"}
+                                    />
+                                );
+                            })
+                        }
+
+                    </section>
+                </div>
+            )
+        }
+        return (
+            <p>No artist found for "{this.props.busquedaEfectiva}"</p>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return {    
-       
+    return {
+        currentListOfArtists: state.spotifyReducers.currentListOfArtists,
+        error: state.spotifyReducers.error,
+        loading: state.spotifyReducers.loading
     }
 }
-  
-const mapDispatchToProps = dispatch => ({
-    
-})
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    null
 )(ArtistContainer)
+
+
 

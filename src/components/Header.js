@@ -1,50 +1,19 @@
 import React from 'react';
-import Input from './Input.js';
-import { searchArtist } from '../actions';
-import { connect } from 'react-redux';
+import SearchForm from './SearchForm';
 
-class Header extends React.Component {
-  
-    constructor() {
-        super();
-
-        this.onSearch = this.onSearch.bind(this);
+const Header = (props) => {
+    if (props.haveSearchBar) {
+        return (
+            <div>
+                <header className='headerALaIzquierda'> <img id='logoApp' src='https://image.flaticon.com/icons/png/128/246/246141.png' alt={'logo de spotify'} /></header>
+                <SearchForm />
+            </div>
+        )
+    }
+    else {
+        return <header className='headerAlCentro'> <img id='logoApp' src='https://image.flaticon.com/icons/png/128/246/246141.png' alt={'logo de spotify'} /> </header>
     }
 
-    onSearch (text) {
-        this.props.searchArtist(text);
-    }
-
-
-    render() {
-
-        if (this.props.haveSearchBar){ // boolean prop
-            return (
-                <div>
-                    <header className='headerALaIzquierda'> LOGO PROPIO DE LA APP [X] </header>
-                    <Input accion={ this.onSearch } />
-                </div>
-            )
-        }
-        else
-            {
-                return  <header className='headerCentrado'> LOGO PROPIO DE LA APP [X] </header>
-            }
-    }
-
-};
-
-const mapStateToProps = (state) => {
-  return {
-    favsElements: state.spotifyReducers.favsElements
-  }
 }
 
-const mapDispatchToProps = dispatch => ({
-  searchArtist: artist => dispatch(searchArtist(artist))
-})
-
-export default connect (
-  mapStateToProps,
-  mapDispatchToProps
-)(Header)
+export default Header;
