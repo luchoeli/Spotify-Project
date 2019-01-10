@@ -77,7 +77,7 @@ class Album extends React.Component {
                 ) : (
                     <div>
                         {breadcrumb}
-                        <p>album not found for {mystring}</p>
+                        <p>album not found </p>
                     </div>
                 )
                 }

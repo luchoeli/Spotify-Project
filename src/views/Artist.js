@@ -27,7 +27,7 @@ class Artist extends React.Component {
 
 
     render() {
-        const { error, loading, currentArtistImagen, currentArtistName, currenteArtistGenre} = this.props;
+        const { error, loading, currentArtist} = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -41,29 +41,34 @@ class Artist extends React.Component {
             );
         }
 
-        return (             
-            <div className="main_view">
-                <Header haveSearchBar={true} />
-                <hr />
-                <div className="shadow p-3 mb-5 bg-white rounded">
-                    <div className="media">
-                        <img src={currentArtistImagen}  className="align-self-start mr-3" alt="Album Logo"/>
-                        <div className="media-body">
-                            <h3 className="mt-0">{currentArtistName}</h3>
-                            <p>{currenteArtistGenre}</p>
-                        </div>
-                    </div>
-                </div>     
-
-                <Route>
+        const breadcrumb = (
+             <Route>
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
                             <li className="breadcrumb-item"><Link to="/">Home</Link></li>
                             <li className="breadcrumb-item "><Link to="/artistsearch">Artist</Link></li>         
-                            <li className="breadcrumb-item active"><Link to="/artist/">{currentArtistName}</Link></li>      
+                            <li className="breadcrumb-item active"><Link to="/artist/">{currentArtist.name}</Link></li>      
                         </ol>
                     </nav>
                 </Route>
+        );
+        
+        return (             
+            <div className="main_view">
+                <Header haveSearchBar={true} />
+                <hr />
+                
+                <div className="shadow p-3 mb-5 bg-white rounded">
+                    <div className="media">
+                        <img src={currentArtist.image}  className="align-self-start mr-3" alt="Album Logo"/>
+                        <div className="media-body">
+                            <h3 className="mt-0">{currentArtist.name}</h3>
+                            <p>{currentArtist.genres[0]}</p>
+                        </div>
+                    </div>
+                </div>     
+
+               {breadcrumb}
 
                 <hr />
                 <AlbumContainer  busquedaEfectiva={ this.state.busquedaEfectiva }/>
@@ -81,10 +86,12 @@ const mapStateToProps = (state) => {
         currentListOfAlbums: state.spotifyReducers.currentListOfAlbums,
         currentListOfTracks: state.spotifyReducers.currentListOfTracks,
 
+        currentArtist: state.spotifyReducers.currentArtist,
+        /*
         currentArtistName: state.spotifyReducers.currentArtistName,
         currentArtistImagen: state.spotifyReducers.currentArtistImagen,
         currenteArtistGenre: state.spotifyReducers.currentArtistGenre
-
+        */
     }
 }
   

@@ -40,10 +40,8 @@ function spotifyReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-       
-        currentArtistName: action.payload.name,
-        currentArtistImagen: action.payload.images[0].url,
-        currentArtistGenre: action.payload.genres[0]
+        currentArtist: action.payload.artist,
+      
       };
 
     case SEARCH_ARTIST_ID_FAILURE:
@@ -52,9 +50,7 @@ function spotifyReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload.error,
-        currentArtistName: EMPTY,
-        currentArtistImagen: EMPTY,
-        currentArtistGenre: EMPTY
+        currentArtist: null
       }
 //----------------------------------------------------------//
     case SEARCH_ARTISTS_BEGIN:
