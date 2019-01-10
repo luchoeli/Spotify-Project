@@ -23,7 +23,7 @@ class ArtistContainer extends React.Component {
             );
         }
 
-        if(this.props.currentListOfArtists.length>0){
+        if(currentListOfArtists.length){
             return ( 
                 <div>
                     <section className="cardContainer">                  
