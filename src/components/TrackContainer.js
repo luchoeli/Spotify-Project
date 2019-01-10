@@ -10,7 +10,7 @@ class TrackContainer extends React.Component{
 
 
     render(){
-        const { error, loading, currentAlbum, currentListOfTracks } = this.props;
+        const { error, loading, currentAlbum } = this.props;
         
         let favsID=[];
         console.log(currentAlbum)
@@ -31,10 +31,11 @@ class TrackContainer extends React.Component{
                 </div>
             );
         }
-        if(currentListOfTracks.length>0)
-         
-        return ( 
-            <div >
+        if(currentAlbum && currentAlbum.tracks && currentAlbum.tracks.length) {
+            const currentListOfTracks = currentAlbum.tracks;
+
+            return ( 
+                <div >
                 <h2>Tracks</h2>
                 <section className="cardContainer">                  
                     <table className="table table-striped">
@@ -68,24 +69,22 @@ class TrackContainer extends React.Component{
                         }
                         </tbody>
                     </table>
-                
-
                 </section>
             </div>
-        )
-     return(
-            <p>No artist found for "{this.props.busquedaEfectiva}"</p>
-        )   
+            )   
+        } else {
+            return(
+                <p>No artist found for "{this.props.busquedaEfectiva}"</p>
+            )   
+        }
 
     }
 }
 const mapStateToProps = (state) => {
     return {
         favsElements: state.spotifyReducers.favsElements,
-        currentListOfTracks: state.spotifyReducers.currentListOfTracks,
-        
-
-        currentAlbum: state.spotifyReducers.currentAlbum,
+        //currentListOfTracks: state.spotifyReducers.currentListOfTracks,
+        //currentAlbum: state.spotifyReducers.currentAlbum,
 
     }
 }
