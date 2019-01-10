@@ -10,10 +10,10 @@ const MusicCard = (props) => {
                 <p> <strong>{props.name}</strong></p>
                 <p>Artist: {props.artist} </p>
                 <p>Album: {props.album}</p>
-                <Star isFav={true} onClick={props.onClick}/>
+                <Star isFav={true} onClick={props.onClick} />
             </div>
-        </div>      
+        </div>
     );
-  }
+}
 
-  export default MusicCard;
+export default MusicCard;

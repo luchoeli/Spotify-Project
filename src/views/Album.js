@@ -3,30 +3,24 @@ import { connect } from 'react-redux'
 import { Route, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import TrackContainer from '../components/TrackContainer';
-import {searchAlbumID} from '../actions'
+import { searchAlbumID } from '../actions'
 import Loading from '../components/Loading';
 
 class Album extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            busquedaEfectiva: ''
+            albumID: this.props.match.params.id
         }
     }
 
     componentDidMount() {
-        var mystring = this.props.match.params.id;
-    
-        this.setState({
-            busquedaEfectiva: mystring
-        }); 
-       
-        this.props.searchAlbumID(mystring)
+        this.props.searchAlbumID(this.state.albumID)
     }
 
     render() {
-        const { error, loading, currentAlbum} = this.props;
-    
+        const { error, loading, currentAlbum } = this.props;
+
         if (error) {
             return <div>Error! {error.message}</div>;
         }
@@ -36,7 +30,7 @@ class Album extends React.Component {
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                        <li className="breadcrumb-item "><Link to="/artistsearch">ArtistSearch</Link></li> 
+                        <li className="breadcrumb-item "><Link to="/artistsearch">ArtistSearch</Link></li>
                         {currentAlbum && <li className="breadcrumb-item "><Link to="/artist">{currentAlbum.artist}</Link></li>}
                         {currentAlbum && <li className="breadcrumb-item active"><Link to="/album">{currentAlbum.name}</Link></li>}
                     </ol>
@@ -44,57 +38,54 @@ class Album extends React.Component {
             </Route>
         );
 
-   
+
         return (
             <div className="main_view">
                 <Header haveSearchBar={true} />
                 <hr />
-                { loading ? (
-                    <Loading/>
+                {loading ? (
+                    <Loading />
                 ) :
-                (
-                    currentAlbum ? (
-                        <div>
-                            <div className="shadow p-3 mb-5 bg-white rounded">
-                                <div className="media">
-                                    <img src={currentAlbum.image}  className="align-self-start mr-3" alt="Album Logo"/>
-                                    <div className="media-body">
-                                        <h3 className="mt-0">{currentAlbum.name}</h3>
-                                        <p>{currentAlbum.artist} - {currentAlbum.release_date}</p>
+                    (
+                        currentAlbum ? (
+                            <div>
+                                <div className="shadow p-3 mb-5 bg-white rounded">
+                                    <div className="media">
+                                        <img src={currentAlbum.image} className="align-self-start mr-3" alt="Album Logo" />
+                                        <div className="media-body">
+                                            <h3 className="mt-0">{currentAlbum.name}</h3>
+                                            <p>{currentAlbum.artist} - {currentAlbum.release_date}</p>
+                                        </div>
                                     </div>
+
                                 </div>
-                                
+                                <hr />
+                                {breadcrumb}
+                                <hr />
+                                <TrackContainer currentAlbum={this.props.currentAlbum} />
                             </div>
-                            <hr />
-                            {breadcrumb}            
-                            <hr />
-                            <TrackContainer currentAlbum={this.props.currentAlbum} />
-                        </div>
-                    ) : (
-                        <div>
-                            {breadcrumb}
-                            <p>album not found </p>
-                        </div>
+                        ) : null
                     )
-                )
                 }
-                
+
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return {    
-        currentAlbum: state.spotifyReducers.currentAlbum, 
+    return {
+        currentAlbum: state.spotifyReducers.currentAlbum,
+        error: state.spotifyReducers.error,
+        loading: state.spotifyReducers.loading
     }
 }
-  
-  const mapDispatchToProps = dispatch => ({
+
+const mapDispatchToProps = dispatch => ({
     searchAlbumID: albumID => dispatch(searchAlbumID(albumID)),
-  })
-  
-  export default connect (
+})
+
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Album)
+)(Album)

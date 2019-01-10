@@ -14,43 +14,44 @@ class ArtistContainer extends React.Component {
         }
 
         if (loading) {
-            return(<Loading/>)
+            return (<Loading />)
         }
 
-        if(currentListOfArtists.length){
-            return ( 
+        if (currentListOfArtists.length) {
+            return (
                 <div>
-                    <section className="cardContainer">                  
+                    <section className="cardContainer">
                         {
                             currentListOfArtists.length > 0 && currentListOfArtists.map((a) => {
 
                                 return (
-                                        <ArtistCard key={a.id}
-                                                    id={a.id}
-                                                    artistName={a.name}
-                                                    artistImg={a.images[0] ? a.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png" }
-                                                    />
+                                    <ArtistCard key={a.id}
+                                        id={a.id}
+                                        artistName={a.name}
+                                        artistImg={a.images[ 0 ] ? a.images[ 0 ].url : "https://i.4pcdn.org/s4s/1510200817001.png"}
+                                    />
                                 );
                             })
                         }
 
                     </section>
                 </div>
-            )}
-         return(
-                <p>No artist found for "{this.props.busquedaEfectiva}"</p>
-            )   
+            )
+        }
+        return (
+            <p>No artist found for "{this.props.busquedaEfectiva}"</p>
+        )
     }
 }
 
 const mapStateToProps = (state) => {
-    return {    
+    return {
         currentListOfArtists: state.spotifyReducers.currentListOfArtists,
-        loading: state.spotifyReducers.loading,
-        error: state.spotifyReducers.error
+        error: state.spotifyReducers.error,
+        loading: state.spotifyReducers.loading
     }
 }
-  
+
 export default connect(
     mapStateToProps,
     null

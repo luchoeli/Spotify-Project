@@ -6,63 +6,60 @@ import AlbumCard from '../components/AlbumCard'
 import Loading from './Loading';
 
 class AlbumContainer extends React.Component {
-    
+
     componentDidMount() {
-        console.log("AAAAAAAAAAAAAAA")
-        console.log(this.props)
+
         this.props.searchAlbums(this.props.artistId);
-        
+
     }
-    
+
     render() {
         const { error, loading, currentListOfAlbums } = this.props;
-        
+
         if (error) {
             return <div>Error! {error.message} </div>; // TIRA ERROR ACA
         }
 
         if (loading) {
-            return <Loading/>
+            return <Loading />
         }
 
-        return currentListOfAlbums.length>0 ? 
-             ( 
+        return currentListOfAlbums.length > 0 ?
+            (
                 <div >
                     <h2>Albums</h2>
-                    <section className="cardContainer">                  
+                    <section className="cardContainer">
                         {
-                            currentListOfAlbums.map((a) => {                                
+                            currentListOfAlbums.map((a) => {
                                 return (
-                                    <AlbumCard  key={a.id}
-                                                id={a.id}
-                                                albumName={a.name}
-                                                albumReleaseDate={a.albumReleaseDate}
-                                                albumImg={a.images[0] ? a.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png" }
-                                                />
-                                );    
+                                    <AlbumCard key={a.id}
+                                        id={a.id}
+                                        albumName={a.name}
+                                        albumReleaseDate={a.albumReleaseDate}
+                                        albumImg={a.images[ 0 ] ? a.images[ 0 ].url : "https://i.4pcdn.org/s4s/1510200817001.png"}
+                                    />
+                                );
                             })
                         }
                     </section>
                 </div>
             )
-        : 
+            :
             (
-                <p>No albums found</p>  
+                <p>No albums found</p>
             );
-    } 
+    }
 }
 const mapStateToProps = (state) => {
     return {
         currentListOfAlbums: state.spotifyReducers.currentListOfAlbums,
-
-        loading: state.spotifyReducers.loadingAlbums,
-        error: state.spotifyReducers.errorAlbums
+        error: state.spotifyReducers.errorAlbums,
+        loading: state.spotifyReducers.loadingAlbums
     }
 }
 const mapDispatchToProps = dispatch => ({
     searchAlbums: artist => dispatch(searchAlbums(artist)),
-  })
-  
+})
 
 
 export default connect(

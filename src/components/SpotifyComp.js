@@ -12,9 +12,9 @@ class SpotifyComp extends React.Component {
     const { children } = this.props;
 
     return (
-    	<div id="container">
-        {children} 
-    	</div>
+      <div id="container">
+        {children}
+      </div>
     )
   }
 }

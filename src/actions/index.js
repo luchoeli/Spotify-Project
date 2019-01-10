@@ -24,7 +24,6 @@ export function searchArtistID(artistID) {
                     image: json.images.length ? json.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png",
                     genres: json.genres
                 }
-                console.log(artist);
                 dispatch(searchArtistIDSuccess(artist));
             })
             .catch(error =>
