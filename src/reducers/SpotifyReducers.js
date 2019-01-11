@@ -117,6 +117,7 @@ function spotifyReducer(state = initialState, action) {
       };
 
     case SEARCH_ALBUM_ID_SUCCESS:
+
       return {
         ...state,
         loading: false,

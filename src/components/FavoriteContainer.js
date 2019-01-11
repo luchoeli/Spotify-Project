@@ -8,8 +8,8 @@ import { deleteFavs } from '../actions'
 
 class FavoriteContainer extends Component {
 
-    render() {
 
+    render() {
         let favs = this.props.favsElements;
 
         return (

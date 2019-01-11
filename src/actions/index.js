@@ -1,11 +1,13 @@
-import {ADD_FAVS, DELETE_FAVS, 
-        SEARCH_ARTIST_ID_BEGIN, SEARCH_ARTIST_ID_SUCCESS, SEARCH_ARTIST_ID_FAILURE,
-        SEARCH_ARTISTS_BEGIN, SEARCH_ARTISTS_SUCCESS, SEARCH_ARTISTS_FAILURE,
-        SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS, SEARCH_ALBUMS_FAILURE, 
-        SEARCH_ALBUM_ID_BEGIN, SEARCH_ALBUM_ID_SUCCESS,SEARCH_ALBUM_ID_FAILURE, 
-        UPDATE_SEARCH } from '../constants.js';
+import {
+    ADD_FAVS, DELETE_FAVS,
+    SEARCH_ARTIST_ID_BEGIN, SEARCH_ARTIST_ID_SUCCESS, SEARCH_ARTIST_ID_FAILURE,
+    SEARCH_ARTISTS_BEGIN, SEARCH_ARTISTS_SUCCESS, SEARCH_ARTISTS_FAILURE,
+    SEARCH_ALBUMS_BEGIN, SEARCH_ALBUMS_SUCCESS, SEARCH_ALBUMS_FAILURE,
+    SEARCH_ALBUM_ID_BEGIN, SEARCH_ALBUM_ID_SUCCESS, SEARCH_ALBUM_ID_FAILURE,
+    UPDATE_SEARCH
+} from '../constants.js';
 
-import {fetchArtistsSearch, fetchAlbumSearch, fetchAlbum, fetchArtist} from '../api/api.js'
+import { fetchArtistsSearch, fetchAlbumSearch, fetchAlbum, fetchArtist } from '../api/api.js'
 
 export function updateSearch(input) {
     return {
@@ -18,7 +20,7 @@ export function searchArtistID(artistID) {
     return dispatch => {
         dispatch(searchArtistIDBegin());
         return fetchArtist(artistID)
-            .then(json => {            
+            .then(json => {
                 const artist = {
                     name: json.name,
                     image: json.images.length ? json.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png",
@@ -33,17 +35,17 @@ export function searchArtistID(artistID) {
 }
 
 export const searchArtistIDBegin = () => ({
-  type: SEARCH_ARTIST_ID_BEGIN
+    type: SEARCH_ARTIST_ID_BEGIN
 });
 
 export const searchArtistIDSuccess = (artist) => ({
-  type: SEARCH_ARTIST_ID_SUCCESS,
-  payload: {artist}
+    type: SEARCH_ARTIST_ID_SUCCESS,
+    payload: { artist }
 });
 
 export const searchArtistIDFailure = error => ({
-  type: SEARCH_ARTIST_ID_FAILURE,
-  payload: { error }
+    type: SEARCH_ARTIST_ID_FAILURE,
+    payload: { error }
 });
 //--------------------------------- 
 export function searchArtists(artistSearch) {
@@ -60,20 +62,20 @@ export function searchArtists(artistSearch) {
 }
 
 export const searchArtistsBegin = () => ({
-  type: SEARCH_ARTISTS_BEGIN
+    type: SEARCH_ARTISTS_BEGIN
 });
 
 export const searchArtistsSuccess = artists => ({
-  type: SEARCH_ARTISTS_SUCCESS,
-  payload: { artists }
+    type: SEARCH_ARTISTS_SUCCESS,
+    payload: { artists }
 });
 
 export const searchArtistsFailure = error => ({
-  type: SEARCH_ARTISTS_FAILURE,
-  payload: { error }
+    type: SEARCH_ARTISTS_FAILURE,
+    payload: { error }
 });
 //---------------------------------------------
-export function searchAlbums(artistID){
+export function searchAlbums(artistID) {
     return dispatch => {
         dispatch(searchAlbumsBegin());
         return fetchAlbumSearch(artistID)
@@ -88,29 +90,29 @@ export function searchAlbums(artistID){
 
 export const searchAlbumsBegin = () => ({
     type: SEARCH_ALBUMS_BEGIN
-  });
-  
-  export const searchAlbumsSuccess = albums => ({
+});
+
+export const searchAlbumsSuccess = albums => ({
     type: SEARCH_ALBUMS_SUCCESS,
     payload: { albums }
-  });
-  
-  export const searchAlbumsFailure = error2 => ({
+});
+
+export const searchAlbumsFailure = error2 => ({
     type: SEARCH_ALBUMS_FAILURE,
     payload: { error2 }
-  });
+});
 //---------------------------------------------
-export function searchAlbumID(albumID){
+export function searchAlbumID(albumID) {
 
     return dispatch => {
         dispatch(searchAlbumIDBegin());
         return fetchAlbum(albumID)
             .then(json => {
-                
+
                 const album = {
-                    name: json.name, 
-                    artist: json.artists[0].name, 
-                    release_date: json.release_date, 
+                    name: json.name,
+                    artist: json.artists[0].name,
+                    release_date: json.release_date,
                     image: json.images.length ? json.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png",
                     tracks: json.tracks.items || []
                 }
@@ -124,29 +126,30 @@ export function searchAlbumID(albumID){
 
 export const searchAlbumIDBegin = () => ({
     type: SEARCH_ALBUM_ID_BEGIN
-  });
-  
-  export const searchAlbumIDSuccess = (album) => ({
+});
+
+export const searchAlbumIDSuccess = (album) => ({
     type: SEARCH_ALBUM_ID_SUCCESS,
     payload: { album }
-  });
-  
-  export const searchAlbumIDFailure = error => ({
+});
+
+export const searchAlbumIDFailure = error => ({
     type: SEARCH_ALBUM_ID_FAILURE,
     payload: { error }
-  });
-  //---------------------------------------------
+});
+//---------------------------------------------
 export function addFavs(fav) {
-    
+
     return {
         type: ADD_FAVS,
         fav,
     }
 }
 
-export function deleteFavs(track) {
+export function deleteFavs(id) {
+
     return {
         type: DELETE_FAVS,
-        track
+        id
     }
 }
