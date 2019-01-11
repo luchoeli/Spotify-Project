@@ -3,7 +3,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Star from './Star'
 import { addFavs, deleteFavs } from '../actions'
-import Loading from './Loading';
 
 class TrackContainer extends React.Component {
 
@@ -37,10 +36,18 @@ class TrackContainer extends React.Component {
                                     currentListOfTracks.map((a, index) => {
                                         const isFav = favsID.includes(a.id)
                                         let fun = '';
+
                                         if (isFav) {
                                             fun = () => this.props.deleteFavs(a.id);
                                         } else {
-                                            fun = () => this.props.addFavs(a.id, a.name, a.artists[0].name, currentAlbum.image, currentAlbum.name);
+                                            const fav = {
+                                                id: a.id,
+                                                name: a.name,
+                                                artist: a.artists[0].name,
+                                                albumImage: currentAlbum.image,
+                                                albumName: currentAlbum.name
+                                            }
+                                            fun = () => this.props.addFavs(fav);
                                         }
                                         return (
                                             <tr key={index}>

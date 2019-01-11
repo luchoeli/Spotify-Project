@@ -13,22 +13,22 @@ import thunk from "redux-thunk";
 import AppRoutes from './routes';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import {loadState, saveState} from './localstorage/localStorage.js'
+import { loadState, saveState } from './localstorage/localStorage.js'
 
 const persistedState = loadState();
 
 
 const store = createStore(
-  rootReducer, 
-  //persistedState,
+  rootReducer,
+  persistedState,
   applyMiddleware(thunk)
-  );
-  
-  store.subscribe(() => {
-    saveState(
-      store.getState())
-    });
-    
+);
+
+store.subscribe(() => {
+  saveState(
+    store.getState())
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
@@ -37,5 +37,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
-    //<App/>
+//<App/>
 serviceWorker.unregister();
