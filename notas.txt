@@ -1,0 +1,16 @@
+# todas las box iguales (tamaño)
+
+# cambiar fuente de todo (home, box, etc)
+
+# todo color negro al logo
+
+# cambiar barra de home al centro
+
+# cambiar fondo: sacar mosaico y dejar una sola imagen estatica
+
+# poner navegador al principio de todo, luego busqueda, titulo, luego albumes
+
+# darle fondo solido al listado de canciones
+
+# 
+
