@@ -11,7 +11,7 @@ class Artist extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            artistId: this.props.match.params.id
+            artistId: this.props.match.params.id,
         }
     }
     componentDidMount() {
@@ -31,7 +31,7 @@ class Artist extends React.Component {
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                        <li className="breadcrumb-item "><Link to="/artistsearch">Artist</Link></li>
+                        <li className="breadcrumb-item "><Link to={"/artistsearch?q="+"aca_va_la_ultima_busqueda"} >Last search</Link></li>
                         {currentArtist && <li className="breadcrumb-item active"><Link to="/artist/">{currentArtist.id}</Link></li>}
                     </ol>
                 </nav>

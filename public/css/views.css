@@ -51,7 +51,11 @@ html {
     *zoom: 1;
 }
 /* clase de cada una de las vistas*/
-.main_view{
-    background-color: beige;
+.main_view {
+    background-color: rgba(7, 129, 7, 0.87);
     margin: 1% 13%;
+    border-radius: 15px;
+    opacity: unset;
+    padding:0.4%;
+    font-family: monospace;
 }
