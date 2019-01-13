@@ -48,7 +48,7 @@ class Artist extends React.Component {
                 ) : (
                         currentArtist ? (
                             <div>
-                                <div className="shadow p-3 mb-5 bg-white rounded">
+                                <div className="shadow p-1 mb-5 bg-white rounded">
                                     <div className="media">
                                         <img src={currentArtist.image} className="align-self-start mr-3" alt="Album Logo" />
                                         <div className="media-body">

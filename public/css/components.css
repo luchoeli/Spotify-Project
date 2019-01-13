@@ -6,12 +6,11 @@
     font-size: 0.8rem;
     justify-content: flex-start;
     line-height: 0.3rem;
-   
 }
 
 
 .music-card {
-  background-color: rgb(10, 197, 135);
+  background-color: rgba(0, 0, 0, 0.705);
   border: solid black 2px;
   box-sizing: border-box;
   display: flex;
@@ -23,15 +22,16 @@
   border-radius: 5px;
   padding:5px;
   text-decoration: none;
-  color: black;
+  color: white;
   
 }
 
 .music-card:hover {
     transition: 0.155s;
-    filter: brightness(80%);
+    filter: brightness(120%);
     text-decoration: none;
-    color: black;
+    color: white;
+    background-color:rgba(66, 66, 66, 0.541);
 }
 
 .music-card img {
@@ -54,9 +54,15 @@ img {
     background-color: beige;
  }
 
- #logoApp  {
+#logoApp {
     border: none;
     align-items: center;
+}
+
+ .headerAlCentro > #logoApp  {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
  }
 
  #artistSearch {
@@ -75,3 +81,20 @@ img {
      flex:1;
  }
 
+ tr {
+    border: solid black;
+}
+
+.media {
+    background-color:rgba(0, 0, 0, 0.863);
+    border-radius: 5px;
+    box-shadow: 2px;
+    margin:1px;
+    border-spacing: 2px;
+    opacity:1;
+    color:white;
+}
+
+.media img {
+    border:solid white 1px;
+}

@@ -53,9 +53,11 @@ html {
 /* clase de cada una de las vistas*/
 .main_view {
     background-color: rgba(7, 129, 7, 0.87);
-    margin: 1% 13%;
+    margin: 1% auto;
     border-radius: 15px;
     opacity: unset;
     padding:0.4%;
     font-family: monospace;
+    width:88%;
+    min-height:33rem;
 }
