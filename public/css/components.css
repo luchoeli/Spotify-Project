@@ -62,7 +62,7 @@ img {
 
 #logoApp {
     border: none;
-    align-items: center;
+
 }
 
 .headerAlCentro>#logoApp {
@@ -75,7 +75,7 @@ img {
     font-style: italic;
     border: solid black 1.6px;
     padding: 0 0.5px;
-    width: 28%;
+    width: 100%;
     border-radius: 15px;
 }
 
@@ -101,6 +101,7 @@ tr {
     border-spacing: 2px;
     opacity: 1;
     color: white;
+    clear: both;
 }
 
 .media img {
@@ -118,17 +119,20 @@ tr {
 
 .headerALaIzquierda>#logoApp {
     float: left;
+
 }
 
 .barraDeBusqueda {
-    width: 90%;
     font-size: 16.5px;
+    width: 280px;
+    background-size: 100% auto;
 }
+
 
 #headerDiv>.barraDeBusqueda {
     margin-top: 5px;
-    float: right;
     text-align: right;
+    float: right;
 }
 
-.mi-card-link+.mi-card-link {}
+/*
