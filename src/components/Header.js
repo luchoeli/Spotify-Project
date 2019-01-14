@@ -4,7 +4,7 @@ import SearchForm from './SearchForm';
 const Header = (props) => {
     if (props.haveSearchBar) {
         return (
-            <div>
+            <div id="headerDiv">
                 <header className='headerALaIzquierda'> <img id='logoApp' src='https://image.flaticon.com/icons/png/128/246/246141.png' alt={'logo de spotify'} /></header>
                 <SearchForm />
             </div>

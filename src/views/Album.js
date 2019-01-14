@@ -50,7 +50,7 @@ class Album extends React.Component {
                     (
                         currentAlbum ? (
                             <div>
-                                <div className="shadow p-3 mb-5 bg-white rounded">
+                                <div className="shadow p-1 mb-5 bg-white rounded">
                                     <div className="media">
                                         <img src={currentAlbum.image} className="align-self-start mr-3" alt="Album Logo" />
                                         <div className="media-body">
