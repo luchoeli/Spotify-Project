@@ -1,4 +1,4 @@
-# todas las box iguales (tamaño)
+# todas las box iguales (tamaï¿½o)
 
 # cambiar fuente de todo (home, box, etc)
 
@@ -10,7 +10,7 @@
 
 # poner navegador al principio de todo, luego busqueda, titulo, luego albumes
 
-# darle fondo solido al listado de canciones
+# 
 
 # 
 
