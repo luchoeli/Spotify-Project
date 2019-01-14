@@ -12,7 +12,7 @@
 
 
 .music-card {
-    <<<<<<< HEAD background-color: rgba(0, 0, 0, 0.705);
+    background-color: rgba(0, 0, 0, 0.82);
     border: solid black 2px;
     box-sizing: border-box;
     display: flex;
@@ -25,21 +25,6 @@
     padding: 5px;
     text-decoration: none;
     color: white;
-
-    =======background-color: rgba(0, 0, 0, 0.82);
-    border: solid black 2px;
-    box-sizing: border-box;
-    display: flex;
-    margin-right: 0.5rem;
-    margin-top: 0.5rem;
-    margin-left: 4px;
-    margin-right: 4px;
-    min-width: 33%;
-    border-radius: 5px;
-    padding: 5px;
-    text-decoration: none;
-    color: white;
-    >>>>>>>570e9f573118bf967764923b05e45126dab89cc0
 }
 
 .music-card:hover {
@@ -47,9 +32,7 @@
     filter: brightness(120%);
     text-decoration: none;
     color: white;
-    <<<<<<< HEAD background-color: rgba(66, 66, 66, 0.541);
-    =======background-color: rgba(66, 66, 66, 0.641);
-    >>>>>>>570e9f573118bf967764923b05e45126dab89cc0
+    background-color: rgba(66, 66, 66, 0.641);
 }
 
 .music-card img {
