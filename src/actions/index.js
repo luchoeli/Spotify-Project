@@ -108,7 +108,6 @@ export function searchAlbumID(albumID) {
         dispatch(searchAlbumIDBegin());
         return fetchAlbum(albumID)
             .then(json => {
-
                 const album = {
                     name: json.name,
                     artist: json.artists[0].name,
