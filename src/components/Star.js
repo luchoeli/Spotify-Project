@@ -5,7 +5,7 @@ const Star = props => {
     const { isFav, onClick } = props;
 
     return <span onClick={onClick}>
-        {isFav ? <TiStarFullOutline /> : <TiStarOutline />}
+        {isFav ? <TiStarFullOutline className="star" /> : <TiStarOutline className="star" />}
     </span>
 };
 export default Star;

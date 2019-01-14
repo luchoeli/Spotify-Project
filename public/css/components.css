@@ -10,20 +10,20 @@
 
 
 .music-card {
-  background-color: rgba(0, 0, 0, 0.705);
-  border: solid black 2px;
-  box-sizing: border-box;
-  display: flex;
-  margin-right: 0.5rem;
-  margin-top: 0.5rem; 
-  margin-left:4px;
-  margin-right:4px;
-  min-width: 33%;
-  border-radius: 5px;
-  padding:5px;
-  text-decoration: none;
-  color: white;
-  
+    background-color: rgba(0, 0, 0, 0.705);
+    border: solid black 2px;
+    box-sizing: border-box;
+    display: flex;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 4px;
+    margin-right: 4px;
+    min-width: 33%;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+
 }
 
 .music-card:hover {
@@ -31,71 +31,80 @@
     filter: brightness(120%);
     text-decoration: none;
     color: white;
-    background-color:rgba(66, 66, 66, 0.541);
+    background-color: rgba(66, 66, 66, 0.541);
 }
 
 .music-card img {
     margin: 0.5rem;
     width: 80px;
     height: 80px;
-    border:solid black 1.2px;
+    border: solid black 1.2px;
     border-radius: 1.5px;
-}   
+}
 
 img {
     margin: 0.5rem;
     width: 80px;
     height: 80px;
-    border:solid black 1.2px;
+    border: solid black 1.2px;
     border-radius: 1.5px;
 }
 
 .artistInfo {
     background-color: beige;
- }
+}
 
 #logoApp {
     border: none;
     align-items: center;
 }
 
- .headerAlCentro > #logoApp  {
+.headerAlCentro>#logoApp {
     display: block;
     margin-left: auto;
     margin-right: auto;
- }
+}
 
- #artistSearch {
-     font-style: italic;
-     border: solid black 1.6px;
-     padding: 0 0.5px;
-     width:28%;
-     border-radius: 15px;
- }
+#artistSearch {
+    font-style: italic;
+    border: solid black 1.6px;
+    padding: 0 0.5px;
+    width: 28%;
+    border-radius: 15px;
+}
 
- .breadcrumb > *, .breadcrumb *, .breadcrumb {
-     background:black;
-     color:white;
-     text-decoration: none;
-     display:flex;
-     flex:1;
- }
+.breadcrumb>*,
+.breadcrumb *,
+.breadcrumb {
+    background: black;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex: 1;
+}
 
- tr {
+tr {
     border: solid black;
 }
 
 .media {
-    background-color:rgba(0, 0, 0, 0.863);
+    background-color: rgba(0, 0, 0, 0.863);
     border-radius: 5px;
     box-shadow: 2px;
-    margin:1px;
+    margin: 1px;
     border-spacing: 2px;
-    opacity:1;
-    color:white;
+    opacity: 1;
+    color: white;
 }
 
 .media img {
-    border:solid white 1px;
+    border: solid white 1px;
 }
 
+.star {
+    color: rgb(246, 250, 20);
+}
+
+td * {
+    align-self: auto;
+}

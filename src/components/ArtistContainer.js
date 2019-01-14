@@ -50,11 +50,9 @@ const mapStateToProps = (state) => {
         loading: state.spotifyReducers.loading
     }
 }
-
 export default connect(
     mapStateToProps,
     null
 )(ArtistContainer)
-
 
 
