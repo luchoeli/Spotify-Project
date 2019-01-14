@@ -112,6 +112,7 @@ export function searchAlbumID(albumID) {
                 const album = {
                     name: json.name,
                     artist: json.artists[0].name,
+                    artistID: json.artists[0].id,
                     release_date: json.release_date,
                     image: json.images.length ? json.images[0].url : "https://i.4pcdn.org/s4s/1510200817001.png",
                     tracks: json.tracks.items || []

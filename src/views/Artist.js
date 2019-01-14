@@ -31,7 +31,7 @@ class Artist extends React.Component {
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                        {currentArtist && <li className="breadcrumb-item active"><Link to="/artist/">{currentArtist.name}</Link></li>}
+                        {currentArtist && <li className="breadcrumb-item active">{currentArtist.name}</li>}
                     </ol>
                 </nav>
             </Route>
