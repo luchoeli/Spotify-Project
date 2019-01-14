@@ -11,7 +11,11 @@ const Header = (props) => {
         )
     }
     else {
-        return <header className='headerAlCentro'> <img id='logoApp' src='https://image.flaticon.com/icons/png/512/8/8710.png' alt={'logo de spotify'} /> </header>
+        return(
+            <div id="headerDiv">
+                <header className='headerAlCentro'> <img id='logoApp' src='https://image.flaticon.com/icons/png/512/8/8710.png' alt={'logo de spotify'} /> </header>
+            </div>
+        )
     }
 
 }

@@ -6,11 +6,13 @@
     font-size: 0.8rem;
     justify-content: flex-start;
     line-height: 0.3rem;
+    font-family:monospace;
+    
 }
 
 
 .music-card {
-  background-color: rgba(0, 0, 0, 0.705);
+  background-color: rgba(0, 0, 0, 0.82);
   border: solid black 2px;
   box-sizing: border-box;
   display: flex;
@@ -23,7 +25,6 @@
   padding:5px;
   text-decoration: none;
   color: white;
-  
 }
 
 .music-card:hover {
@@ -31,7 +32,7 @@
     filter: brightness(120%);
     text-decoration: none;
     color: white;
-    background-color:rgba(66, 66, 66, 0.541);
+    background-color:rgba(66, 66, 66, 0.641);
 }
 
 .music-card img {
@@ -99,3 +100,22 @@ img {
     border:solid white 1px;
 }
 
+#headerDiv {
+    clear:both;
+    min-height:75px;
+}
+
+.headerALaIzquierda > #logoApp {
+    float:left;
+}
+
+.barraDeBusqueda {
+    width:90%;
+    font-size:16.5px; 
+}
+
+#headerDiv > .barraDeBusqueda {
+    margin-top:5px;
+    float:right;
+    text-align: right;
+}
