@@ -25,14 +25,15 @@ class Album extends React.Component {
             return <div>Error! {error.message}</div>;
         }
 
+        const linkToArtist = "/artist/" + currentAlbum.artistID;
+
         const breadcrumb = (
             <Route>
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                        <li className="breadcrumb-item "><Link to="/artistsearch">ArtistSearch</Link></li>
-                        {currentAlbum && <li className="breadcrumb-item "><Link to="/artist">{currentAlbum.artist}</Link></li>}
-                        {currentAlbum && <li className="breadcrumb-item active"><Link to="/album">{currentAlbum.name}</Link></li>}
+                        {currentAlbum && <li className="breadcrumb-item "><Link to={linkToArtist}>{currentAlbum.artist}</Link></li>}
+                        {currentAlbum && <li className="breadcrumb-item active">{currentAlbum.name}</li>}
                     </ol>
                 </nav>
             </Route>
@@ -49,7 +50,7 @@ class Album extends React.Component {
                     (
                         currentAlbum ? (
                             <div>
-                                <div className="shadow p-3 mb-5 bg-white rounded">
+                                <div className="shadow p-1 mb-5 bg-white rounded">
                                     <div className="media">
                                         <img src={currentAlbum.image} className="align-self-start mr-3" alt="Album Logo" />
                                         <div className="media-body">

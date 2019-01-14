@@ -5,15 +5,14 @@ import { Link } from 'react-router-dom'
 const AlbumCard = (props) => {
     const { id, albumImg, albumName, albumReleaseDate } = props;
     return (
-        <Link className="card-link" to={`/album/${id}`}>
+        <Link className=" music-card mi-card-link" to={`/album/${id}`}>
 
-            <div className="music-card">
-                <img src={albumImg} alt={'imagen of artist'} />
-                <div className="SongInfo">
-                    <p><strong>{albumName}</strong></p>
-                    <p>{albumReleaseDate}</p>
-                </div>
+            <img src={albumImg} alt={'imagen of artist'} />
+            <div className="song-info">
+                <p><strong>{albumName}</strong></p>
+                <p>{albumReleaseDate}</p>
             </div>
+
 
         </Link>
     );

@@ -17,7 +17,6 @@ import { loadState, saveState } from './localstorage/localStorage.js'
 
 const persistedState = loadState();
 
-
 const store = createStore(
   rootReducer,
   persistedState,

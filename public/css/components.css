@@ -6,53 +6,133 @@
     font-size: 0.8rem;
     justify-content: flex-start;
     line-height: 0.3rem;
-   
+    font-family: monospace;
+
 }
 
 
 .music-card {
-  background-color: rgb(10, 197, 135);
-  border: 1px solid black;
-  box-sizing: border-box;
-  display: flex;
-  margin-right: 0.5rem;
-  margin-top: 0.5rem; 
-  min-width: 33%;
-  border-radius: 5px;
-  padding:5px;
-  text-decoration: none;
-  color: black;
-  
+    background-color: rgba(0, 0, 0, 0.82);
+    border: solid black 2px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 4px;
+    margin-right: 4px;
+    min-width: 45%;
+    padding: 5px;
+    text-decoration: none;
 }
 
 .music-card:hover {
     transition: 0.155s;
-    filter: brightness(80%);
+    filter: brightness(120%);
     text-decoration: none;
-    color: black;
+    color: white;
+    background-color: rgba(66, 66, 66, 0.641);
 }
 
 .music-card img {
     margin: 0.5rem;
     width: 80px;
     height: 80px;
-    border:solid black 1.2px;
+    border: solid black 1.2px;
     border-radius: 1.5px;
-}   
+}
 
 img {
     margin: 0.5rem;
     width: 80px;
     height: 80px;
-    border:solid black 1.2px;
+    border: solid black 1.2px;
     border-radius: 1.5px;
+}
+
+.song-info {
+    margin-top: 0.7rem;
+    line-break: auto;
 }
 
 .artistInfo {
     background-color: beige;
- }
+}
 
- #logoApp  {
+#logoApp {
     border: none;
-    align-items: center;
- }
+
+}
+
+.headerAlCentro>#logoApp {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#artistSearch {
+    font-style: italic;
+    border: solid black 1.6px;
+    padding: 0 0.5px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.breadcrumb>*,
+.breadcrumb *,
+.breadcrumb {
+    background: black;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex: 1;
+}
+
+tr {
+    border: solid black;
+}
+
+.media {
+    background-color: rgba(0, 0, 0, 0.863);
+    border-radius: 5px;
+    box-shadow: 2px;
+    margin: 1px;
+    border-spacing: 2px;
+    opacity: 1;
+    color: white;
+    clear: both;
+}
+
+.media img {
+    border: solid white 1px;
+}
+
+.star {
+    color: rgb(246, 250, 20);
+}
+
+#headerDiv {
+    clear: both;
+    min-height: 75px;
+}
+
+.headerALaIzquierda>#logoApp {
+    float: left;
+
+}
+
+.barraDeBusqueda {
+    font-size: 16.5px;
+    width: 280px;
+    background-size: 100% auto;
+}
+
+
+#headerDiv>.barraDeBusqueda {
+    margin-top: 5px;
+    text-align: right;
+    float: right;
+}
+
+/*

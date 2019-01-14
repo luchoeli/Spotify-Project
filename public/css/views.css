@@ -1,14 +1,16 @@
 /* Layout ========================================================================== */
-
-*, *:before, *:after {
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+*,
+*:before,
+*:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-  }
+}
 
 /* Small screens (default) */
-html { 
-    font-size: 16px; 
+html {
+    font-size: 16px;
 }
 
 /* Medium screens (640px) */
@@ -17,41 +19,69 @@ html {
     html {
         font-size: 112%;
     }
+
     .column {
         float: left;
-      
+
         display: inline-flex;
     }
-    
-    .column.full { width: 100%; }
-    .column.two-thirds { width: 66.7%; }
-    .column.half { width: 50%; }
-    .column.third { width: 33.3%; }
-    .column.fourth { width: 25%; }
-    .column.flow-opposite { float: right; }
+
+    .column.full {
+        width: 100%;
+    }
+
+    .column.two-thirds {
+        width: 66.7%;
+    }
+
+    .column.half {
+        width: 50%;
+    }
+
+    .column.third {
+        width: 33.3%;
+    }
+
+    .column.fourth {
+        width: 25%;
+    }
+
+    .column.flow-opposite {
+        float: right;
+    }
 }
 
 /* Large screens (1024px) */
-@media (min-width: 64rem) { 
-    html { 
-        font-size: 120%; 
+@media (min-width: 64rem) {
+    html {
+        font-size: 120%;
     }
 }
 
-.clearfix:before,.clearfix:after {
+.clearfix:before,
+.clearfix:after {
     content: " ";
     display: table;
 }
 
 .clearfix:after {
-     clear: both;
+    clear: both;
 }
 
 .clearfix {
     *zoom: 1;
 }
+
 /* clase de cada una de las vistas*/
-.main_view{
-    background-color: beige;
-    margin: 1% 13%;
+.main_view {
+    background-color: rgba(7, 129, 7, 0.7);
+    margin: 1% auto;
+    border-radius: 15px;
+    opacity: unset;
+    padding: 0.4%;
+    font-family: montserrat;
+    width: 88%;
+    min-height: 33rem;
+    color:white;
+    
 }

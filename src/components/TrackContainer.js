@@ -6,6 +6,15 @@ import { addFavs, deleteFavs } from '../actions'
 
 class TrackContainer extends React.Component {
 
+    groupByAlbum(songs) {
+        const result = songs.reduce(function (r, a) {
+            r[a.disc_number] = r[a.disc_number] || [];
+            r[a.disc_number].push(a);
+            return r;
+        }, []);
+        return result;
+    }
+
     render() {
         const { currentAlbum } = this.props;
 
@@ -19,49 +28,67 @@ class TrackContainer extends React.Component {
         if (currentAlbum && currentAlbum.tracks && currentAlbum.tracks.length) {
             const currentListOfTracks = currentAlbum.tracks;
 
+            let songs = this.groupByAlbum(currentListOfTracks);
+            console.log(songs)
             return (
                 <div >
                     <h2>Tracks</h2>
                     <section className="cardContainer">
-                        <table className="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Favorite</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    currentListOfTracks.map((a, index) => {
-                                        const isFav = favsID.includes(a.id)
-                                        let fun = '';
+                        {
+                            songs.map((cd, index) => {
+                                return (
+                                    <div>
+                                        <table className="table-hover table-striped table table-dark">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Disc # {index}</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Preview</th>
+                                                    <th scope="col">Favorite</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {
+                                                    cd.map((a, index2) => {
+                                                        const isFav = favsID.includes(a.id)
+                                                        let fun = '';
 
-                                        if (isFav) {
-                                            fun = () => this.props.deleteFavs(a.id);
-                                        } else {
-                                            const fav = {
-                                                id: a.id,
-                                                name: a.name,
-                                                artist: a.artists[0].name,
-                                                albumImage: currentAlbum.image,
-                                                albumName: currentAlbum.name
-                                            }
-                                            fun = () => this.props.addFavs(fav);
-                                        }
-                                        return (
-                                            <tr key={index}>
-                                                <th scope="row">{a.track_number}</th>
-                                                <td>{a.name}</td>
-                                                <td>
-                                                    <Star isFav={isFav} onClick={fun} />
-                                                </td>
-                                            </tr>
-                                        );
-                                    })
-                                }
-                            </tbody>
-                        </table>
+                                                        if (isFav) {
+                                                            fun = () => this.props.deleteFavs(a.id);
+                                                        } else {
+                                                            const fav = {
+                                                                id: a.id,
+                                                                name: a.name,
+                                                                artist: a.artists[0].name,
+                                                                albumImage: currentAlbum.image,
+                                                                albumName: currentAlbum.name
+                                                            }
+                                                            fun = () => this.props.addFavs(fav);
+                                                        }
+                                                        return (
+                                                            <tr key={index + " - " + index2}>
+                                                                <td scope="row">{a.track_number}</td>
+                                                                <td>{a.name}</td>
+                                                                <td>
+                                                                    <audio controls>
+                                                                        <source src={a.preview_url} type="audio/ogg" />
+                                                                        <p>Your browser does not support the audio element.</p>
+                                                                    </audio>
+                                                                </td>
+                                                                <td>
+                                                                    <Star isFav={isFav} onClick={fun} />
+                                                                </td>
+                                                            </tr>
+                                                        );
+                                                    })
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                );
+                            })
+                        }
+
                     </section>
                 </div>
             )
