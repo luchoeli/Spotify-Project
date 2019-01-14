@@ -14,17 +14,17 @@
 .music-card {
     background-color: rgba(0, 0, 0, 0.82);
     border: solid black 2px;
+    border-radius: 5px;
     box-sizing: border-box;
+    color: white;
     display: flex;
     margin-right: 0.5rem;
     margin-top: 0.5rem;
     margin-left: 4px;
     margin-right: 4px;
-    min-width: 33%;
-    border-radius: 5px;
+    min-width: 45%;
     padding: 5px;
     text-decoration: none;
-    color: white;
 }
 
 .music-card:hover {
@@ -49,6 +49,11 @@ img {
     height: 80px;
     border: solid black 1.2px;
     border-radius: 1.5px;
+}
+
+.song-info {
+    margin-top: 0.7rem;
+    line-break: auto;
 }
 
 .artistInfo {
@@ -125,3 +130,5 @@ tr {
     float: right;
     text-align: right;
 }
+
+.mi-card-link+.mi-card-link {}
