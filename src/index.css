@@ -4,8 +4,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  background-image: url("http://www.enelairedelaciudadradio.com/wp-content/uploads/2018/05/original.jpg");
-  background-size: 30%;
+  background-image: url("./music.jpg");
+  background-size: 130%;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
 }
 
 code {

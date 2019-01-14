@@ -23,7 +23,7 @@ class TrackContainer extends React.Component {
                 <div >
                     <h2>Tracks</h2>
                     <section className="cardContainer">
-                        <table className="table table-striped table table-dark">
+                        <table className="table-hover table-striped table table-dark">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
