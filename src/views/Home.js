@@ -12,6 +12,8 @@ const Home = () => {
             <h1><strong>Spotisearch</strong></h1>
             <p>Search your favourite songs over Spotify, just enter an artist's name in the following search box and enjoy!</p>
             <SearchForm />
+            <br />
+            <br />
             <FavoriteContainer />
         </div>
     )

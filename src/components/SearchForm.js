@@ -4,7 +4,7 @@ const SearchForm = () => {
 
 
     return (
-        <form action="/artistsearch" >
+        <form className="barraDeBusqueda" action="/artistsearch" >
             <input type="search"
                 id="artistSearch" name="q" aria-label="Search through site content"
                 placeholder="Search your favorite artist here" />

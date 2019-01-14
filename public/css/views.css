@@ -1,5 +1,5 @@
 /* Layout ========================================================================== */
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 *,
 *:before,
 *:after {
@@ -79,7 +79,9 @@ html {
     border-radius: 15px;
     opacity: unset;
     padding: 0.4%;
-    font-family: monospace;
+    font-family: montserrat;
     width: 88%;
     min-height: 33rem;
+    color:white;
+    
 }

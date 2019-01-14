@@ -6,11 +6,13 @@
     font-size: 0.8rem;
     justify-content: flex-start;
     line-height: 0.3rem;
+    font-family: monospace;
+
 }
 
 
 .music-card {
-    background-color: rgba(0, 0, 0, 0.705);
+    <<<<<<< HEAD background-color: rgba(0, 0, 0, 0.705);
     border: solid black 2px;
     box-sizing: border-box;
     display: flex;
@@ -24,6 +26,20 @@
     text-decoration: none;
     color: white;
 
+    =======background-color: rgba(0, 0, 0, 0.82);
+    border: solid black 2px;
+    box-sizing: border-box;
+    display: flex;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 4px;
+    margin-right: 4px;
+    min-width: 33%;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    >>>>>>>570e9f573118bf967764923b05e45126dab89cc0
 }
 
 .music-card:hover {
@@ -31,7 +47,9 @@
     filter: brightness(120%);
     text-decoration: none;
     color: white;
-    background-color: rgba(66, 66, 66, 0.541);
+    <<<<<<< HEAD background-color: rgba(66, 66, 66, 0.541);
+    =======background-color: rgba(66, 66, 66, 0.641);
+    >>>>>>>570e9f573118bf967764923b05e45126dab89cc0
 }
 
 .music-card img {
@@ -105,6 +123,22 @@ tr {
     color: rgb(246, 250, 20);
 }
 
-td * {
-    align-self: auto;
+#headerDiv {
+    clear: both;
+    min-height: 75px;
+}
+
+.headerALaIzquierda>#logoApp {
+    float: left;
+}
+
+.barraDeBusqueda {
+    width: 90%;
+    font-size: 16.5px;
+}
+
+#headerDiv>.barraDeBusqueda {
+    margin-top: 5px;
+    float: right;
+    text-align: right;
 }
