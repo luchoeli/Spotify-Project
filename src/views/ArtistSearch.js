@@ -38,7 +38,7 @@ class ArtistSearch extends React.Component {
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
                             <li className="breadcrumb-item" aria-current="page"><Link to="/">Home</Link></li>
-                            <li className="breadcrumb-item active" aria-current="page"><Link to="/artistsearch">Artists</Link></li>
+                            <li className="breadcrumb-item active" aria-current="page"><Link to="/artistsearch">{this.state.busquedaEfectiva}</Link></li>
                         </ol>
                     </nav>
                 </Route>

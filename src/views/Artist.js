@@ -31,8 +31,7 @@ class Artist extends React.Component {
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                        <li className="breadcrumb-item "><Link to="/artistsearch">Artist</Link></li>
-                        {currentArtist && <li className="breadcrumb-item active"><Link to="/artist/">{currentArtist.id}</Link></li>}
+                        {currentArtist && <li className="breadcrumb-item active"><Link to="/artist/">{currentArtist.name}</Link></li>}
                     </ol>
                 </nav>
             </Route>
@@ -53,7 +52,7 @@ class Artist extends React.Component {
                                         <img src={currentArtist.image} className="align-self-start mr-3" alt="Album Logo" />
                                         <div className="media-body">
                                             <h3 className="mt-0">{currentArtist.name}</h3>
-                                            <p>{currentArtist.genres[ 0 ]}</p>
+                                            <p>{currentArtist.genres[0]}</p>
                                         </div>
                                     </div>
                                 </div>
