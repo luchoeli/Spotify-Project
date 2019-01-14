@@ -91,6 +91,7 @@ img {
 
 tr {
     border: solid black;
+    line-height: 1rem;
 }
 
 .media {

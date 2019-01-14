@@ -19,7 +19,7 @@ class TrackContainer extends React.Component {
         const { currentAlbum } = this.props;
 
         let favsID = [];
-
+ 
         this.props.favsElements.length > 0 && this.props.favsElements.map((a) => {
             favsID.push(a.id)
         })
@@ -37,7 +37,7 @@ class TrackContainer extends React.Component {
                         {
                             songs.map((cd, index) => {
                                 return (
-                                    <div>
+                                    <div className="table-responsive">
                                         <table className="table-hover table-striped table table-dark">
                                             <thead>
                                                 <tr>
