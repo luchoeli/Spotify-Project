@@ -65,7 +65,7 @@ class TrackContainer extends React.Component {
                                                     }
                                                     return (
                                                         <tr key={a.id}>
-                                                            <td scope="row">{a.track_number}</td>
+                                                            <th scope="row">{a.track_number}</th>
                                                             <td>{a.name}</td>
                                                             <td>
                                                                 <audio controls>
